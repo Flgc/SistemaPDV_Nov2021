@@ -27,14 +27,48 @@ public class SplashScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        painelProgress = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        progresso = new javax.swing.JProgressBar();
         painelGeral = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
         setPreferredSize(new java.awt.Dimension(800, 520));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        painelGeral.setLayout(new java.awt.GridLayout());
+        painelProgress.setOpaque(false);
+
+        jLabel2.setText("Carregando Sistema");
+
+        progresso.setName("progresso"); // NOI18N
+
+        javax.swing.GroupLayout painelProgressLayout = new javax.swing.GroupLayout(painelProgress);
+        painelProgress.setLayout(painelProgressLayout);
+        painelProgressLayout.setHorizontalGroup(
+            painelProgressLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelProgressLayout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(painelProgressLayout.createSequentialGroup()
+                .addComponent(progresso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        painelProgressLayout.setVerticalGroup(
+            painelProgressLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelProgressLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(progresso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        getContentPane().add(painelProgress, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 320, 60));
+
+        painelGeral.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/splash1.jpg"))); // NOI18N
@@ -82,6 +116,9 @@ public class SplashScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel painelGeral;
+    private javax.swing.JPanel painelProgress;
+    private javax.swing.JProgressBar progresso;
     // End of variables declaration//GEN-END:variables
 }
