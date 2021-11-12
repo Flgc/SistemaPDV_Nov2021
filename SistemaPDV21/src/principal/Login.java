@@ -28,8 +28,16 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         painelLogin = new javax.swing.JPanel();
+        painelImgCab = new javax.swing.JPanel();
+        imgLogin = new javax.swing.JLabel();
+        painelCentral = new javax.swing.JPanel();
+        txtFacaLogin = new javax.swing.JLabel();
+        imgUser = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        imgCampoUser = new javax.swing.JLabel();
+        imgCampoPass = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -38,8 +46,45 @@ public class Login extends javax.swing.JFrame {
 
         painelLogin.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/imagemLogin.jpg"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(150, 109));
+        imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/imagemLogin.jpg"))); // NOI18N
+        imgLogin.setPreferredSize(new java.awt.Dimension(150, 109));
+
+        javax.swing.GroupLayout painelImgCabLayout = new javax.swing.GroupLayout(painelImgCab);
+        painelImgCab.setLayout(painelImgCabLayout);
+        painelImgCabLayout.setHorizontalGroup(
+            painelImgCabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelImgCabLayout.createSequentialGroup()
+                .addComponent(imgLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 242, Short.MAX_VALUE))
+        );
+        painelImgCabLayout.setVerticalGroup(
+            painelImgCabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelImgCabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(imgLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        painelLogin.add(painelImgCab, java.awt.BorderLayout.PAGE_START);
+
+        painelCentral.setLayout(new java.awt.BorderLayout());
+
+        txtFacaLogin.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtFacaLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtFacaLogin.setText("Faça seu Login");
+        painelCentral.add(txtFacaLogin, java.awt.BorderLayout.PAGE_START);
+
+        imgUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/user.png"))); // NOI18N
+        imgUser.setToolTipText("");
+        painelCentral.add(imgUser, java.awt.BorderLayout.LINE_START);
+
+        imgCampoUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/campoLoginUs.png"))); // NOI18N
+
+        imgCampoPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/campoLoginPass.png"))); // NOI18N
+
+        jTextField1.setText("jTextField1");
+
+        jTextField2.setText("jTextField2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -47,18 +92,40 @@ public class Login extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(imgCampoUser))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(imgCampoPass)))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(imgCampoUser)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imgCampoPass)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        painelLogin.add(jPanel1, java.awt.BorderLayout.PAGE_START);
+        painelCentral.add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        painelLogin.add(painelCentral, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(painelLogin);
 
@@ -101,8 +168,16 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel imgCampoPass;
+    private javax.swing.JLabel imgCampoUser;
+    private javax.swing.JLabel imgLogin;
+    private javax.swing.JLabel imgUser;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel painelCentral;
+    private javax.swing.JPanel painelImgCab;
     private javax.swing.JPanel painelLogin;
+    private javax.swing.JLabel txtFacaLogin;
     // End of variables declaration//GEN-END:variables
 }
