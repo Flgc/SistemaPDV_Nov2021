@@ -34,6 +34,7 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ponto de Vendas");
         setLocationByPlatform(true);
         setPreferredSize(new java.awt.Dimension(800, 520));
         setResizable(false);
