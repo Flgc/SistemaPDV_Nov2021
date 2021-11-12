@@ -9,7 +9,7 @@
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-square&logo=windows&logoColor=white)
 
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/Flgc/javafx-jdbc/blob/main/LICENSE)
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/Flgc/SistemaPDV_Nov2021/blob/main/LICENSE)
 <br>
 <br>
 
