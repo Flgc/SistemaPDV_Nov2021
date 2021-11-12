@@ -33,3 +33,4 @@ nbdist/
 
 # Eclipse
 .settings/
+/SistemaPDV21/nbproject/private/
