@@ -1,9 +1,10 @@
 <div align = "center">
 <h1>Projeto SistemaPDV21-Desktop com JDBC</h1>
-<h3>Programação Orientada a Objetos com Java</h3>
+<h3>Programação Orientada a Objetos</h3>
 <hr>
 
 ![Java](https://img.shields.io/badge/-Java-DE252C?style=flat-square&logo=java&logoColor=white)
+<img alt="NetBeans IDE" src="https://img.shields.io/badge/NetBeans%20IDE-1B6AC6.svg?&style=flat-square&logo=apache-netbeans-ide&logoColor=white"/>
 ![MySQL](https://img.shields.io/badge/mysql-%2300f?style=flat-square&logo=mysql&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-square&logo=windows&logoColor=white)
