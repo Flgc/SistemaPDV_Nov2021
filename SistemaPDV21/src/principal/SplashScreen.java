@@ -7,7 +7,7 @@ package principal;
 
 /**
  *
- * @author fabio
+ * @author Fabio Luis Guia da Conceção
  */
 public class SplashScreen extends javax.swing.JFrame {
 

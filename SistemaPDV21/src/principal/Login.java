@@ -7,7 +7,7 @@ package principal;
 
 /**
  *
- * @author fabio
+ * @author Fabio Luis Guia da Conceção
  */
 public class Login extends javax.swing.JFrame {
 
@@ -33,15 +33,16 @@ public class Login extends javax.swing.JFrame {
         painelCentral = new javax.swing.JPanel();
         txtFacaLogin = new javax.swing.JLabel();
         imgUser = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        painelCampoLogin = new javax.swing.JPanel();
+        usuario = new app.bolivia.swing.JCTextField();
+        senha = new jpass.JRPasswordField();
         imgCampoUser = new javax.swing.JLabel();
         imgCampoPass = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setPreferredSize(new java.awt.Dimension(410, 475));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         painelLogin.setLayout(new java.awt.BorderLayout());
@@ -78,52 +79,44 @@ public class Login extends javax.swing.JFrame {
         imgUser.setToolTipText("");
         painelCentral.add(imgUser, java.awt.BorderLayout.LINE_START);
 
+        painelCampoLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        usuario.setBackground(new java.awt.Color(34, 102, 145));
+        usuario.setBorder(null);
+        usuario.setForeground(new java.awt.Color(255, 255, 255));
+        usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        usuario.setOpaque(false);
+        usuario.setPhColor(new java.awt.Color(255, 255, 255));
+        usuario.setPlaceholder("USUARIO");
+        usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                usuarioKeyReleased(evt);
+            }
+        });
+        painelCampoLogin.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 180, -1));
+
+        senha.setBackground(new java.awt.Color(34, 102, 145));
+        senha.setBorder(null);
+        senha.setForeground(new java.awt.Color(255, 255, 255));
+        senha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        senha.setName(""); // NOI18N
+        senha.setOpaque(false);
+        senha.setPhColor(new java.awt.Color(255, 255, 255));
+        senha.setPlaceholder("SENHA");
+        senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaActionPerformed(evt);
+            }
+        });
+        painelCampoLogin.add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 180, -1));
+
         imgCampoUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/campoLoginUs.png"))); // NOI18N
+        painelCampoLogin.add(imgCampoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         imgCampoPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/campoLoginPass.png"))); // NOI18N
+        painelCampoLogin.add(imgCampoPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(imgCampoUser))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(imgCampoPass)))
-                .addContainerGap(165, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(imgCampoUser)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imgCampoPass)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-
-        painelCentral.add(jPanel1, java.awt.BorderLayout.CENTER);
+        painelCentral.add(painelCampoLogin, java.awt.BorderLayout.CENTER);
 
         painelLogin.add(painelCentral, java.awt.BorderLayout.CENTER);
 
@@ -131,6 +124,14 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaActionPerformed
+
+    private void usuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioKeyReleased
+        usuario.setText(usuario.getText().toUpperCase());
+    }//GEN-LAST:event_usuarioKeyReleased
 
     /**
      * @param args the command line arguments
@@ -172,12 +173,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel imgCampoUser;
     private javax.swing.JLabel imgLogin;
     private javax.swing.JLabel imgUser;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel painelCampoLogin;
     private javax.swing.JPanel painelCentral;
     private javax.swing.JPanel painelImgCab;
     private javax.swing.JPanel painelLogin;
+    private jpass.JRPasswordField senha;
     private javax.swing.JLabel txtFacaLogin;
+    private app.bolivia.swing.JCTextField usuario;
     // End of variables declaration//GEN-END:variables
 }
