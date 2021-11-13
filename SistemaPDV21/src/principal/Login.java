@@ -31,7 +31,6 @@ public class Login extends javax.swing.JFrame {
         painelImgCab = new javax.swing.JPanel();
         imgLogin = new javax.swing.JLabel();
         painelCentral = new javax.swing.JPanel();
-        txtFacaLogin = new javax.swing.JLabel();
         imgUser = new javax.swing.JLabel();
         painelCampoLogin = new javax.swing.JPanel();
         usuario = new app.bolivia.swing.JCTextField();
@@ -39,15 +38,17 @@ public class Login extends javax.swing.JFrame {
         imgCampoUser = new javax.swing.JLabel();
         imgCampoPass = new javax.swing.JLabel();
         painelButtonLogin = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEntrar = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
-        setPreferredSize(new java.awt.Dimension(410, 520));
+        setLocationByPlatform(true);
+        setPreferredSize(new java.awt.Dimension(390, 400));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
+        painelLogin.setPreferredSize(new java.awt.Dimension(390, 400));
         painelLogin.setLayout(new java.awt.BorderLayout());
 
         imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/imagemLogin.jpg"))); // NOI18N
@@ -66,23 +67,21 @@ public class Login extends javax.swing.JFrame {
             .addGroup(painelImgCabLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(imgLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         painelLogin.add(painelImgCab, java.awt.BorderLayout.PAGE_START);
 
+        painelCentral.setPreferredSize(new java.awt.Dimension(410, 200));
         painelCentral.setLayout(new java.awt.BorderLayout());
-
-        txtFacaLogin.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        txtFacaLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtFacaLogin.setText("Faça seu Login");
-        txtFacaLogin.setPreferredSize(new java.awt.Dimension(170, 30));
-        painelCentral.add(txtFacaLogin, java.awt.BorderLayout.PAGE_START);
 
         imgUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/user.png"))); // NOI18N
         imgUser.setToolTipText("");
+        imgUser.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        imgUser.setPreferredSize(new java.awt.Dimension(115, 110));
         painelCentral.add(imgUser, java.awt.BorderLayout.LINE_START);
 
+        painelCampoLogin.setPreferredSize(new java.awt.Dimension(140, 110));
         painelCampoLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         usuario.setBackground(new java.awt.Color(34, 102, 145));
@@ -97,7 +96,7 @@ public class Login extends javax.swing.JFrame {
                 usuarioKeyReleased(evt);
             }
         });
-        painelCampoLogin.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 180, -1));
+        painelCampoLogin.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, -1));
 
         senha.setBackground(new java.awt.Color(34, 102, 145));
         senha.setBorder(null);
@@ -112,29 +111,33 @@ public class Login extends javax.swing.JFrame {
                 senhaActionPerformed(evt);
             }
         });
-        painelCampoLogin.add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 180, -1));
+        painelCampoLogin.add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 180, -1));
 
         imgCampoUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/campoLoginUs.png"))); // NOI18N
-        painelCampoLogin.add(imgCampoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        painelCampoLogin.add(imgCampoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         imgCampoPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/campoLoginPass.png"))); // NOI18N
-        painelCampoLogin.add(imgCampoPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        painelCampoLogin.add(imgCampoPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         painelCentral.add(painelCampoLogin, java.awt.BorderLayout.CENTER);
 
-        painelButtonLogin.setPreferredSize(new java.awt.Dimension(635, 80));
+        painelButtonLogin.setPreferredSize(new java.awt.Dimension(390, 60));
+        painelButtonLogin.setRequestFocusEnabled(false);
+        painelButtonLogin.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/entrar2.png"))); // NOI18N
-        jButton1.setOpaque(true);
-        jButton1.setPreferredSize(new java.awt.Dimension(145, 45));
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/entrar1.png"))); // NOI18N
-        painelButtonLogin.add(jButton1);
+        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/entrar2.png"))); // NOI18N
+        btnEntrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, java.awt.Color.darkGray, java.awt.Color.darkGray));
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEntrar.setPreferredSize(new java.awt.Dimension(135, 45));
+        btnEntrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/entrar1.png"))); // NOI18N
+        painelButtonLogin.add(btnEntrar);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/sair2.png"))); // NOI18N
-        jButton2.setOpaque(true);
-        jButton2.setPreferredSize(new java.awt.Dimension(145, 45));
-        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/sair1.png"))); // NOI18N
-        painelButtonLogin.add(jButton2);
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/sair2.png"))); // NOI18N
+        btnSair.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, java.awt.Color.darkGray, java.awt.Color.darkGray));
+        btnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSair.setPreferredSize(new java.awt.Dimension(135, 45));
+        btnSair.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/sair1.png"))); // NOI18N
+        painelButtonLogin.add(btnSair);
 
         painelCentral.add(painelButtonLogin, java.awt.BorderLayout.PAGE_END);
 
@@ -189,19 +192,18 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEntrar;
+    private javax.swing.JButton btnSair;
     private javax.swing.JLabel imgCampoPass;
     private javax.swing.JLabel imgCampoUser;
     private javax.swing.JLabel imgLogin;
     private javax.swing.JLabel imgUser;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel painelButtonLogin;
     private javax.swing.JPanel painelCampoLogin;
     private javax.swing.JPanel painelCentral;
     private javax.swing.JPanel painelImgCab;
     private javax.swing.JPanel painelLogin;
     private jpass.JRPasswordField senha;
-    private javax.swing.JLabel txtFacaLogin;
     private app.bolivia.swing.JCTextField usuario;
     // End of variables declaration//GEN-END:variables
 }
