@@ -110,7 +110,9 @@ public class SplashScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SplashScreen().setVisible(true);
+                SplashScreen tela = new SplashScreen();
+                tela.setLocationRelativeTo(null);
+                tela.setVisible(true);                
             }
         });
     }
