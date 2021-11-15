@@ -35,9 +35,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         userConect = new javax.swing.JLabel();
         logoUser = new javax.swing.JLabel();
         logoDesconect = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnInfo = new javax.swing.JButton();
+        btnUser = new javax.swing.JButton();
+        btnProd = new javax.swing.JButton();
+        btnVend = new javax.swing.JButton();
+        btnCaixa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1140, 640));
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         painelPrincipal.setPreferredSize(new java.awt.Dimension(1280, 640));
@@ -75,25 +80,101 @@ public class MenuPrincipal extends javax.swing.JFrame {
         logoDesconect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/desconec.png"))); // NOI18N
         painelCabecalho.add(logoDesconect, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(225, 225, 225));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/usuario1.png"))); // NOI18N
-        jButton1.setText("USUÁRIOS");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, java.awt.Color.darkGray, java.awt.Color.darkGray));
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setOpaque(false);
-        jButton1.setPreferredSize(new java.awt.Dimension(100, 120));
-        jButton1.setRolloverEnabled(true);
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/usuario2.png"))); // NOI18N
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInfo.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnInfo.setForeground(new java.awt.Color(225, 225, 225));
+        btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/info.png"))); // NOI18N
+        btnInfo.setText("INFORMAÇÕES");
+        btnInfo.setBorder(null);
+        btnInfo.setContentAreaFilled(false);
+        btnInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInfo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnInfo.setOpaque(false);
+        btnInfo.setPreferredSize(new java.awt.Dimension(100, 120));
+        btnInfo.setRolloverEnabled(true);
+        btnInfo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/info2.png"))); // NOI18N
+        btnInfo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInfoActionPerformed(evt);
             }
         });
-        painelCabecalho.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
+        painelCabecalho.add(btnInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 0, -1, -1));
+
+        btnUser.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnUser.setForeground(new java.awt.Color(225, 225, 225));
+        btnUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/usuario1.png"))); // NOI18N
+        btnUser.setText("USUÁRIOS");
+        btnUser.setBorder(null);
+        btnUser.setContentAreaFilled(false);
+        btnUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUser.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnUser.setPreferredSize(new java.awt.Dimension(100, 120));
+        btnUser.setRolloverEnabled(true);
+        btnUser.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/usuario2.png"))); // NOI18N
+        btnUser.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserActionPerformed(evt);
+            }
+        });
+        painelCabecalho.add(btnUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, -1, -1));
+
+        btnProd.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnProd.setForeground(new java.awt.Color(225, 225, 225));
+        btnProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/produtos.png"))); // NOI18N
+        btnProd.setText("PRODUTOS");
+        btnProd.setBorder(null);
+        btnProd.setContentAreaFilled(false);
+        btnProd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnProd.setPreferredSize(new java.awt.Dimension(100, 120));
+        btnProd.setRolloverEnabled(true);
+        btnProd.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/produtos2.png"))); // NOI18N
+        btnProd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdActionPerformed(evt);
+            }
+        });
+        painelCabecalho.add(btnProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, -1, -1));
+
+        btnVend.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnVend.setForeground(new java.awt.Color(225, 225, 225));
+        btnVend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/vendas1.png"))); // NOI18N
+        btnVend.setText("VENDAS");
+        btnVend.setBorder(null);
+        btnVend.setContentAreaFilled(false);
+        btnVend.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVend.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVend.setPreferredSize(new java.awt.Dimension(100, 120));
+        btnVend.setRolloverEnabled(true);
+        btnVend.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/vendas2.png"))); // NOI18N
+        btnVend.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendActionPerformed(evt);
+            }
+        });
+        painelCabecalho.add(btnVend, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, -1, -1));
+
+        btnCaixa.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnCaixa.setForeground(new java.awt.Color(225, 225, 225));
+        btnCaixa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/caixa.png"))); // NOI18N
+        btnCaixa.setText("CAIXA");
+        btnCaixa.setBorder(null);
+        btnCaixa.setContentAreaFilled(false);
+        btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCaixa.setPreferredSize(new java.awt.Dimension(100, 120));
+        btnCaixa.setRolloverEnabled(true);
+        btnCaixa.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/caixa2.png"))); // NOI18N
+        btnCaixa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
+        painelCabecalho.add(btnCaixa, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, -1, -1));
 
         painelPrincipal.add(painelCabecalho, java.awt.BorderLayout.PAGE_START);
 
@@ -102,9 +183,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnInfoActionPerformed
+
+    private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUserActionPerformed
+
+    private void btnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProdActionPerformed
+
+    private void btnVendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVendActionPerformed
+
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCaixaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,16 +233,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                MenuPrincipal tela = new MenuPrincipal();
+                tela.setLocationRelativeTo(null);
+                tela.setVisible(true);                 
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCaixa;
+    private javax.swing.JButton btnInfo;
+    private javax.swing.JButton btnProd;
+    private javax.swing.JButton btnUser;
+    private javax.swing.JButton btnVend;
     private javax.swing.JLabel data;
     private javax.swing.JLabel desc;
     private javax.swing.JLabel hora;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel logoDesconect;
     private javax.swing.JLabel logoUser;
     private javax.swing.JPanel painelCabecalho;
