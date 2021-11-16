@@ -31,9 +31,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         painelCabecalho = new javax.swing.JPanel();
         hora = new javax.swing.JLabel();
         data = new javax.swing.JLabel();
-        desc = new javax.swing.JLabel();
+        desconect = new javax.swing.JLabel();
         userConect = new javax.swing.JLabel();
-        logoUser = new javax.swing.JLabel();
+        logoUserOn = new javax.swing.JLabel();
         logoDesconect = new javax.swing.JLabel();
         btnInfo = new javax.swing.JButton();
         btnUser = new javax.swing.JButton();
@@ -62,19 +62,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         data.setText("DIA - MES - ANO");
         painelCabecalho.add(data, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
-        desc.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
-        desc.setForeground(java.awt.Color.white);
-        desc.setText("DESCONECTAR...");
-        painelCabecalho.add(desc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        desconect.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        desconect.setForeground(java.awt.Color.white);
+        desconect.setText("DESCONECTAR...");
+        painelCabecalho.add(desconect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         userConect.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         userConect.setForeground(java.awt.Color.white);
         userConect.setText("USUÁRIO");
         painelCabecalho.add(userConect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
-        logoUser.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
-        logoUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/conectado.png"))); // NOI18N
-        painelCabecalho.add(logoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        logoUserOn.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
+        logoUserOn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/conectado.png"))); // NOI18N
+        painelCabecalho.add(logoUserOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         logoDesconect.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
         logoDesconect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/desconec.png"))); // NOI18N
@@ -88,7 +88,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnInfo.setContentAreaFilled(false);
         btnInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInfo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnInfo.setOpaque(false);
         btnInfo.setPreferredSize(new java.awt.Dimension(100, 120));
         btnInfo.setRolloverEnabled(true);
         btnInfo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/info2.png"))); // NOI18N
@@ -247,10 +246,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnUser;
     private javax.swing.JButton btnVend;
     private javax.swing.JLabel data;
-    private javax.swing.JLabel desc;
+    private javax.swing.JLabel desconect;
     private javax.swing.JLabel hora;
     private javax.swing.JLabel logoDesconect;
-    private javax.swing.JLabel logoUser;
+    private javax.swing.JLabel logoUserOn;
     private javax.swing.JPanel painelCabecalho;
     private javax.swing.JPanel painelPrincipal;
     private javax.swing.JLabel userConect;
