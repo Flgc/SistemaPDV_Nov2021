@@ -50,8 +50,6 @@ public class Produtos extends javax.swing.JFrame {
         tabelaProdutos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(780, 520));
-        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         panelRegistro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REGISTRO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         panelRegistro.setName(""); // NOI18N
@@ -70,7 +68,7 @@ public class Produtos extends javax.swing.JFrame {
                 codigoKeyReleased(evt);
             }
         });
-        panelRegistro.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 180, -1));
+        panelRegistro.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 180, -1));
 
         nome.setBackground(new java.awt.Color(34, 102, 145));
         nome.setBorder(null);
@@ -84,7 +82,7 @@ public class Produtos extends javax.swing.JFrame {
                 nomeKeyReleased(evt);
             }
         });
-        panelRegistro.add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 180, -1));
+        panelRegistro.add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 180, -1));
 
         preco.setBackground(new java.awt.Color(34, 102, 145));
         preco.setBorder(null);
@@ -98,29 +96,29 @@ public class Produtos extends javax.swing.JFrame {
                 precoKeyReleased(evt);
             }
         });
-        panelRegistro.add(preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 180, -1));
+        panelRegistro.add(preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 180, -1));
 
         tipoProd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO PRODUTO", "BEBIDAS", "LIMPEZA", "CARNES", "CONGELADOS", "LACTINEOS", "VERDURAS" }));
         tipoProd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        panelRegistro.add(tipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 190, -1));
+        panelRegistro.add(tipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 190, -1));
 
         imgCodigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/codigoL.png"))); // NOI18N
-        panelRegistro.add(imgCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+        panelRegistro.add(imgCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
 
         imgNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/nomeL.png"))); // NOI18N
-        panelRegistro.add(imgNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+        panelRegistro.add(imgNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
 
         imgPreco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/precoL.png"))); // NOI18N
-        panelRegistro.add(imgPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, -1, -1));
+        panelRegistro.add(imgPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
 
         imgTipoProd.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
         imgTipoProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/tipopro.png"))); // NOI18N
-        panelRegistro.add(imgTipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, -1, -1));
+        panelRegistro.add(imgTipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 50, 50));
 
         painelOpcoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPÇÕES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
         btnRegistrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(225, 225, 225));
+        btnRegistrar.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/regis1.png"))); // NOI18N
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(null);
@@ -138,7 +136,7 @@ public class Produtos extends javax.swing.JFrame {
         });
 
         btnAtualizar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnAtualizar.setForeground(new java.awt.Color(225, 225, 225));
+        btnAtualizar.setForeground(new java.awt.Color(0, 0, 0));
         btnAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/editar.png"))); // NOI18N
         btnAtualizar.setText("Atualizar");
         btnAtualizar.setBorder(null);
@@ -156,7 +154,7 @@ public class Produtos extends javax.swing.JFrame {
         });
 
         btnExcluir.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnExcluir.setForeground(new java.awt.Color(225, 225, 225));
+        btnExcluir.setForeground(new java.awt.Color(0, 0, 0));
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/apagar.png"))); // NOI18N
         btnExcluir.setText("Excluir");
         btnExcluir.setBorder(null);
@@ -174,7 +172,7 @@ public class Produtos extends javax.swing.JFrame {
         });
 
         btnExcluirTudo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnExcluirTudo.setForeground(new java.awt.Color(225, 225, 225));
+        btnExcluirTudo.setForeground(new java.awt.Color(0, 0, 0));
         btnExcluirTudo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/apagarT.png"))); // NOI18N
         btnExcluirTudo.setText("Excluir Tudo");
         btnExcluirTudo.setBorder(null);
@@ -192,7 +190,7 @@ public class Produtos extends javax.swing.JFrame {
         });
 
         btnLimpar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnLimpar.setForeground(new java.awt.Color(225, 225, 225));
+        btnLimpar.setForeground(new java.awt.Color(0, 0, 0));
         btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/limpar.png"))); // NOI18N
         btnLimpar.setText("Limpar Campos");
         btnLimpar.setBorder(null);
@@ -214,14 +212,14 @@ public class Produtos extends javax.swing.JFrame {
         painelOpcoesLayout.setHorizontalGroup(
             painelOpcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelOpcoesLayout.createSequentialGroup()
-                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExcluirTudo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -249,10 +247,10 @@ public class Produtos extends javax.swing.JFrame {
                 codigoNomeKeyReleased(evt);
             }
         });
-        painelBuscar.add(codigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 180, -1));
+        painelBuscar.add(codigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 180, -1));
 
         imgCodigoNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/buscarL.png"))); // NOI18N
-        painelBuscar.add(imgCodigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        painelBuscar.add(imgCodigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -277,17 +275,15 @@ public class Produtos extends javax.swing.JFrame {
         painelProdutosLayout.setHorizontalGroup(
             painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelProdutosLayout.createSequentialGroup()
-                .addGroup(painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelProdutosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelProdutosLayout.createSequentialGroup()
                         .addComponent(painelOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(painelBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addComponent(panelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
-            .addGroup(painelProdutosLayout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                        .addComponent(painelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(panelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)))
         );
         painelProdutosLayout.setVerticalGroup(
             painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,39 +293,34 @@ public class Produtos extends javax.swing.JFrame {
                 .addGroup(painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(painelOpcoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(painelBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        getContentPane().add(painelProdutos);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(painelProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(painelProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void codigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoKeyReleased
-        codigo.setText(codigo.getText().toUpperCase());
-    }//GEN-LAST:event_codigoKeyReleased
-
-    private void nomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nomeKeyReleased
+    private void codigoNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoNomeKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_nomeKeyReleased
-
-    private void precoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precoKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_precoKeyReleased
-
-    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAtualizarActionPerformed
+    }//GEN-LAST:event_codigoNomeKeyReleased
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimparActionPerformed
-
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnExcluirTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirTudoActionPerformed
         // TODO add your handling code here:
@@ -339,9 +330,25 @@ public class Produtos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExcluirActionPerformed
 
-    private void codigoNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoNomeKeyReleased
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_codigoNomeKeyReleased
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void precoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precoKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_precoKeyReleased
+
+    private void nomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nomeKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeKeyReleased
+
+    private void codigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoKeyReleased
+        codigo.setText(codigo.getText().toUpperCase());
+    }//GEN-LAST:event_codigoKeyReleased
 
     /**
      * @param args the command line arguments
