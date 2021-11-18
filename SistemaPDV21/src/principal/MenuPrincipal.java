@@ -5,6 +5,8 @@
  */
 package principal;
 
+import produtos.FrmProdutos;
+
 /**
  *
  * @author fabio
@@ -40,9 +42,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnProd = new javax.swing.JButton();
         btnVend = new javax.swing.JButton();
         btnCaixa = new javax.swing.JButton();
+        inicializador = new principal.Inicializador();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1140, 640));
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         painelPrincipal.setPreferredSize(new java.awt.Dimension(1280, 640));
@@ -177,6 +179,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         painelPrincipal.add(painelCabecalho, java.awt.BorderLayout.PAGE_START);
 
+        inicializador.setName("inicializador"); // NOI18N
+        painelPrincipal.add(inicializador, java.awt.BorderLayout.CENTER);
+
         getContentPane().add(painelPrincipal);
 
         pack();
@@ -191,7 +196,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUserActionPerformed
 
     private void btnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdActionPerformed
-        // TODO add your handling code here:
+        produtos = new FrmProdutos();
+        inicializador.add(produtos).setLocation(250,3);
     }//GEN-LAST:event_btnProdActionPerformed
 
     private void btnVendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendActionPerformed
@@ -248,6 +254,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel data;
     private javax.swing.JLabel desconect;
     private javax.swing.JLabel hora;
+    private principal.Inicializador inicializador;
     private javax.swing.JLabel logoDesconect;
     private javax.swing.JLabel logoUserOn;
     private javax.swing.JPanel painelCabecalho;

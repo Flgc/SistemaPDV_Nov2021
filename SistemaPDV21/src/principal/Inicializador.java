@@ -15,10 +15,11 @@ import javax.swing.JDesktopPane;
  * @author fabio
  */
 public class Inicializador extends JDesktopPane{
-    Image img = new ImageIcon(getClass().getResource("/imagens/principal/imagemLogin.jpg")).getImage(); 
+    Image img = new ImageIcon(getClass().getResource("/imagens/principal/pvGrande.png")).getImage(); 
     @Override
     public void paintChildren(Graphics g) {
-        g.drawImage(img, 0, 0, this)
+        g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+        super.paintChildren(g);
     }   
     
 }
