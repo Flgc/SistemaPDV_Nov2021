@@ -6,6 +6,7 @@
 package principal;
 
 import produtos.FrmProdutos;
+import usuarios.FrmUsuarios;
 
 /**
  *
@@ -193,13 +194,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInfoActionPerformed
 
     private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
-        // TODO add your handling code here:
+        FrmUsuarios form = new FrmUsuarios();        
+        inicializador.add(form).setLocation(180,3);
+        form.show();
     }//GEN-LAST:event_btnUserActionPerformed
 
     private void btnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdActionPerformed
-        FrmProdutos produtos = new FrmProdutos();        
-        inicializador.add(produtos).setLocation(180,3);
-        produtos.show();
+        FrmProdutos form = new FrmProdutos();        
+        inicializador.add(form).setLocation(180,3);
+        form.show();
     }//GEN-LAST:event_btnProdActionPerformed
 
     private void btnVendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendActionPerformed
