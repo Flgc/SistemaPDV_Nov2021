@@ -45,6 +45,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         inicializador = new principal.Inicializador();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 800));
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         painelPrincipal.setPreferredSize(new java.awt.Dimension(1280, 640));
@@ -196,8 +197,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUserActionPerformed
 
     private void btnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdActionPerformed
-        produtos = new FrmProdutos();
-        inicializador.add(produtos).setLocation(250,3);
+        FrmProdutos produtos = new FrmProdutos();
+        inicializador.add(produtos).setLocation(180,3);
+        produtos.show();
     }//GEN-LAST:event_btnProdActionPerformed
 
     private void btnVendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendActionPerformed
