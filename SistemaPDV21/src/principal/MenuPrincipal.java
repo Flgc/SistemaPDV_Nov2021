@@ -197,7 +197,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUserActionPerformed
 
     private void btnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdActionPerformed
-        FrmProdutos produtos = new FrmProdutos();
+        FrmProdutos produtos = new FrmProdutos();        
         inicializador.add(produtos).setLocation(180,3);
         produtos.show();
     }//GEN-LAST:event_btnProdActionPerformed
