@@ -41,6 +41,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="panelListarProd">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="Listar Produtos" noResource="true"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">

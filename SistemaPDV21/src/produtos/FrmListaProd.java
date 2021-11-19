@@ -39,6 +39,8 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
 
         setPreferredSize(new java.awt.Dimension(715, 400));
 
+        panelListarProd.setName("Listar Produtos"); // NOI18N
+
         tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

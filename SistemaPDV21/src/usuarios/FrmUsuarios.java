@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package produtos;
+package usuarios;
 
 /**
  *
  * @author fabio
  */
-public class FrmProdutos extends javax.swing.JInternalFrame {
+public class FrmUsuarios extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form FrmProdutos
+     * Creates new form FrmUsuarios
      */
-    public FrmProdutos() {
+    public FrmUsuarios() {
         initComponents();
     }
 
@@ -27,7 +27,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        painelProdutos = new javax.swing.JPanel();
+        painelUsuarios = new javax.swing.JPanel();
         panelRegistro = new javax.swing.JPanel();
         codigo = new app.bolivia.swing.JCTextField();
         nome = new app.bolivia.swing.JCTextField();
@@ -49,9 +49,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaProdutos = new javax.swing.JTable();
 
-        setPreferredSize(new java.awt.Dimension(845, 508));
-
-        painelProdutos.setName("Produtos"); // NOI18N
+        painelUsuarios.setName("Usuários"); // NOI18N
 
         panelRegistro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REGISTRO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         panelRegistro.setName(""); // NOI18N
@@ -272,30 +270,30 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tabelaProdutos);
 
-        javax.swing.GroupLayout painelProdutosLayout = new javax.swing.GroupLayout(painelProdutos);
-        painelProdutos.setLayout(painelProdutosLayout);
-        painelProdutosLayout.setHorizontalGroup(
-            painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelProdutosLayout.createSequentialGroup()
+        javax.swing.GroupLayout painelUsuariosLayout = new javax.swing.GroupLayout(painelUsuarios);
+        painelUsuarios.setLayout(painelUsuariosLayout);
+        painelUsuariosLayout.setHorizontalGroup(
+            painelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelUsuariosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelProdutosLayout.createSequentialGroup()
+                .addGroup(painelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelUsuariosLayout.createSequentialGroup()
                         .addComponent(painelOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(painelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(painelProdutosLayout.createSequentialGroup()
-                        .addGroup(painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelUsuariosLayout.createSequentialGroup()
+                        .addGroup(painelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addContainerGap())))
         );
-        painelProdutosLayout.setVerticalGroup(
-            painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelProdutosLayout.createSequentialGroup()
+        painelUsuariosLayout.setVerticalGroup(
+            painelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelUsuariosLayout.createSequentialGroup()
                 .addComponent(panelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(painelUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(painelOpcoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(painelBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -307,52 +305,52 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(painelProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(painelUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(painelUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void codigoNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoNomeKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_codigoNomeKeyReleased
-
-    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimparActionPerformed
-
-    private void btnExcluirTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirTudoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirTudoActionPerformed
-
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirActionPerformed
-
-    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAtualizarActionPerformed
-
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void precoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precoKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_precoKeyReleased
+    private void codigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoKeyReleased
+        codigo.setText(codigo.getText().toUpperCase());
+    }//GEN-LAST:event_codigoKeyReleased
 
     private void nomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nomeKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeKeyReleased
 
-    private void codigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoKeyReleased
-        codigo.setText(codigo.getText().toUpperCase());
-    }//GEN-LAST:event_codigoKeyReleased
+    private void precoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precoKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_precoKeyReleased
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnExcluirTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirTudoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirTudoActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void codigoNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoNomeKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_codigoNomeKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -372,7 +370,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     private app.bolivia.swing.JCTextField nome;
     private javax.swing.JPanel painelBuscar;
     private javax.swing.JPanel painelOpcoes;
-    private javax.swing.JPanel painelProdutos;
+    private javax.swing.JPanel painelUsuarios;
     private javax.swing.JPanel panelRegistro;
     private app.bolivia.swing.JCTextField preco;
     private javax.swing.JTable tabelaProdutos;
