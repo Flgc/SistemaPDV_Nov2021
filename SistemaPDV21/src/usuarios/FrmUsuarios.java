@@ -37,6 +37,8 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         imgNome = new javax.swing.JLabel();
         imgPreco = new javax.swing.JLabel();
         imgTipoProd = new javax.swing.JLabel();
+        tipoProd1 = new org.bolivia.combo.SComboBoxBlue();
+        imgTipoProd1 = new javax.swing.JLabel();
         painelOpcoes = new javax.swing.JPanel();
         btnRegistrar = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
@@ -47,7 +49,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         codigoNome = new app.bolivia.swing.JCTextField();
         imgCodigoNome = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaProdutos = new javax.swing.JTable();
+        tabelaUsuarios = new javax.swing.JTable();
 
         painelUsuarios.setName("Usuários"); // NOI18N
 
@@ -68,7 +70,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
                 codigoKeyReleased(evt);
             }
         });
-        panelRegistro.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 180, -1));
+        panelRegistro.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
         nome.setBackground(new java.awt.Color(34, 102, 145));
         nome.setBorder(null);
@@ -76,13 +78,13 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         nome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         nome.setOpaque(false);
         nome.setPhColor(new java.awt.Color(255, 255, 255));
-        nome.setPlaceholder("NOME PRODUTO");
+        nome.setPlaceholder("NOME USUÁRIO");
         nome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 nomeKeyReleased(evt);
             }
         });
-        panelRegistro.add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 180, -1));
+        panelRegistro.add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 180, -1));
 
         preco.setBackground(new java.awt.Color(34, 102, 145));
         preco.setBorder(null);
@@ -90,30 +92,38 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         preco.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         preco.setOpaque(false);
         preco.setPhColor(new java.awt.Color(255, 255, 255));
-        preco.setPlaceholder("PREÇO");
+        preco.setPlaceholder("SENHA");
         preco.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 precoKeyReleased(evt);
             }
         });
-        panelRegistro.add(preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 180, -1));
+        panelRegistro.add(preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 180, -1));
 
-        tipoProd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO PRODUTO", "BEBIDAS", "LIMPEZA", "CARNES", "CONGELADOS", "LACTINEOS", "VERDURAS" }));
+        tipoProd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO USUÁRIO", "ADMINISTRADOR", "USUÁRIO COMUM", "VENDEDOR" }));
         tipoProd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        panelRegistro.add(tipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 190, -1));
+        panelRegistro.add(tipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 190, -1));
 
         imgCodigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/codigoL.png"))); // NOI18N
-        panelRegistro.add(imgCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+        panelRegistro.add(imgCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        imgNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/nomeL.png"))); // NOI18N
-        panelRegistro.add(imgNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
+        imgNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuarios/nomUs.png"))); // NOI18N
+        panelRegistro.add(imgNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
 
-        imgPreco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/precoL.png"))); // NOI18N
-        panelRegistro.add(imgPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
+        imgPreco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuarios/senha.png"))); // NOI18N
+        panelRegistro.add(imgPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, -1));
 
         imgTipoProd.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
-        imgTipoProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/tipopro.png"))); // NOI18N
-        panelRegistro.add(imgTipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 50, 50));
+        imgTipoProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuarios/tipousL.png"))); // NOI18N
+        panelRegistro.add(imgTipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 50, 50));
+
+        tipoProd1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SEXO", "FEMININO", "MACULINO" }));
+        tipoProd1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        panelRegistro.add(tipoProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 190, -1));
+
+        imgTipoProd1.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
+        imgTipoProd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuarios/sexoL.png"))); // NOI18N
+        panelRegistro.add(imgTipoProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 50, 50));
 
         painelOpcoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPÇÕES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
@@ -252,23 +262,23 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         imgCodigoNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/buscarL.png"))); // NOI18N
         painelBuscar.add(imgCodigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "CÓDIGO", "TIPO PRODUTO", "NOME DO PRODUTO", "PREÇO"
+                "CÓDIGO", "NOME DO USUÁRIO", "SEXO", "TIPO", "SENHA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tabelaProdutos);
+        jScrollPane1.setViewportView(tabelaUsuarios);
 
         javax.swing.GroupLayout painelUsuariosLayout = new javax.swing.GroupLayout(painelUsuarios);
         painelUsuarios.setLayout(painelUsuariosLayout);
@@ -366,6 +376,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel imgNome;
     private javax.swing.JLabel imgPreco;
     private javax.swing.JLabel imgTipoProd;
+    private javax.swing.JLabel imgTipoProd1;
     private javax.swing.JScrollPane jScrollPane1;
     private app.bolivia.swing.JCTextField nome;
     private javax.swing.JPanel painelBuscar;
@@ -373,7 +384,8 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel painelUsuarios;
     private javax.swing.JPanel panelRegistro;
     private app.bolivia.swing.JCTextField preco;
-    private javax.swing.JTable tabelaProdutos;
+    private javax.swing.JTable tabelaUsuarios;
     private org.bolivia.combo.SComboBoxBlue tipoProd;
+    private org.bolivia.combo.SComboBoxBlue tipoProd1;
     // End of variables declaration//GEN-END:variables
 }
