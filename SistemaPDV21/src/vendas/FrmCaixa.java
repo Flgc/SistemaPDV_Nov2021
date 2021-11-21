@@ -70,7 +70,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         bntBuscaProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/produto1.png"))); // NOI18N
         bntBuscaProd.setBorder(null);
         bntBuscaProd.setContentAreaFilled(false);
-        bntBuscaProd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        bntBuscaProd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntBuscaProd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bntBuscaProd.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/produto.png"))); // NOI18N
         bntBuscaProd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -128,7 +128,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         bntCalculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/calculo1.png"))); // NOI18N
         bntCalculo.setBorder(null);
         bntCalculo.setContentAreaFilled(false);
-        bntCalculo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        bntCalculo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntCalculo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bntCalculo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/calculo2.png"))); // NOI18N
         bntCalculo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -142,7 +142,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         bntVender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/venda1.png"))); // NOI18N
         bntVender.setBorder(null);
         bntVender.setContentAreaFilled(false);
-        bntVender.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        bntVender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntVender.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bntVender.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/venda2.png"))); // NOI18N
         bntVender.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -156,7 +156,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         bntEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/elimina1.png"))); // NOI18N
         bntEliminar.setBorder(null);
         bntEliminar.setContentAreaFilled(false);
-        bntEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        bntEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bntEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/elimina2.png"))); // NOI18N
         bntEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -170,7 +170,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         bntCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/cancela1.png"))); // NOI18N
         bntCancelar.setBorder(null);
         bntCancelar.setContentAreaFilled(false);
-        bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bntCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/cancela2.png"))); // NOI18N
         bntCancelar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -312,7 +312,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         painelNumVenda.add(lblCodigFat, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 50));
 
         lblTitNumVend.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblTitNumVend.setText("NÚMERO DE VENTA");
+        lblTitNumVend.setText("NÚMERO DE VENDA");
         painelNumVenda.add(lblTitNumVend, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         javax.swing.GroupLayout painelCaixaLayout = new javax.swing.GroupLayout(painelCaixa);
@@ -390,7 +390,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bntCalculoActionPerformed
 
     private void bntBuscaProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntBuscaProdActionPerformed
-    
+       
     }//GEN-LAST:event_bntBuscaProdActionPerformed
 
 
@@ -401,9 +401,9 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
     private javax.swing.JButton bntEliminar;
     private javax.swing.JButton bntVender;
     private app.bolivia.swing.JCTextField fldData;
-    private app.bolivia.swing.JCTextField fldRecibo;
-    private app.bolivia.swing.JCTextField fldTotal;
-    private app.bolivia.swing.JCTextField fldTroco;
+    public static app.bolivia.swing.JCTextField fldRecibo;
+    public static app.bolivia.swing.JCTextField fldTotal;
+    public static app.bolivia.swing.JCTextField fldTroco;
     private javax.swing.JLabel imgFldData;
     private javax.swing.JLabel imgFldRecibo;
     private javax.swing.JLabel imgFldTroco;
@@ -416,13 +416,13 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTitNumVend;
     private javax.swing.JLabel lblTitTel;
     private javax.swing.JLabel lblTotal;
-    private app.bolivia.swing.JCTextField numFac;
+    public static app.bolivia.swing.JCTextField numFac;
     private javax.swing.JPanel painelCaixa;
     private javax.swing.JPanel painelFiltro;
     private javax.swing.JPanel painelLogo;
     private javax.swing.JPanel painelNumVenda;
     private javax.swing.JPanel painelOpcoes;
     private javax.swing.JPanel painelScrollCaixa;
-    private javax.swing.JTable tabelaCaixa;
+    public static javax.swing.JTable tabelaCaixa;
     // End of variables declaration//GEN-END:variables
 }

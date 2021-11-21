@@ -7,6 +7,7 @@ package principal;
 
 import produtos.FrmProdutos;
 import usuarios.FrmUsuarios;
+import vendas.FrmCaixa;
 
 /**
  *
@@ -206,11 +207,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProdActionPerformed
 
     private void btnVendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_btnVendActionPerformed
 
     private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
-        // TODO add your handling code here:
+        FrmCaixa form = new FrmCaixa();        
+        inicializador.add(form).setLocation(180,3);
+        form.show();
     }//GEN-LAST:event_btnCaixaActionPerformed
 
     /**
