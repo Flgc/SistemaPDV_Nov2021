@@ -262,7 +262,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel data;
     private javax.swing.JLabel desconect;
     private javax.swing.JLabel hora;
-    private principal.Inicializador inicializador;
+    public static principal.Inicializador inicializador;
     private javax.swing.JLabel logoDesconect;
     private javax.swing.JLabel logoUserOn;
     private javax.swing.JPanel painelCabecalho;
