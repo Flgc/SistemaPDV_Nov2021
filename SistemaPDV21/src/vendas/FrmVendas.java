@@ -99,7 +99,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
         btnEliminar.setBorder(null);
         btnEliminar.setBorderPainted(false);
         btnEliminar.setContentAreaFilled(false);
-        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/apagar1.png"))); // NOI18N
         btnEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -117,7 +117,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
         btnElimTudo.setBorder(null);
         btnElimTudo.setBorderPainted(false);
         btnElimTudo.setContentAreaFilled(false);
-        btnElimTudo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnElimTudo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnElimTudo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnElimTudo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/apagarT1.png"))); // NOI18N
         btnElimTudo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -126,7 +126,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
                 btnElimTudoActionPerformed(evt);
             }
         });
-        painelOpcoes.add(btnElimTudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
+        painelOpcoes.add(btnElimTudo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
         btnLimpar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnLimpar.setForeground(new java.awt.Color(0, 0, 0));
@@ -135,7 +135,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
         btnLimpar.setBorder(null);
         btnLimpar.setBorderPainted(false);
         btnLimpar.setContentAreaFilled(false);
-        btnLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLimpar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnLimpar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/limpar1.png"))); // NOI18N
         btnLimpar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -144,7 +144,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
                 btnLimparActionPerformed(evt);
             }
         });
-        painelOpcoes.add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, -1, -1));
+        painelOpcoes.add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, -1));
 
         btnBuscData.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBuscData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/buscaF1.png"))); // NOI18N
@@ -152,7 +152,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
         btnBuscData.setBorder(null);
         btnBuscData.setBorderPainted(false);
         btnBuscData.setContentAreaFilled(false);
-        btnBuscData.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnBuscData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnBuscData.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/buscaF2.png"))); // NOI18N
         btnBuscData.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -173,7 +173,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
         btnVendasHoje.setBorder(null);
         btnVendasHoje.setBorderPainted(false);
         btnVendasHoje.setContentAreaFilled(false);
-        btnVendasHoje.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnVendasHoje.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVendasHoje.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnVendasHoje.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/vendasH1.png"))); // NOI18N
         btnVendasHoje.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -193,9 +193,9 @@ public class FrmVendas extends javax.swing.JInternalFrame {
             painelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelVendasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(painelOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(painelOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         painelVendasLayout.setVerticalGroup(

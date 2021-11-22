@@ -45,7 +45,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCarregando" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="276" max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
@@ -58,7 +58,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCarregando" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="progresso" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -67,10 +67,13 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="lblCarregando">
           <Properties>
             <Property name="text" type="java.lang.String" value="Carregando Sistema"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblCarregandoMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JProgressBar" name="progresso">
           <Properties>
@@ -91,7 +94,7 @@
         <Property name="rows" type="int" value="1"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="lblImgFundo">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="11"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
