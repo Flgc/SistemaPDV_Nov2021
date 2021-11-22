@@ -10,6 +10,8 @@ package principal;
  * @author Fabio Luis Guia da Conceção
  */
 public class Login extends javax.swing.JFrame {
+    
+    SplashScreen inicio;
 
     /**
      * Creates new form Login
@@ -17,6 +19,13 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
     }
+    
+    public Login(SplashScreen inicio){
+       this.inicio = inicio;
+       //setProgress(0, "Carregando componente do sistema");
+       initComponents();
+       thus.setSize(410,500);
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.

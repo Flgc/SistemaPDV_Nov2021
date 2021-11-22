@@ -28,7 +28,7 @@ public class SplashScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         painelProgress = new javax.swing.JPanel();
-        lblCarregando = new javax.swing.JLabel();
+        lblCarregandor = new javax.swing.JLabel();
         progresso = new javax.swing.JProgressBar();
         painelGeral = new javax.swing.JPanel();
         lblImgFundo = new javax.swing.JLabel();
@@ -42,10 +42,12 @@ public class SplashScreen extends javax.swing.JFrame {
 
         painelProgress.setOpaque(false);
 
-        lblCarregando.setText("Carregando Sistema");
-        lblCarregando.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblCarregandor.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        lblCarregandor.setText("Carregando Sistema");
+        lblCarregandor.setName("lblCarregador"); // NOI18N
+        lblCarregandor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCarregandoMouseClicked(evt);
+                lblCarregandorMouseClicked(evt);
             }
         });
 
@@ -56,7 +58,7 @@ public class SplashScreen extends javax.swing.JFrame {
         painelProgressLayout.setHorizontalGroup(
             painelProgressLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelProgressLayout.createSequentialGroup()
-                .addComponent(lblCarregando)
+                .addComponent(lblCarregandor)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(painelProgressLayout.createSequentialGroup()
                 .addComponent(progresso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -66,7 +68,7 @@ public class SplashScreen extends javax.swing.JFrame {
             painelProgressLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelProgressLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblCarregando)
+                .addComponent(lblCarregandor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(progresso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -85,11 +87,11 @@ public class SplashScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblCarregandoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCarregandoMouseClicked
+    private void lblCarregandorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCarregandorMouseClicked
       Login tela = new Login();  
       tela.setLocationRelativeTo(null);
       tela.setVisible(true);
-    }//GEN-LAST:event_lblCarregandoMouseClicked
+    }//GEN-LAST:event_lblCarregandorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -129,7 +131,7 @@ public class SplashScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblCarregando;
+    private javax.swing.JLabel lblCarregandor;
     private javax.swing.JLabel lblImgFundo;
     private javax.swing.JPanel painelGeral;
     private javax.swing.JPanel painelProgress;
