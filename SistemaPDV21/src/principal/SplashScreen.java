@@ -5,6 +5,9 @@
  */
 package principal;
 
+import javax.swing.JLabel;
+import javax.swing.JProgressBar;
+
 /**
  *
  * @author Fabio Luis Guia da Conceção
@@ -17,6 +20,15 @@ public class SplashScreen extends javax.swing.JFrame {
     public SplashScreen() {
         initComponents();
     }
+    
+    public JProgressBar getJProgressBar(){
+        return progresso;
+    };
+    
+    public JLabel getJLabel(){
+        return lblCarregandor;
+    }
+       
 
     /**
      * This method is called from within the constructor to initialize the form.

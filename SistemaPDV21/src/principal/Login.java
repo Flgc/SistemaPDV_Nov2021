@@ -22,10 +22,20 @@ public class Login extends javax.swing.JFrame {
     
     public Login(SplashScreen inicio){
        this.inicio = inicio;
-       //setProgress(0, "Carregando componente do sistema");
+       setProgress(0, "Carregando componente do sistema");
        initComponents();
-       thus.setSize(410,500);
+       //thus.setSize(410,500);
     };
+    
+    void setProgress(int percent, String informacao){
+        inicio.getJLabel().setText(informacao);
+        inicio.getJProgressBar().setValue(percent);
+        
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+        }
+    };            
 
     /**
      * This method is called from within the constructor to initialize the form.
