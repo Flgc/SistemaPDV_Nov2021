@@ -95,6 +95,7 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
         btnEnviar.setContentAreaFilled(false);
         btnEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEnviar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEnviar.setName("btnEnviar"); // NOI18N
         btnEnviar.setPreferredSize(new java.awt.Dimension(75, 95));
         btnEnviar.setRolloverEnabled(true);
         btnEnviar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/regis2.png"))); // NOI18N
@@ -133,7 +134,7 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelListarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 28, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

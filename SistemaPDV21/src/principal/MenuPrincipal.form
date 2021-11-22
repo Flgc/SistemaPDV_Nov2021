@@ -171,6 +171,7 @@
                   <Color id="Hand Cursor"/>
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="name" type="java.lang.String" value="btnInfo" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[100, 120]"/>
                 </Property>
@@ -209,6 +210,7 @@
                   <Color id="Hand Cursor"/>
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="name" type="java.lang.String" value="btnUser" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[100, 120]"/>
                 </Property>
@@ -247,6 +249,7 @@
                   <Color id="Hand Cursor"/>
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="name" type="java.lang.String" value="btnProd" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[100, 120]"/>
                 </Property>
@@ -285,6 +288,7 @@
                   <Color id="Hand Cursor"/>
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="name" type="java.lang.String" value="btnVend" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[100, 120]"/>
                 </Property>
@@ -323,6 +327,7 @@
                   <Color id="Hand Cursor"/>
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="name" type="java.lang.String" value="btnCaixa" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[100, 120]"/>
                 </Property>

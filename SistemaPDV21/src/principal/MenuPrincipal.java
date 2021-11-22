@@ -94,6 +94,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnInfo.setContentAreaFilled(false);
         btnInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInfo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnInfo.setName("btnInfo"); // NOI18N
         btnInfo.setPreferredSize(new java.awt.Dimension(100, 120));
         btnInfo.setRolloverEnabled(true);
         btnInfo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/info2.png"))); // NOI18N
@@ -113,6 +114,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnUser.setContentAreaFilled(false);
         btnUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUser.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnUser.setName("btnUser"); // NOI18N
         btnUser.setPreferredSize(new java.awt.Dimension(100, 120));
         btnUser.setRolloverEnabled(true);
         btnUser.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/usuario2.png"))); // NOI18N
@@ -132,6 +134,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnProd.setContentAreaFilled(false);
         btnProd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnProd.setName("btnProd"); // NOI18N
         btnProd.setPreferredSize(new java.awt.Dimension(100, 120));
         btnProd.setRolloverEnabled(true);
         btnProd.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/produtos2.png"))); // NOI18N
@@ -151,6 +154,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnVend.setContentAreaFilled(false);
         btnVend.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVend.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVend.setName("btnVend"); // NOI18N
         btnVend.setPreferredSize(new java.awt.Dimension(100, 120));
         btnVend.setRolloverEnabled(true);
         btnVend.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/vendas2.png"))); // NOI18N
@@ -170,6 +174,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCaixa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCaixa.setName("btnCaixa"); // NOI18N
         btnCaixa.setPreferredSize(new java.awt.Dimension(100, 120));
         btnCaixa.setRolloverEnabled(true);
         btnCaixa.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/caixa2.png"))); // NOI18N

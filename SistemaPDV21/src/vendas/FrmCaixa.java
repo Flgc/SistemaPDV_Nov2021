@@ -74,6 +74,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         btnBuscaProd.setContentAreaFilled(false);
         btnBuscaProd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscaProd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBuscaProd.setName("btnBuscaProd"); // NOI18N
         btnBuscaProd.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/produto.png"))); // NOI18N
         btnBuscaProd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnBuscaProd.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +133,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         btnCalculo.setContentAreaFilled(false);
         btnCalculo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCalculo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCalculo.setName("btnCalculo"); // NOI18N
         btnCalculo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/calculo2.png"))); // NOI18N
         btnCalculo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnCalculo.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +148,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         btnVender.setContentAreaFilled(false);
         btnVender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVender.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVender.setName("btnVender"); // NOI18N
         btnVender.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/venda2.png"))); // NOI18N
         btnVender.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnVender.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +163,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         btnEliminar.setContentAreaFilled(false);
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEliminar.setName("btnEliminar"); // NOI18N
         btnEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/elimina2.png"))); // NOI18N
         btnEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +178,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         btnCancelar.setContentAreaFilled(false);
         btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCancelar.setName("btnCancelar"); // NOI18N
         btnCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/cancela2.png"))); // NOI18N
         btnCancelar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {

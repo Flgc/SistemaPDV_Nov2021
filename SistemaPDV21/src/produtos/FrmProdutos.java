@@ -127,6 +127,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         btnRegistrar.setContentAreaFilled(false);
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRegistrar.setName("btnRegistrar"); // NOI18N
         btnRegistrar.setPreferredSize(new java.awt.Dimension(75, 95));
         btnRegistrar.setRolloverEnabled(true);
         btnRegistrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/regis2.png"))); // NOI18N
@@ -145,6 +146,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         btnAtualizar.setContentAreaFilled(false);
         btnAtualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAtualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAtualizar.setName("btnAtualizar"); // NOI18N
         btnAtualizar.setPreferredSize(new java.awt.Dimension(75, 95));
         btnAtualizar.setRolloverEnabled(true);
         btnAtualizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/editar1.png"))); // NOI18N
@@ -163,6 +165,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         btnExcluir.setContentAreaFilled(false);
         btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnExcluir.setName("btnExcluir"); // NOI18N
         btnExcluir.setPreferredSize(new java.awt.Dimension(75, 95));
         btnExcluir.setRolloverEnabled(true);
         btnExcluir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/apagar1.png"))); // NOI18N
@@ -181,6 +184,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         btnExcluirTudo.setContentAreaFilled(false);
         btnExcluirTudo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluirTudo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnExcluirTudo.setName("btnExcluirTudo"); // NOI18N
         btnExcluirTudo.setPreferredSize(new java.awt.Dimension(75, 95));
         btnExcluirTudo.setRolloverEnabled(true);
         btnExcluirTudo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/apagarT1.png"))); // NOI18N
@@ -199,6 +203,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         btnLimpar.setContentAreaFilled(false);
         btnLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLimpar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLimpar.setName("btnLimpar"); // NOI18N
         btnLimpar.setPreferredSize(new java.awt.Dimension(75, 95));
         btnLimpar.setRolloverEnabled(true);
         btnLimpar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/limpar1.png"))); // NOI18N

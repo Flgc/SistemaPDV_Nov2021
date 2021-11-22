@@ -44,7 +44,6 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(390, 400));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
@@ -128,13 +127,20 @@ public class Login extends javax.swing.JFrame {
         btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/entrar2.png"))); // NOI18N
         btnEntrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, java.awt.Color.darkGray, java.awt.Color.darkGray));
         btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEntrar.setName("btnEntrar"); // NOI18N
         btnEntrar.setPreferredSize(new java.awt.Dimension(135, 45));
         btnEntrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/entrar1.png"))); // NOI18N
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
         painelButtonLogin.add(btnEntrar);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/sair2.png"))); // NOI18N
         btnSair.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, java.awt.Color.darkGray, java.awt.Color.darkGray));
         btnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSair.setName("btnSair"); // NOI18N
         btnSair.setPreferredSize(new java.awt.Dimension(135, 45));
         btnSair.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/sair1.png"))); // NOI18N
         painelButtonLogin.add(btnSair);
@@ -155,6 +161,12 @@ public class Login extends javax.swing.JFrame {
     private void usuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioKeyReleased
         usuario.setText(usuario.getText().toUpperCase());
     }//GEN-LAST:event_usuarioKeyReleased
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        MenuPrincipal tela = new MenuPrincipal();
+        tela.setLocationRelativeTo(null);
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
      * @param args the command line arguments
