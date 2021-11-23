@@ -5,6 +5,8 @@
  */
 package principal;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Fabio Luis Guia da Conceção
@@ -22,18 +24,25 @@ public class Login extends javax.swing.JFrame {
     
     public Login(SplashScreen inicio){
        this.inicio = inicio;
-       setProgress(0, "Carregando componente do sistema");
+       setProgress(0, "Carregando componente do sistema!");
        initComponents();
-       //thus.setSize(410,500);
+       setProgress(20, "Conectando ao banco de dados!");
+       setProgress(40, "Carregando os módulos!");
+       setProgress(60, "Carregamento de módulos concluidos!");
+       setProgress(80, "Carregando interfaces!");
+       setProgress(90, "Interface carregada!");
+       setProgress(100, "Bem vindo ao sistema!");
+       //thus.setSize(410,500);       
     };
     
-    void setProgress(int percent, String informacao){
+    void setProgress(int percentual, String informacao){
         inicio.getJLabel().setText(informacao);
-        inicio.getJProgressBar().setValue(percent);
+        inicio.getJProgressBar().setValue(percentual);
         
         try {
             Thread.sleep(2000);
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
+            JOptionPane.showMessageDialog(this, "Não foi possível carregar a inicialização");
         }
     };            
 

@@ -5,6 +5,7 @@
  */
 package principal;
 
+import java.util.Locale;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
@@ -13,6 +14,8 @@ import javax.swing.JProgressBar;
  * @author Fabio Luis Guia da Conceção
  */
 public class SplashScreen extends javax.swing.JFrame {
+    
+    SplashScreen spl = this;
 
     /**
      * Creates new form SplashScreen
@@ -20,6 +23,23 @@ public class SplashScreen extends javax.swing.JFrame {
     public SplashScreen() {
         initComponents();
     }
+    
+    
+    //Function for itializable progress bar with Splash
+    void startThread(){
+        Thread thr = new Thread(new Runnable(){
+           @Override
+           // start login form
+           public void run(){
+              Login log = new Login(spl); 
+              log.setLocationRelativeTo(null);
+              log.setVisible(true);
+              dispose();
+           }
+        });  
+        
+        thr.start();
+    };
     
     public JProgressBar getJProgressBar(){
         return progresso;
