@@ -5,6 +5,8 @@
  */
 package principal;
 
+import java.sql.Connection;
+import dataBase.Conectar;
 import javax.swing.JOptionPane;
 
 /**
@@ -44,8 +46,14 @@ public class Login extends javax.swing.JFrame {
         } catch (InterruptedException e) {
             JOptionPane.showMessageDialog(this, "Não foi possível carregar a inicialização");
         }
-    };            
+    }; 
+    
+    
+    // Starting database connection
+    Conectar con = new Conectar();
+    Connection conn = con.conexao(); 
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

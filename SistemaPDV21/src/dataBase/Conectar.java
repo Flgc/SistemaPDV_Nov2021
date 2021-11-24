@@ -20,9 +20,9 @@ public class Conectar {
     public Connection conexao() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conect = DriverManager.getConnection("jdbc:mysql://localhost/NOMEDOBD\", \"USUARIO\", \"SENHA");
+            conect = DriverManager.getConnection("jdbc:mysql://localhost/sistemapdv21\", \"root\", \"");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error na conexão" + e);
+            JOptionPane.showMessageDialog(null,"Error ao contar no banco de dados" + e);
         }
         return conect;
    }        
