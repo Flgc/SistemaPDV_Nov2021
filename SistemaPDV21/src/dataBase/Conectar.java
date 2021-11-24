@@ -5,7 +5,7 @@
  */
 package dataBase;
 
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 
@@ -22,8 +22,8 @@ public class Conectar {
             Class.forName("com.mysql.jdbc.Driver");
             conect = DriverManager.getConnection("jdbc:mysql://localhost/NOMEDOBD\", \"USUARIO\", \"SENHA");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog("Error na conexão" + e);
+            JOptionPane.showMessageDialog(null,"Error na conexão" + e);
         }
         return conect;
-}        
+   }        
 }
