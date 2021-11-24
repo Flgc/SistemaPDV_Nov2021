@@ -22,6 +22,7 @@ public class SplashScreen extends javax.swing.JFrame {
      */
     public SplashScreen() {
         initComponents();
+        startThread();
     }
     
     
