@@ -7,6 +7,7 @@ package principal;
 
 import java.sql.Connection;
 import dataBase.Conectar;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -42,7 +43,7 @@ public class Login extends javax.swing.JFrame {
         inicio.getJProgressBar().setValue(percentual);
         
         try {
-            Thread.sleep(2000);
+            Thread.sleep(200);
         } catch (InterruptedException e) {
             JOptionPane.showMessageDialog(this, "Não foi possível carregar a inicialização");
         }
@@ -123,6 +124,7 @@ public class Login extends javax.swing.JFrame {
         usuario.setBorder(null);
         usuario.setForeground(new java.awt.Color(255, 255, 255));
         usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        usuario.setName("txtUsuario"); // NOI18N
         usuario.setOpaque(false);
         usuario.setPhColor(new java.awt.Color(255, 255, 255));
         usuario.setPlaceholder("USUARIO");
@@ -137,7 +139,7 @@ public class Login extends javax.swing.JFrame {
         senha.setBorder(null);
         senha.setForeground(new java.awt.Color(255, 255, 255));
         senha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        senha.setName(""); // NOI18N
+        senha.setName("txtSenha"); // NOI18N
         senha.setOpaque(false);
         senha.setPhColor(new java.awt.Color(255, 255, 255));
         senha.setPlaceholder("SENHA");
@@ -199,9 +201,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioKeyReleased
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        MenuPrincipal tela = new MenuPrincipal();
-        tela.setLocationRelativeTo(null);
-        tela.setVisible(true);
+        String us = usuario.getText();
+        String sn = senha.getText();
+        if (us.equals("") || sn.equals("")) {
+           JOptionPane.showMessageDialog(this, "Preencha os Campos", "Login", 0,
+                   new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
+        } else {
+           //Logar();
+        }       
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
