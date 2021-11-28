@@ -56,10 +56,10 @@ public class Login extends javax.swing.JFrame {
     Conectar con = new Conectar();
     Connection conn = con.conexao(); 
     
-    public void Logar(String id, String senha){
-        String dados = null;
+    public void Logar(String nom, String senha){
+        String tipoUser = null;
         try {
-            String sql = "SELECT nome_us FROM usuarios WHERE nome_us = '"+id+"'";
+            String sql = "SELECT nome_us FROM usuarios WHERE nome_us = '"+nom+"'";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             
@@ -67,10 +67,41 @@ public class Login extends javax.swing.JFrame {
                String sql1 = "SELECT senha FROM usuarios WHERE senha = '"+senha+"'";
                Statement st1 = conn.createStatement();
                ResultSet rs1 = st1.executeQuery(sql1);
+               
+               if(rs1.first()){
+                  String sql2 = "SELECT tipo_us FROM usuarios WHERE nome_us = '"+nom+"'"
+                          + "and senha = '"+senha+"'";
+                  Statement st2 = conn.createStatement();
+                  ResultSet rs2 = st2.executeQuery(sql2); 
+                  
+                  while(rs2.next()){
+                    tipoUser = rs2.getString(1);
+                  }
+                  
+                  if (tipoUser.equals("ADM")){
+                      String sql3 = "SELECT nome_us FROM usuarios WHERE nome_us = '"+nom+"'";
+                      Statement st3 = conn.createStatement();
+                      ResultSet rs3 = st3.executeQuery(sql); 
+                      
+                      while(rs3.next()){
+                          tipoUser = rs3.getString(1);
+                      } 
+                      
+                   
+                      
+                  } else {
+                      
+                  }
+                  
+                  
+               } else {
+                 JOptionPane.showMessageDialog(this, "Senha incorreta!", "Login", 0,
+                   new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));              
+               }
             } else{
                JOptionPane.showMessageDialog(this, "Usuário inexistente!", "Login", 0,
-                   new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
-            };          
+                 new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
+            }          
         } catch (Exception e) {
         }
     };
