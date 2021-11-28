@@ -5,8 +5,10 @@
  */
 package principal;
 
+import java.sql.ResultSet;
 import java.sql.Connection;
 import dataBase.Conectar;
+import java.sql.Statement;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -53,6 +55,25 @@ public class Login extends javax.swing.JFrame {
     // Starting database connection
     Conectar con = new Conectar();
     Connection conn = con.conexao(); 
+    
+    public void Logar(String id, String senha){
+        String dados = null;
+        try {
+            String sql = "SELECT nome_us FROM usuarios WHERE nome_us = '"+id+"'";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            if(rs.first()){
+               String sql1 = "SELECT senha FROM usuarios WHERE senha = '"+senha+"'";
+               Statement st1 = conn.createStatement();
+               ResultSet rs1 = st1.executeQuery(sql1);
+            } else{
+               JOptionPane.showMessageDialog(this, "Usuário inexistente!", "Login", 0,
+                   new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
+            };          
+        } catch (Exception e) {
+        }
+    };
 
     
     /**
@@ -207,7 +228,7 @@ public class Login extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(this, "Preencha os Campos", "Login", 0,
                    new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
         } else {
-           //Logar();
+           Logar(us, sn);
         }       
     }//GEN-LAST:event_btnEntrarActionPerformed
 
