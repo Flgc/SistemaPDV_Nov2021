@@ -81,13 +81,20 @@ public class Login extends javax.swing.JFrame {
                   if (tipoUser.equals("ADM")){
                       String sql3 = "SELECT nome_us FROM usuarios WHERE nome_us = '"+nom+"'";
                       Statement st3 = conn.createStatement();
-                      ResultSet rs3 = st3.executeQuery(sql); 
+                      ResultSet rs3 = st3.executeQuery(sql3); 
                       
                       while(rs3.next()){
                           tipoUser = rs3.getString(1);
                       } 
                       
-                   
+                      dispose();
+                      MenuPrincipal menu = new MenuPrincipal();
+                      
+                      JOptionPane.showMessageDialog(this, "Bem vindo ao Sistema " + tipoUser + " !", "Administrador", 0,
+                        new ImageIcon(getClass().getResource("/imagens/usuarios/administrador.png")));
+                      
+                      menu.userConect.setText(tipoUser);
+                      menu.setVisible(true);
                       
                   } else {
                       
@@ -249,7 +256,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_senhaActionPerformed
 
     private void usuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioKeyReleased
-        usuario.setText(usuario.getText().toUpperCase());
+        //usuario.setText(usuario.getText().toUpperCase());
     }//GEN-LAST:event_usuarioKeyReleased
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed

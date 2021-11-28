@@ -275,6 +275,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel logoUserOn;
     private javax.swing.JPanel painelCabecalho;
     private javax.swing.JPanel painelPrincipal;
-    private javax.swing.JLabel userConect;
+    public javax.swing.JLabel userConect;
     // End of variables declaration//GEN-END:variables
 }
