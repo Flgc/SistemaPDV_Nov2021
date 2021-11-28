@@ -47,6 +47,7 @@ public class MenuPrincipalP extends javax.swing.JFrame {
         inicializador = new principal.Inicializador();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ponto de Vendas - Usuário Padrão");
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         painelPrincipal.setPreferredSize(new java.awt.Dimension(1280, 640));

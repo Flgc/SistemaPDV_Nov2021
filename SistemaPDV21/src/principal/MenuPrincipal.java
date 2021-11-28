@@ -5,6 +5,8 @@
  */
 package principal;
 
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import produtos.FrmProdutos;
 import usuarios.FrmUsuarios;
 import vendas.FrmCaixa;
@@ -48,6 +50,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         inicializador = new principal.Inicializador();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ponto de Vendas - Administrador");
         setPreferredSize(new java.awt.Dimension(1280, 800));
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
@@ -71,6 +74,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         desconect.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         desconect.setForeground(java.awt.Color.white);
         desconect.setText("DESCONECTAR...");
+        desconect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        desconect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                desconectMouseClicked(evt);
+            }
+        });
         painelCabecalho.add(desconect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         userConect.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
@@ -84,6 +93,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         logoDesconect.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
         logoDesconect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/desconec.png"))); // NOI18N
+        logoDesconect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoDesconect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                desconectMouseClicked(evt);
+            }
+        });
         painelCabecalho.add(logoDesconect, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         btnInfo.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -223,6 +238,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         inicializador.add(form).setLocation(180,3);
         form.show();
     }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void desconectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconectMouseClicked
+        if (JOptionPane.showConfirmDialog(this, "Deseja fechar a sessão do usuário ?",
+                "Fechar Sessão", JOptionPane.YES_NO_OPTION, 0, 
+                new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")))
+                == JOptionPane.YES_OPTION){
+                    
+            this.dispose();
+            Login login = new Login();
+            login.setLocationRelativeTo(null);
+            login.setVisible(true);            
+        }
+    }//GEN-LAST:event_desconectMouseClicked
 
     /**
      * @param args the command line arguments

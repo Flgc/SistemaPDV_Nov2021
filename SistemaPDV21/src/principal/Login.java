@@ -94,6 +94,7 @@ public class Login extends javax.swing.JFrame {
                         new ImageIcon(getClass().getResource("/imagens/usuarios/administrador.png")));
                       
                       menu.userConect.setText(tipoUser);
+                      menu.setLocationRelativeTo(null);
                       menu.setVisible(true);
                       
                   } else {
@@ -108,10 +109,11 @@ public class Login extends javax.swing.JFrame {
                       dispose();
                       MenuPrincipalP menuP = new MenuPrincipalP();
                       
-                      JOptionPane.showMessageDialog(this, "Bem vindo ao Sistema " + tipoUser + "!", "Padrão", 0,
+                      JOptionPane.showMessageDialog(this, "Bem vindo ao Sistema " + tipoUser + "!", "Usuário Padrão", 0,
                         new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
                       
                       menuP.userConect.setText(tipoUser);
+                      menuP.setLocationRelativeTo(null);
                       menuP.setVisible(true);                                            
                   }                  
                   
