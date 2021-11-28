@@ -90,16 +90,30 @@ public class Login extends javax.swing.JFrame {
                       dispose();
                       MenuPrincipal menu = new MenuPrincipal();
                       
-                      JOptionPane.showMessageDialog(this, "Bem vindo ao Sistema " + tipoUser + " !", "Administrador", 0,
+                      JOptionPane.showMessageDialog(this, "Bem vindo ao Sistema " + tipoUser + "!", "Administrador", 0,
                         new ImageIcon(getClass().getResource("/imagens/usuarios/administrador.png")));
                       
                       menu.userConect.setText(tipoUser);
                       menu.setVisible(true);
                       
                   } else {
+                      String sql4 = "SELECT nome_us FROM usuarios WHERE nome_us = '"+nom+"'";
+                      Statement st4 = conn.createStatement();
+                      ResultSet rs4 = st4.executeQuery(sql4); 
                       
-                  }
-                  
+                      while(rs4.next()){
+                          tipoUser = rs4.getString(1);
+                      } 
+                      
+                      dispose();
+                      MenuPrincipalP menuP = new MenuPrincipalP();
+                      
+                      JOptionPane.showMessageDialog(this, "Bem vindo ao Sistema " + tipoUser + "!", "Padrão", 0,
+                        new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
+                      
+                      menuP.userConect.setText(tipoUser);
+                      menuP.setVisible(true);                                            
+                  }                  
                   
                } else {
                  JOptionPane.showMessageDialog(this, "Senha incorreta!", "Login", 0,
