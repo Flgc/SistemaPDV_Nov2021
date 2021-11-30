@@ -6,6 +6,7 @@
 package principal;
 
 import javax.swing.ImageIcon;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import produtos.FrmProdutos;
 import usuarios.FrmUsuarios;
@@ -17,6 +18,24 @@ import vendas.FrmVendas;
  * @author fabio
  */
 public class MenuPrincipal extends javax.swing.JFrame {
+    
+    public static boolean fecha1 = false;
+    public static boolean fecha2 = false;
+    
+    public boolean estaFechado(Object obj){
+        JInternalFrame[] janelaAtiva = inicializador.getAllFrames();
+        boolean fechado = true;
+        int i = 0;
+        while(i < janelaAtiva.length  && fechado) {
+            if(janelaAtiva[i] == obj) {
+                fechado=false;
+                fecha1 = false;
+                fecha2 = false;                
+            } 
+            i ++;
+        }
+        return fechado;
+    }
 
     /**
      * Creates new form MenuPrincipal
@@ -221,10 +240,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         form.show();
     }//GEN-LAST:event_btnUserActionPerformed
 
+    FrmProdutos form;
     private void btnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdActionPerformed
-        FrmProdutos form = new FrmProdutos();        
-        inicializador.add(form).setLocation(180,3);
-        form.show();
+           
+        if(estaFechado(form)){
+            FrmProdutos form = new FrmProdutos();
+            inicializador.add(form).setLocation(180,3);
+            form.show();
+        }else{
+            JOptionPane.showMessageDialog(this, "A janela já está Aberta!!", "Alerta", 0,
+              new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
+            form.toFront();
+            form.show();
+        }            
     }//GEN-LAST:event_btnProdActionPerformed
 
     private void btnVendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendActionPerformed
