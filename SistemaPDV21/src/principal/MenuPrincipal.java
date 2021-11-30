@@ -19,9 +19,6 @@ import vendas.FrmVendas;
  */
 public class MenuPrincipal extends javax.swing.JFrame {
     
-    public static boolean fecha1 = false;
-    public static boolean fecha2 = false;
-    
     public boolean estaFechado(Object obj){
         JInternalFrame[] janelaAtiva = inicializador.getAllFrames();
         boolean fechado = true;
@@ -29,8 +26,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         while(i < janelaAtiva.length  && fechado) {
             if(janelaAtiva[i] == obj) {
                 fechado=false;
-                fecha1 = false;
-                fecha2 = false;                
             } 
             i ++;
         }
@@ -240,16 +235,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         form.show();
     }//GEN-LAST:event_btnUserActionPerformed
 
-    FrmProdutos form;
+    produtos.FrmProdutos form;
     private void btnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdActionPerformed
            
         if(estaFechado(form)){
-            FrmProdutos form = new FrmProdutos();
+            form = new FrmProdutos();
             inicializador.add(form).setLocation(180,3);
             form.show();
         }else{
-            JOptionPane.showMessageDialog(this, "A janela já está Aberta!!", "Alerta", 0,
-              new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
+//            JOptionPane.showMessageDialog(this, "A janela já está Aberta!!", "Alerta", 0,
+//              new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
             form.toFront();
             form.show();
         }            
