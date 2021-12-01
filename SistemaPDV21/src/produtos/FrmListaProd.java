@@ -37,6 +37,7 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
         imgTipoProd = new javax.swing.JLabel();
         btnEnviar = new javax.swing.JButton();
 
+        setClosable(true);
         setPreferredSize(new java.awt.Dimension(715, 400));
 
         panelListarProd.setName("Listar Produtos"); // NOI18N

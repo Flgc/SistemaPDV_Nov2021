@@ -41,6 +41,8 @@ public class FrmVendas extends javax.swing.JInternalFrame {
         btnVendasHoje = new javax.swing.JButton();
         dtcData = new com.toedter.calendar.JDateChooser();
 
+        setClosable(true);
+
         painelVendas.setBackground(new java.awt.Color(255, 255, 255));
 
         tabelaVendas.setModel(new javax.swing.table.DefaultTableModel(

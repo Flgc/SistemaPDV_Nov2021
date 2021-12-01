@@ -229,37 +229,56 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInfoActionPerformed
 
+    usuarios.FrmUsuarios frmUsr;
     private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
-        FrmUsuarios form = new FrmUsuarios();        
-        inicializador.add(form).setLocation(180,3);
-        form.show();
+
+        if(estaFechado(frmUsr)){
+            frmUsr = new FrmUsuarios();
+            inicializador.add(frmUsr).setLocation(180,3);
+            frmUsr.show();
+        }else{
+            frmUsr.toFront();
+            frmUsr.show();
+        }                    
     }//GEN-LAST:event_btnUserActionPerformed
 
-    produtos.FrmProdutos form;
+    produtos.FrmProdutos frmPrd;
     private void btnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdActionPerformed
            
-        if(estaFechado(form)){
-            form = new FrmProdutos();
-            inicializador.add(form).setLocation(180,3);
-            form.show();
+        if(estaFechado(frmPrd)){
+            frmPrd = new FrmProdutos();
+            inicializador.add(frmPrd).setLocation(180,3);
+            frmPrd.show();
         }else{
-//            JOptionPane.showMessageDialog(this, "A janela já está Aberta!!", "Alerta", 0,
-//              new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
-            form.toFront();
-            form.show();
+            frmPrd.toFront();
+            frmPrd.show();
         }            
     }//GEN-LAST:event_btnProdActionPerformed
 
+    vendas.FrmVendas frmVnd;
     private void btnVendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendActionPerformed
-        FrmVendas form = new FrmVendas();        
-        inicializador.add(form).setLocation(180,3);
-        form.show();   
+        
+        if(estaFechado(frmVnd)){
+            frmVnd = new FrmVendas();
+            inicializador.add(frmVnd).setLocation(180,3);
+            frmVnd.show();
+        }else{
+            frmVnd.toFront();
+            frmVnd.show();
+        }                    
     }//GEN-LAST:event_btnVendActionPerformed
 
+    vendas.FrmCaixa frmCai;
     private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
-        FrmCaixa form = new FrmCaixa();        
-        inicializador.add(form).setLocation(180,3);
-        form.show();
+        
+        if(estaFechado(frmCai)){
+            frmCai = new FrmCaixa();
+            inicializador.add(frmCai).setLocation(180,3);
+            frmCai.show();
+        }else{
+            frmCai.toFront();
+            frmCai.show();
+        }        
     }//GEN-LAST:event_btnCaixaActionPerformed
 
     private void desconectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconectMouseClicked

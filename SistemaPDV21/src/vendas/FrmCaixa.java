@@ -59,6 +59,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         lblCodigFat = new javax.swing.JLabel();
         lblTitNumVend = new javax.swing.JLabel();
 
+        setClosable(true);
         setName("Caixa"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1074, 526));
 
