@@ -5,6 +5,12 @@
  */
 package principal;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Timer;
 import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -18,7 +24,7 @@ import vendas.FrmVendas;
  * @author fabio
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-    
+   
     public boolean estaFechado(Object obj){
         JInternalFrame[] janelaAtiva = inicializador.getAllFrames();
         boolean fechado = true;
@@ -30,6 +36,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
             i ++;
         }
         return fechado;
+    }
+    
+    class horas implements ActionListener { 
+        
+        public void acttionPerformed(ActionEvent e) {
+            Date sistemaHora = new Date();
+            String pmAm = "hh:mm:ss a";
+            SimpleDateFormat formato = new SimpleDateFormat(pmAm);
+            Calendar now = Calendar.getInstance();
+            hora.setText(String.format(formato.format(sistemaHora), now));
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent arg0) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
     }
 
     /**
@@ -66,6 +88,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ponto de Vendas - Administrador");
         setPreferredSize(new java.awt.Dimension(1280, 800));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         painelPrincipal.setPreferredSize(new java.awt.Dimension(1280, 640));
@@ -293,6 +320,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
             login.setVisible(true);            
         }
     }//GEN-LAST:event_desconectMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        Date sistemaData = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd MMMM yyyy");
+        data.setText(formato.format(sistemaData));
+        
+        //System Time
+        Timer hr = new Timer(100, new MenuPrincipal.horas();
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
