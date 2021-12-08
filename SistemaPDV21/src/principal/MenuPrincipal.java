@@ -10,10 +10,10 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Timer;
 import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import produtos.FrmProdutos;
 import usuarios.FrmUsuarios;
 import vendas.FrmCaixa;
@@ -37,23 +37,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
         return fechado;
     }
-    
-    class horas implements ActionListener { 
+
+    class hora implements ActionListener {
         
-        public void acttionPerformed(ActionEvent e) {
-            Date sistemaHora = new Date();
-            String pmAm = "hh:mm:ss a";
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Date sisTime = new Date();
+            String pmAm = "HH:mm:ss";
             SimpleDateFormat formato = new SimpleDateFormat(pmAm);
             Calendar now = Calendar.getInstance();
-            hora.setText(String.format(formato.format(sistemaHora), now));
+            jLabelHora.setText(String.format(formato.format(sisTime), now));
         }
-
-        @Override
-        public void actionPerformed(ActionEvent arg0) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-    }
-
+    }    
+    
     /**
      * Creates new form MenuPrincipal
      */
@@ -72,8 +68,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         painelPrincipal = new javax.swing.JPanel();
         painelCabecalho = new javax.swing.JPanel();
-        hora = new javax.swing.JLabel();
-        data = new javax.swing.JLabel();
+        jLabelHora = new javax.swing.JLabel();
+        jLabelData = new javax.swing.JLabel();
         desconect = new javax.swing.JLabel();
         userConect = new javax.swing.JLabel();
         logoUserOn = new javax.swing.JLabel();
@@ -102,15 +98,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         painelCabecalho.setPreferredSize(new java.awt.Dimension(1280, 125));
         painelCabecalho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        hora.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        hora.setForeground(java.awt.Color.white);
-        hora.setText("HORA");
-        painelCabecalho.add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 22, -1, -1));
+        jLabelHora.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        jLabelHora.setForeground(java.awt.Color.white);
+        jLabelHora.setText("HORA");
+        jLabelHora.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        painelCabecalho.add(jLabelHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 22, 150, -1));
 
-        data.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        data.setForeground(java.awt.Color.white);
-        data.setText("DIA - MES - ANO");
-        painelCabecalho.add(data, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+        jLabelData.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        jLabelData.setForeground(java.awt.Color.white);
+        jLabelData.setText("DIA - MES - ANO");
+        jLabelData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        painelCabecalho.add(jLabelData, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 150, -1));
 
         desconect.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         desconect.setForeground(java.awt.Color.white);
@@ -322,15 +320,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_desconectMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        Date sistemaData = new Date();
+        Date datasistem = new Date();
         SimpleDateFormat formato = new SimpleDateFormat("dd MMMM yyyy");
-        data.setText(formato.format(sistemaData));
+        jLabelData.setText(formato.format(datasistem));
         
         //System Time
-        Timer hr = new Timer(100, new MenuPrincipal.horas();
-        
+        Timer tm = new Timer(100, new hora());
+        tm.start();        
     }//GEN-LAST:event_formWindowOpened
-
+    
     /**
      * @param args the command line arguments
      */
@@ -374,10 +372,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnProd;
     private javax.swing.JButton btnUser;
     private javax.swing.JButton btnVend;
-    private javax.swing.JLabel data;
     private javax.swing.JLabel desconect;
-    private javax.swing.JLabel hora;
     public static principal.Inicializador inicializador;
+    private javax.swing.JLabel jLabelData;
+    private javax.swing.JLabel jLabelHora;
     private javax.swing.JLabel logoDesconect;
     private javax.swing.JLabel logoUserOn;
     private javax.swing.JPanel painelCabecalho;
