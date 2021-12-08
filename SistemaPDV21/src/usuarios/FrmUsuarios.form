@@ -185,13 +185,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="org.bolivia.combo.SComboBoxBlue" name="tipoProd">
+            <Component class="org.bolivia.combo.SComboBoxBlue" name="scmbTipoUsu">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
                     <StringItem index="0" value="TIPO USU&#xc1;RIO"/>
                     <StringItem index="1" value="ADMINISTRADOR"/>
-                    <StringItem index="2" value="USU&#xc1;RIO COMUM"/>
+                    <StringItem index="2" value="FINANCEIRO"/>
                     <StringItem index="3" value="VENDEDOR"/>
                   </StringArray>
                 </Property>
@@ -241,7 +241,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="imgTipoProd">
+            <Component class="javax.swing.JLabel" name="lblTipoUsu">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="11" style="0"/>
@@ -256,7 +256,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="org.bolivia.combo.SComboBoxBlue" name="tipoProd1">
+            <Component class="org.bolivia.combo.SComboBoxBlue" name="scmbSexo">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
@@ -275,7 +275,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="imgTipoProd1">
+            <Component class="javax.swing.JLabel" name="lblSexo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="11" style="0"/>

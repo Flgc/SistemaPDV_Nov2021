@@ -5,6 +5,10 @@
  */
 package usuarios;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author fabio
@@ -16,6 +20,48 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
      */
     public FrmUsuarios() {
         initComponents();
+        
+         // Initial components
+        
+        scmbSexo.addItemListener(new ItemListener() {
+ 
+            @Override
+            public void itemStateChanged(ItemEvent ie) {
+                if (scmbSexo.getSelectedItem().equals("SEXO")){
+                    lblSexo.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/sexoL.png")));                
+                }
+
+                if (scmbSexo.getSelectedItem().equals("MASCULINO")){
+                    lblSexo.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/masL.png")));                
+                }
+
+                if (scmbSexo.getSelectedItem().equals("FEMININO")){
+                    lblSexo.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/femL.png")));                
+                }                                            
+            }            
+        });
+        
+        scmbTipoUsu.addItemListener(new ItemListener(){
+            //TIPO USUÁRIO, ADMINISTRADOR, FINANCEIRO, VENDEDOR
+            @Override
+            public void itemStateChanged(ItemEvent ie) {
+                if (scmbTipoUsu.getSelectedItem().equals("TIPO USUÁRIO")){
+                    lblTipoUsu.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/tipousL.png")));                
+                }
+                
+                if (scmbTipoUsu.getSelectedItem().equals("ADMINISTRADOR")){
+                    lblTipoUsu.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/administrador.png")));                
+                }
+
+                if (scmbTipoUsu.getSelectedItem().equals("FINANCEIRO")){
+                    lblTipoUsu.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/masL.png")));                
+                }
+                
+                if (scmbTipoUsu.getSelectedItem().equals("VENDEDOR")){
+                    lblTipoUsu.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/normal.png")));                
+                }                
+            }
+        });
     }
 
     /**
@@ -32,13 +78,13 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         codigo = new app.bolivia.swing.JCTextField();
         nome = new app.bolivia.swing.JCTextField();
         preco = new app.bolivia.swing.JCTextField();
-        tipoProd = new org.bolivia.combo.SComboBoxBlue();
+        scmbTipoUsu = new org.bolivia.combo.SComboBoxBlue();
         imgCodigo = new javax.swing.JLabel();
         imgNome = new javax.swing.JLabel();
         imgPreco = new javax.swing.JLabel();
-        imgTipoProd = new javax.swing.JLabel();
-        tipoProd1 = new org.bolivia.combo.SComboBoxBlue();
-        imgTipoProd1 = new javax.swing.JLabel();
+        lblTipoUsu = new javax.swing.JLabel();
+        scmbSexo = new org.bolivia.combo.SComboBoxBlue();
+        lblSexo = new javax.swing.JLabel();
         painelOpcoes = new javax.swing.JPanel();
         btnRegistrar = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
@@ -103,9 +149,9 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         });
         panelRegistro.add(preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 180, -1));
 
-        tipoProd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO USUÁRIO", "ADMINISTRADOR", "USUÁRIO COMUM", "VENDEDOR" }));
-        tipoProd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        panelRegistro.add(tipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 190, -1));
+        scmbTipoUsu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO USUÁRIO", "ADMINISTRADOR", "FINANCEIRO", "VENDEDOR" }));
+        scmbTipoUsu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        panelRegistro.add(scmbTipoUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 190, -1));
 
         imgCodigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/codigoL.png"))); // NOI18N
         panelRegistro.add(imgCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
@@ -116,17 +162,17 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         imgPreco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuarios/senha.png"))); // NOI18N
         panelRegistro.add(imgPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, -1));
 
-        imgTipoProd.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
-        imgTipoProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuarios/tipousL.png"))); // NOI18N
-        panelRegistro.add(imgTipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 50, 50));
+        lblTipoUsu.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
+        lblTipoUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuarios/tipousL.png"))); // NOI18N
+        panelRegistro.add(lblTipoUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 50, 50));
 
-        tipoProd1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SEXO", "FEMININO", "MASCULINO" }));
-        tipoProd1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        panelRegistro.add(tipoProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 190, -1));
+        scmbSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SEXO", "FEMININO", "MASCULINO" }));
+        scmbSexo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        panelRegistro.add(scmbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 190, -1));
 
-        imgTipoProd1.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
-        imgTipoProd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuarios/sexoL.png"))); // NOI18N
-        panelRegistro.add(imgTipoProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 50, 50));
+        lblSexo.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
+        lblSexo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuarios/sexoL.png"))); // NOI18N
+        panelRegistro.add(lblSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 50, 50));
 
         painelOpcoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPÇÕES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
@@ -381,17 +427,17 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel imgCodigoNome;
     private javax.swing.JLabel imgNome;
     private javax.swing.JLabel imgPreco;
-    private javax.swing.JLabel imgTipoProd;
-    private javax.swing.JLabel imgTipoProd1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblSexo;
+    private javax.swing.JLabel lblTipoUsu;
     private app.bolivia.swing.JCTextField nome;
     private javax.swing.JPanel painelBuscar;
     private javax.swing.JPanel painelOpcoes;
     private javax.swing.JPanel painelUsuarios;
     private javax.swing.JPanel panelRegistro;
     private app.bolivia.swing.JCTextField preco;
+    private org.bolivia.combo.SComboBoxBlue scmbSexo;
+    private org.bolivia.combo.SComboBoxBlue scmbTipoUsu;
     private javax.swing.JTable tabelaUsuarios;
-    private org.bolivia.combo.SComboBoxBlue tipoProd;
-    private org.bolivia.combo.SComboBoxBlue tipoProd1;
     // End of variables declaration//GEN-END:variables
 }
