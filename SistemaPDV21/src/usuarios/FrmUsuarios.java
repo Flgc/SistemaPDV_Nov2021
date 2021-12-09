@@ -8,6 +8,9 @@ package usuarios;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.ImageIcon;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -20,6 +23,10 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
      */
     public FrmUsuarios() {
         initComponents();
+        
+        //list all records
+        tabelaUsuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        limparCampos();
         
          // Initial components
         
@@ -62,8 +69,45 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
                 }                
             }
         });
+        
+        tabelaUsuarios.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        
+            @Override
+            public void valueChanged(ListSelectionEvent lse) {
+                if (tabelaUsuarios.getSelectedRow() != -1) {
+                    atualizarDados();
+                }
+            
+            }        
+        });      
+
     }
 
+    
+    void atualizarDados(){
+        int linha = tabelaUsuarios.getSelectedRow();
+        textCodigo.setText(tabelaUsuarios.getValueAt(linha, 0).toString());
+        textNome.setText(tabelaUsuarios.getValueAt(linha, 1).toString());
+        scmbSexo.setSelectedItem(tabelaUsuarios.getValueAt(linha, 2).toString());
+        scmbTipoUsu.setSelectedItem(tabelaUsuarios.getValueAt(linha, 3).toString());
+        textSenha.setText(tabelaUsuarios.getValueAt(linha, 4).toString());
+        
+    }
+    
+    void limparCampos(){
+        if (tabelaUsuarios.getSelectedRow() > -1){
+            tabelaUsuarios.removeRowSelectionInterval(tabelaUsuarios.getSelectedRow(),
+                    tabelaUsuarios.getSelectedRow());
+        }
+        textCodigo.setText("");
+        textNome.setText("");
+        scmbSexo.setSelectedItem("SEXO");
+        scmbTipoUsu.setSelectedItem("TIPO USUÁRIO");
+        textSenha.setText("");
+        textCodNom.setText("");
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,9 +119,9 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
 
         painelUsuarios = new javax.swing.JPanel();
         panelRegistro = new javax.swing.JPanel();
-        codigo = new app.bolivia.swing.JCTextField();
-        nome = new app.bolivia.swing.JCTextField();
-        preco = new app.bolivia.swing.JCTextField();
+        textCodigo = new app.bolivia.swing.JCTextField();
+        textNome = new app.bolivia.swing.JCTextField();
+        textSenha = new app.bolivia.swing.JCTextField();
         scmbTipoUsu = new org.bolivia.combo.SComboBoxBlue();
         imgCodigo = new javax.swing.JLabel();
         imgNome = new javax.swing.JLabel();
@@ -92,9 +136,9 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         btnExcluirTudo = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         painelBuscar = new javax.swing.JPanel();
-        codigoNome = new app.bolivia.swing.JCTextField();
+        textCodNom = new app.bolivia.swing.JCTextField();
         imgCodigoNome = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jspTabUsuario = new javax.swing.JScrollPane();
         tabelaUsuarios = new javax.swing.JTable();
 
         setClosable(true);
@@ -107,47 +151,47 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         panelRegistro.setPreferredSize(new java.awt.Dimension(703, 142));
         panelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        codigo.setBackground(new java.awt.Color(34, 102, 145));
-        codigo.setBorder(null);
-        codigo.setForeground(new java.awt.Color(255, 255, 255));
-        codigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        codigo.setOpaque(false);
-        codigo.setPhColor(new java.awt.Color(255, 255, 255));
-        codigo.setPlaceholder("CÓDIGO");
-        codigo.addKeyListener(new java.awt.event.KeyAdapter() {
+        textCodigo.setBackground(new java.awt.Color(34, 102, 145));
+        textCodigo.setBorder(null);
+        textCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        textCodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        textCodigo.setOpaque(false);
+        textCodigo.setPhColor(new java.awt.Color(255, 255, 255));
+        textCodigo.setPlaceholder("CÓDIGO");
+        textCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                codigoKeyReleased(evt);
+                textCodigoKeyReleased(evt);
             }
         });
-        panelRegistro.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
+        panelRegistro.add(textCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
-        nome.setBackground(new java.awt.Color(34, 102, 145));
-        nome.setBorder(null);
-        nome.setForeground(new java.awt.Color(255, 255, 255));
-        nome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        nome.setOpaque(false);
-        nome.setPhColor(new java.awt.Color(255, 255, 255));
-        nome.setPlaceholder("NOME USUÁRIO");
-        nome.addKeyListener(new java.awt.event.KeyAdapter() {
+        textNome.setBackground(new java.awt.Color(34, 102, 145));
+        textNome.setBorder(null);
+        textNome.setForeground(new java.awt.Color(255, 255, 255));
+        textNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        textNome.setOpaque(false);
+        textNome.setPhColor(new java.awt.Color(255, 255, 255));
+        textNome.setPlaceholder("NOME USUÁRIO");
+        textNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                nomeKeyReleased(evt);
+                textNomeKeyReleased(evt);
             }
         });
-        panelRegistro.add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 180, -1));
+        panelRegistro.add(textNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 180, -1));
 
-        preco.setBackground(new java.awt.Color(34, 102, 145));
-        preco.setBorder(null);
-        preco.setForeground(new java.awt.Color(255, 255, 255));
-        preco.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        preco.setOpaque(false);
-        preco.setPhColor(new java.awt.Color(255, 255, 255));
-        preco.setPlaceholder("SENHA");
-        preco.addKeyListener(new java.awt.event.KeyAdapter() {
+        textSenha.setBackground(new java.awt.Color(34, 102, 145));
+        textSenha.setBorder(null);
+        textSenha.setForeground(new java.awt.Color(255, 255, 255));
+        textSenha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        textSenha.setOpaque(false);
+        textSenha.setPhColor(new java.awt.Color(255, 255, 255));
+        textSenha.setPlaceholder("SENHA");
+        textSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                precoKeyReleased(evt);
+                textSenhaKeyReleased(evt);
             }
         });
-        panelRegistro.add(preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 180, -1));
+        panelRegistro.add(textSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 180, -1));
 
         scmbTipoUsu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO USUÁRIO", "ADMINISTRADOR", "FINANCEIRO", "VENDEDOR" }));
         scmbTipoUsu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -298,19 +342,19 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         painelBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BUSCAR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         painelBuscar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        codigoNome.setBackground(new java.awt.Color(34, 102, 145));
-        codigoNome.setBorder(null);
-        codigoNome.setForeground(new java.awt.Color(255, 255, 255));
-        codigoNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        codigoNome.setOpaque(false);
-        codigoNome.setPhColor(new java.awt.Color(255, 255, 255));
-        codigoNome.setPlaceholder("CÓDIGO/NOME");
-        codigoNome.addKeyListener(new java.awt.event.KeyAdapter() {
+        textCodNom.setBackground(new java.awt.Color(34, 102, 145));
+        textCodNom.setBorder(null);
+        textCodNom.setForeground(new java.awt.Color(255, 255, 255));
+        textCodNom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        textCodNom.setOpaque(false);
+        textCodNom.setPhColor(new java.awt.Color(255, 255, 255));
+        textCodNom.setPlaceholder("CÓDIGO/NOME");
+        textCodNom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                codigoNomeKeyReleased(evt);
+                textCodNomKeyReleased(evt);
             }
         });
-        painelBuscar.add(codigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 180, -1));
+        painelBuscar.add(textCodNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 180, -1));
 
         imgCodigoNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/buscarL.png"))); // NOI18N
         painelBuscar.add(imgCodigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
@@ -331,7 +375,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tabelaUsuarios);
+        jspTabUsuario.setViewportView(tabelaUsuarios);
 
         javax.swing.GroupLayout painelUsuariosLayout = new javax.swing.GroupLayout(painelUsuarios);
         painelUsuarios.setLayout(painelUsuariosLayout);
@@ -345,7 +389,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(painelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(panelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jspTabUsuario, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         painelUsuariosLayout.setVerticalGroup(
@@ -357,7 +401,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
                     .addComponent(painelOpcoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(painelBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                .addComponent(jspTabUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -378,21 +422,21 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void codigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoKeyReleased
-        codigo.setText(codigo.getText().toUpperCase());
-    }//GEN-LAST:event_codigoKeyReleased
+    private void textCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCodigoKeyReleased
+        textCodigo.setText(textCodigo.getText().toUpperCase());
+    }//GEN-LAST:event_textCodigoKeyReleased
 
-    private void nomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nomeKeyReleased
+    private void textNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNomeKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_nomeKeyReleased
+    }//GEN-LAST:event_textNomeKeyReleased
 
-    private void precoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precoKeyReleased
+    private void textSenhaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textSenhaKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_precoKeyReleased
+    }//GEN-LAST:event_textSenhaKeyReleased
 
-    private void codigoNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoNomeKeyReleased
+    private void textCodNomKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCodNomKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_codigoNomeKeyReleased
+    }//GEN-LAST:event_textCodNomKeyReleased
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
@@ -421,23 +465,23 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnExcluirTudo;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnRegistrar;
-    private app.bolivia.swing.JCTextField codigo;
-    private app.bolivia.swing.JCTextField codigoNome;
     private javax.swing.JLabel imgCodigo;
     private javax.swing.JLabel imgCodigoNome;
     private javax.swing.JLabel imgNome;
     private javax.swing.JLabel imgPreco;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jspTabUsuario;
     private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblTipoUsu;
-    private app.bolivia.swing.JCTextField nome;
     private javax.swing.JPanel painelBuscar;
     private javax.swing.JPanel painelOpcoes;
     private javax.swing.JPanel painelUsuarios;
     private javax.swing.JPanel panelRegistro;
-    private app.bolivia.swing.JCTextField preco;
     private org.bolivia.combo.SComboBoxBlue scmbSexo;
     private org.bolivia.combo.SComboBoxBlue scmbTipoUsu;
     private javax.swing.JTable tabelaUsuarios;
+    private app.bolivia.swing.JCTextField textCodNom;
+    private app.bolivia.swing.JCTextField textCodigo;
+    private app.bolivia.swing.JCTextField textNome;
+    private app.bolivia.swing.JCTextField textSenha;
     // End of variables declaration//GEN-END:variables
 }
