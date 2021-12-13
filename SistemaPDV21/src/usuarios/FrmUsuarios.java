@@ -107,7 +107,8 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         scmbSexo.setSelectedItem("SEXO");
         scmbTipoUsu.setSelectedItem("TIPO USUÁRIO");
         textSenha.setText("");
-        textCodNom.setText("");
+        textCodNom.setText("");        
+        UsuariosSql.listarUsuario("");
     }
     
     
@@ -481,7 +482,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelRegistro;
     private org.bolivia.combo.SComboBoxBlue scmbSexo;
     private org.bolivia.combo.SComboBoxBlue scmbTipoUsu;
-    private javax.swing.JTable tabelaUsuarios;
+    public static javax.swing.JTable tabelaUsuarios;
     private app.bolivia.swing.JCTextField textCodNom;
     private app.bolivia.swing.JCTextField textCodigo;
     private app.bolivia.swing.JCTextField textNome;
