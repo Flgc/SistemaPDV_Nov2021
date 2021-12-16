@@ -12,17 +12,17 @@ package usuarios;
 public class Usuarios {
     
     //Constants
-    public static String LIST_US = "SELECT * FROM usuarios ORDER BY nome_usu";
+    public static String LIST_US = "SELECT * FROM usuarios ORDER BY nome_us";
     
     public static String INSERT_US = "INSERT INTO usuarios(codigo_us, nome_us,"
-            + "sexo_use, tipo_us, senha_us)" 
+            + "sexo_us, tipo_us, senha)" 
             + "VALUES(?,?,?,?,?)";
     
     public static String UPDATE_US = "UPDATE usuarios SET "
             + "nome_us = ?, "
             + "sexo_us = ?, "
             + "tipo_us = ?, "
-            + "senha_us = ? WHERE codigo_us=?";
+            + "senha = ? WHERE codigo_us=?";
     
     public static String DELETE_US = "DELETE FROM usuarios WHERE codigo_us = ?";
     

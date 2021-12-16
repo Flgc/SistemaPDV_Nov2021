@@ -5,9 +5,17 @@
  */
 package usuarios;
 
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import principal.Conectar;
 
 /**
  *
@@ -38,19 +46,18 @@ public class UsuariosSql {
         // Array with the number of fields in the table "jTable"
         String dados[] = new String[5];
         try {
-            Statement st = cn.createStatment();
+            Statement st = cn.createStatement();
             ResultSet  rs = st.executeQuery(sql);
             while (rs.next()){
                 dados[0] = rs.getString("codigo_us");
                 dados[1] = rs.getString("nome_us");
                 dados[2] = rs.getString("sexo_us");
                 dados[3] = rs.getString("tipo_us");
-                dados[4] = rs.getString("senha_us");
+                dados[4] = rs.getString("senha");
                 modelo.addRow(dados);
             }
-        } catch (Exception e) {
-            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null);
-        }
-        
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, sql);
+        }        
     }
 }

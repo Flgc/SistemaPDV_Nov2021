@@ -25,8 +25,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         initComponents();
         tabelaUsuarios.getTableHeader().setDefaultRenderer(new principal.EstiloTabelaHeader());
         tabelaUsuarios.setDefaultRenderer(Object.class, new principal.EstiloTabelaRenderer());
-        tabelaUsuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        
+                
         //list all records
         tabelaUsuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         limparCampos();

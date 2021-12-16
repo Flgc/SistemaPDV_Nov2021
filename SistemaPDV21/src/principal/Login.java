@@ -7,7 +7,6 @@ package principal;
 
 import java.sql.ResultSet;
 import java.sql.Connection;
-import dataBase.Conectar;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
