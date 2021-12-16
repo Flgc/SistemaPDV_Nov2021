@@ -108,9 +108,9 @@ public class Login extends javax.swing.JFrame {
                       dispose();
                       MenuPrincipalP menuP = new MenuPrincipalP();
                       
-                      JOptionPane.showMessageDialog(this, "A janela já está Aberta!!", "Alerta", 0,
-                        new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")));
-                      
+                      JOptionPane.showMessageDialog(this, "Bem vindo ao Sistema " + tipoUser + "!", "Usuário", 0,
+                        new ImageIcon(getClass().getResource("/imagens/usuarios/normal.png")));
+                                                                  
                       menuP.userConect.setText(tipoUser);
                       menuP.setLocationRelativeTo(null);
                       menuP.setVisible(true);                                            

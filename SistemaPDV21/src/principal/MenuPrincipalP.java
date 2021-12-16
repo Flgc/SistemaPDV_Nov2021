@@ -5,6 +5,15 @@
  */
 package principal;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import produtos.FrmProdutos;
 import usuarios.FrmUsuarios;
 import vendas.FrmCaixa;
@@ -15,7 +24,32 @@ import vendas.FrmVendas;
  * @author fabio
  */
 public class MenuPrincipalP extends javax.swing.JFrame {
+   
+    public boolean estaFechado(Object obj){
+        JInternalFrame[] janelaAtiva = inicializador.getAllFrames();
+        boolean fechado = true;
+        int i = 0;
+        while(i < janelaAtiva.length  && fechado) {
+            if(janelaAtiva[i] == obj) {
+                fechado=false;
+            } 
+            i ++;
+        }
+        return fechado;
+    }
 
+    class hora implements ActionListener {
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Date sisTime = new Date();
+            String pmAm = "HH:mm:ss";
+            SimpleDateFormat formato = new SimpleDateFormat(pmAm);
+            Calendar now = Calendar.getInstance();
+            jLabelHora.setText(String.format(formato.format(sisTime), now));
+        }
+    }    
+    
     /**
      * Creates new form MenuPrincipal
      */
@@ -34,8 +68,8 @@ public class MenuPrincipalP extends javax.swing.JFrame {
 
         painelPrincipal = new javax.swing.JPanel();
         painelCabecalho = new javax.swing.JPanel();
-        hora = new javax.swing.JLabel();
-        data = new javax.swing.JLabel();
+        jLabelHora = new javax.swing.JLabel();
+        jLabelData = new javax.swing.JLabel();
         desconect = new javax.swing.JLabel();
         userConect = new javax.swing.JLabel();
         logoUserOn = new javax.swing.JLabel();
@@ -47,7 +81,12 @@ public class MenuPrincipalP extends javax.swing.JFrame {
         inicializador = new principal.Inicializador();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ponto de Vendas - Usuário Padrão");
+        setTitle("Ponto de Vendas - Administrador");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         painelPrincipal.setPreferredSize(new java.awt.Dimension(1280, 640));
@@ -57,19 +96,27 @@ public class MenuPrincipalP extends javax.swing.JFrame {
         painelCabecalho.setPreferredSize(new java.awt.Dimension(1280, 125));
         painelCabecalho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        hora.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        hora.setForeground(java.awt.Color.white);
-        hora.setText("HORA");
-        painelCabecalho.add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 22, -1, -1));
+        jLabelHora.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        jLabelHora.setForeground(java.awt.Color.white);
+        jLabelHora.setText("HORA");
+        jLabelHora.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        painelCabecalho.add(jLabelHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 22, 150, -1));
 
-        data.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        data.setForeground(java.awt.Color.white);
-        data.setText("DIA - MES - ANO");
-        painelCabecalho.add(data, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+        jLabelData.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        jLabelData.setForeground(java.awt.Color.white);
+        jLabelData.setText("DIA - MES - ANO");
+        jLabelData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        painelCabecalho.add(jLabelData, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 150, -1));
 
         desconect.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         desconect.setForeground(java.awt.Color.white);
         desconect.setText("DESCONECTAR...");
+        desconect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        desconect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                desconectMouseClicked(evt);
+            }
+        });
         painelCabecalho.add(desconect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         userConect.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
@@ -83,6 +130,12 @@ public class MenuPrincipalP extends javax.swing.JFrame {
 
         logoDesconect.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
         logoDesconect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/principal/desconec.png"))); // NOI18N
+        logoDesconect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoDesconect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                desconectMouseClicked(evt);
+            }
+        });
         painelCabecalho.add(logoDesconect, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         btnInfo.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -179,24 +232,69 @@ public class MenuPrincipalP extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInfoActionPerformed
 
+    usuarios.FrmUsuarios frmUsr;
+    produtos.FrmProdutos frmPrd;
     private void btnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdActionPerformed
-        FrmProdutos form = new FrmProdutos();        
-        inicializador.add(form).setLocation(180,3);
-        form.show();
+           
+        if(estaFechado(frmPrd)){
+            frmPrd = new FrmProdutos();
+            inicializador.add(frmPrd).setLocation(180,3);
+            frmPrd.show();
+        }else{
+            frmPrd.toFront();
+            frmPrd.show();
+        }            
     }//GEN-LAST:event_btnProdActionPerformed
 
+    vendas.FrmVendas frmVnd;
     private void btnVendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendActionPerformed
-        FrmVendas form = new FrmVendas();        
-        inicializador.add(form).setLocation(180,3);
-        form.show();   
+        
+        if(estaFechado(frmVnd)){
+            frmVnd = new FrmVendas();
+            inicializador.add(frmVnd).setLocation(180,3);
+            frmVnd.show();
+        }else{
+            frmVnd.toFront();
+            frmVnd.show();
+        }                    
     }//GEN-LAST:event_btnVendActionPerformed
 
+    vendas.FrmCaixa frmCai;
     private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
-        FrmCaixa form = new FrmCaixa();        
-        inicializador.add(form).setLocation(180,3);
-        form.show();
+        
+        if(estaFechado(frmCai)){
+            frmCai = new FrmCaixa();
+            inicializador.add(frmCai).setLocation(180,3);
+            frmCai.show();
+        }else{
+            frmCai.toFront();
+            frmCai.show();
+        }        
     }//GEN-LAST:event_btnCaixaActionPerformed
 
+    private void desconectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconectMouseClicked
+        if (JOptionPane.showConfirmDialog(this, "Deseja fechar a sessão do usuário ?",
+                "Fechar Sessão", JOptionPane.YES_NO_OPTION, 0, 
+                new ImageIcon(getClass().getResource("/imagens/usuarios/info.png")))
+                == JOptionPane.YES_OPTION){
+                    
+            this.dispose();
+            Login login = new Login();
+            login.setLocationRelativeTo(null);
+            login.setVisible(true);            
+        }
+    }//GEN-LAST:event_desconectMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        Date datasistem = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd MMMM yyyy");
+        jLabelData.setText(formato.format(datasistem));
+        
+        //System Time
+        Timer tm = new Timer(100, new hora());
+        tm.start();        
+    }//GEN-LAST:event_formWindowOpened
+    
     /**
      * @param args the command line arguments
      */
@@ -240,10 +338,10 @@ public class MenuPrincipalP extends javax.swing.JFrame {
     private javax.swing.JButton btnInfo;
     private javax.swing.JButton btnProd;
     private javax.swing.JButton btnVend;
-    private javax.swing.JLabel data;
     private javax.swing.JLabel desconect;
-    private javax.swing.JLabel hora;
     public static principal.Inicializador inicializador;
+    private javax.swing.JLabel jLabelData;
+    private javax.swing.JLabel jLabelHora;
     private javax.swing.JLabel logoDesconect;
     private javax.swing.JLabel logoUserOn;
     private javax.swing.JPanel painelCabecalho;

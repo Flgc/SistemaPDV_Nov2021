@@ -452,7 +452,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_textCodNomKeyReleased
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
+        limparCampos();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnExcluirTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirTudoActionPerformed
