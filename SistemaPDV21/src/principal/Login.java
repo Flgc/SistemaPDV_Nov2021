@@ -77,7 +77,7 @@ public class Login extends javax.swing.JFrame {
                     tipoUser = rs2.getString(1);
                   }
                   
-                  if (tipoUser.equals("ADM")){
+                  if (tipoUser.equals("ADMINISTRADOR")){
                       String sql3 = "SELECT nome_us FROM usuarios WHERE nome_us = '"+nom+"'";
                       Statement st3 = conn.createStatement();
                       ResultSet rs3 = st3.executeQuery(sql3); 

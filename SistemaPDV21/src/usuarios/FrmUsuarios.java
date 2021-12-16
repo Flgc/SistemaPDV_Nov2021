@@ -73,6 +73,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         });
         
         tabelaUsuarios.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            // If you select the row in the table, show the information      
         
             @Override
             public void valueChanged(ListSelectionEvent lse) {
@@ -85,8 +86,9 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
 
     }
 
-    
     void atualizarDados(){
+        // Associating table fields with variables
+        
         int linha = tabelaUsuarios.getSelectedRow();
         textCodigo.setText(tabelaUsuarios.getValueAt(linha, 0).toString());
         textNome.setText(tabelaUsuarios.getValueAt(linha, 1).toString());
@@ -352,6 +354,11 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         textCodNom.setOpaque(false);
         textCodNom.setPhColor(new java.awt.Color(255, 255, 255));
         textCodNom.setPlaceholder("CÓDIGO/NOME");
+        textCodNom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textCodNomMouseClicked(evt);
+            }
+        });
         textCodNom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 textCodNomKeyReleased(evt);
@@ -438,7 +445,10 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_textSenhaKeyReleased
 
     private void textCodNomKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCodNomKeyReleased
-        // TODO add your handling code here:
+        // if you enter text in this text box
+        
+        textCodNom.setText(textCodNom.getText().toUpperCase());
+        UsuariosSql.listarUsuario(textCodNom.getText());
     }//GEN-LAST:event_textCodNomKeyReleased
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -460,6 +470,10 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void textCodNomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textCodNomMouseClicked
+        limparCampos();
+    }//GEN-LAST:event_textCodNomMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
