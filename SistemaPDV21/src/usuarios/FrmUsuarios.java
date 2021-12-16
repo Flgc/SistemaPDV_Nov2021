@@ -8,6 +8,7 @@ package usuarios;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -32,41 +33,41 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         
          // Initial components
         
-        scmbSexo.addItemListener(new ItemListener() {
+        cmbSexo.addItemListener(new ItemListener() {
  
             @Override
             public void itemStateChanged(ItemEvent ie) {
-                if (scmbSexo.getSelectedItem().equals("SEXO")){
+                if (cmbSexo.getSelectedItem().equals("SEXO")){
                     lblSexo.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/sexoL.png")));                
                 }
 
-                if (scmbSexo.getSelectedItem().equals("MASCULINO")){
+                if (cmbSexo.getSelectedItem().equals("MASCULINO")){
                     lblSexo.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/masL.png")));                
                 }
 
-                if (scmbSexo.getSelectedItem().equals("FEMININO")){
+                if (cmbSexo.getSelectedItem().equals("FEMININO")){
                     lblSexo.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/femL.png")));                
                 }                                            
             }            
         });
         
-        scmbTipoUsu.addItemListener(new ItemListener(){
+        cmbTipoUsu.addItemListener(new ItemListener(){
             //TIPO USUÁRIO, ADMINISTRADOR, FINANCEIRO, VENDEDOR
             @Override
             public void itemStateChanged(ItemEvent ie) {
-                if (scmbTipoUsu.getSelectedItem().equals("TIPO USUÁRIO")){
+                if (cmbTipoUsu.getSelectedItem().equals("TIPO USUÁRIO")){
                     lblTipoUsu.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/tipousL.png")));                
                 }
                 
-                if (scmbTipoUsu.getSelectedItem().equals("ADMINISTRADOR")){
+                if (cmbTipoUsu.getSelectedItem().equals("ADMINISTRADOR")){
                     lblTipoUsu.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/administrador.png")));                
                 }
 
-                if (scmbTipoUsu.getSelectedItem().equals("FINANCEIRO")){
+                if (cmbTipoUsu.getSelectedItem().equals("FINANCEIRO")){
                     lblTipoUsu.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/masL.png")));                
                 }
                 
-                if (scmbTipoUsu.getSelectedItem().equals("VENDEDOR")){
+                if (cmbTipoUsu.getSelectedItem().equals("VENDEDOR")){
                     lblTipoUsu.setIcon(new ImageIcon(getClass().getResource("/imagens/usuarios/normal.png")));                
                 }                
             }
@@ -90,11 +91,11 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         // Associating table fields with variables
         
         int linha = tabelaUsuarios.getSelectedRow();
-        textCodigo.setText(tabelaUsuarios.getValueAt(linha, 0).toString());
-        textNome.setText(tabelaUsuarios.getValueAt(linha, 1).toString());
-        scmbSexo.setSelectedItem(tabelaUsuarios.getValueAt(linha, 2).toString());
-        scmbTipoUsu.setSelectedItem(tabelaUsuarios.getValueAt(linha, 3).toString());
-        textSenha.setText(tabelaUsuarios.getValueAt(linha, 4).toString());
+        txtCodigo.setText(tabelaUsuarios.getValueAt(linha, 0).toString());
+        txtNome.setText(tabelaUsuarios.getValueAt(linha, 1).toString());
+        cmbSexo.setSelectedItem(tabelaUsuarios.getValueAt(linha, 2).toString());
+        cmbTipoUsu.setSelectedItem(tabelaUsuarios.getValueAt(linha, 3).toString());
+        txtSenha.setText(tabelaUsuarios.getValueAt(linha, 4).toString());
         
     }
     
@@ -103,12 +104,12 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
             tabelaUsuarios.removeRowSelectionInterval(tabelaUsuarios.getSelectedRow(),
                     tabelaUsuarios.getSelectedRow());
         }
-        textCodigo.setText("");
-        textNome.setText("");
-        scmbSexo.setSelectedItem("SEXO");
-        scmbTipoUsu.setSelectedItem("TIPO USUÁRIO");
-        textSenha.setText("");
-        textCodNom.setText("");        
+        txtCodigo.setText("");
+        txtNome.setText("");
+        cmbSexo.setSelectedItem("SEXO");
+        cmbTipoUsu.setSelectedItem("TIPO USUÁRIO");
+        txtSenha.setText("");
+        txtCodNom.setText("");        
         UsuariosSql.listarUsuario("");
     }
     
@@ -124,15 +125,15 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
 
         painelUsuarios = new javax.swing.JPanel();
         panelRegistro = new javax.swing.JPanel();
-        textCodigo = new app.bolivia.swing.JCTextField();
-        textNome = new app.bolivia.swing.JCTextField();
-        textSenha = new app.bolivia.swing.JCTextField();
-        scmbTipoUsu = new org.bolivia.combo.SComboBoxBlue();
+        txtCodigo = new app.bolivia.swing.JCTextField();
+        txtNome = new app.bolivia.swing.JCTextField();
+        txtSenha = new jpass.JRPasswordField();
+        cmbTipoUsu = new org.bolivia.combo.SComboBoxBlue();
         imgCodigo = new javax.swing.JLabel();
         imgNome = new javax.swing.JLabel();
         imgPreco = new javax.swing.JLabel();
         lblTipoUsu = new javax.swing.JLabel();
-        scmbSexo = new org.bolivia.combo.SComboBoxBlue();
+        cmbSexo = new org.bolivia.combo.SComboBoxBlue();
         lblSexo = new javax.swing.JLabel();
         painelOpcoes = new javax.swing.JPanel();
         btnRegistrar = new javax.swing.JButton();
@@ -141,7 +142,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         btnExcluirTudo = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         painelBuscar = new javax.swing.JPanel();
-        textCodNom = new app.bolivia.swing.JCTextField();
+        txtCodNom = new app.bolivia.swing.JCTextField();
         imgCodigoNome = new javax.swing.JLabel();
         jspTabUsuario = new javax.swing.JScrollPane();
         tabelaUsuarios = new javax.swing.JTable();
@@ -156,51 +157,52 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         panelRegistro.setPreferredSize(new java.awt.Dimension(703, 142));
         panelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textCodigo.setBackground(new java.awt.Color(34, 102, 145));
-        textCodigo.setBorder(null);
-        textCodigo.setForeground(new java.awt.Color(255, 255, 255));
-        textCodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        textCodigo.setOpaque(false);
-        textCodigo.setPhColor(new java.awt.Color(255, 255, 255));
-        textCodigo.setPlaceholder("CÓDIGO");
-        textCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCodigo.setBackground(new java.awt.Color(34, 102, 145));
+        txtCodigo.setBorder(null);
+        txtCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        txtCodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCodigo.setOpaque(false);
+        txtCodigo.setPhColor(new java.awt.Color(255, 255, 255));
+        txtCodigo.setPlaceholder("CÓDIGO");
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                textCodigoKeyReleased(evt);
+                txtCodigoKeyReleased(evt);
             }
         });
-        panelRegistro.add(textCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
+        panelRegistro.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
-        textNome.setBackground(new java.awt.Color(34, 102, 145));
-        textNome.setBorder(null);
-        textNome.setForeground(new java.awt.Color(255, 255, 255));
-        textNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        textNome.setOpaque(false);
-        textNome.setPhColor(new java.awt.Color(255, 255, 255));
-        textNome.setPlaceholder("NOME USUÁRIO");
-        textNome.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNome.setBackground(new java.awt.Color(34, 102, 145));
+        txtNome.setBorder(null);
+        txtNome.setForeground(new java.awt.Color(255, 255, 255));
+        txtNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtNome.setOpaque(false);
+        txtNome.setPhColor(new java.awt.Color(255, 255, 255));
+        txtNome.setPlaceholder("NOME USUÁRIO");
+        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                textNomeKeyReleased(evt);
+                txtNomeKeyReleased(evt);
             }
         });
-        panelRegistro.add(textNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 180, -1));
+        panelRegistro.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 180, -1));
 
-        textSenha.setBackground(new java.awt.Color(34, 102, 145));
-        textSenha.setBorder(null);
-        textSenha.setForeground(new java.awt.Color(255, 255, 255));
-        textSenha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        textSenha.setOpaque(false);
-        textSenha.setPhColor(new java.awt.Color(255, 255, 255));
-        textSenha.setPlaceholder("SENHA");
-        textSenha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                textSenhaKeyReleased(evt);
+        txtSenha.setBackground(new java.awt.Color(34, 102, 145));
+        txtSenha.setBorder(null);
+        txtSenha.setForeground(new java.awt.Color(255, 255, 255));
+        txtSenha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtSenha.setName("txtSenha"); // NOI18N
+        txtSenha.setOpaque(false);
+        txtSenha.setPhColor(new java.awt.Color(255, 255, 255));
+        txtSenha.setPlaceholder("SENHA");
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaActionPerformed(evt);
             }
         });
-        panelRegistro.add(textSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 180, -1));
+        panelRegistro.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 180, -1));
 
-        scmbTipoUsu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO USUÁRIO", "ADMINISTRADOR", "FINANCEIRO", "VENDEDOR" }));
-        scmbTipoUsu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        panelRegistro.add(scmbTipoUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 190, -1));
+        cmbTipoUsu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO USUÁRIO", "ADMINISTRADOR", "FINANCEIRO", "VENDEDOR" }));
+        cmbTipoUsu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        panelRegistro.add(cmbTipoUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 190, -1));
 
         imgCodigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/codigoL.png"))); // NOI18N
         panelRegistro.add(imgCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
@@ -215,9 +217,9 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         lblTipoUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuarios/tipousL.png"))); // NOI18N
         panelRegistro.add(lblTipoUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 50, 50));
 
-        scmbSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SEXO", "FEMININO", "MASCULINO" }));
-        scmbSexo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        panelRegistro.add(scmbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 190, -1));
+        cmbSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SEXO", "FEMININO", "MASCULINO" }));
+        cmbSexo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        panelRegistro.add(cmbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 190, -1));
 
         lblSexo.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
         lblSexo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuarios/sexoL.png"))); // NOI18N
@@ -347,24 +349,24 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         painelBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BUSCAR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         painelBuscar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textCodNom.setBackground(new java.awt.Color(34, 102, 145));
-        textCodNom.setBorder(null);
-        textCodNom.setForeground(new java.awt.Color(255, 255, 255));
-        textCodNom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        textCodNom.setOpaque(false);
-        textCodNom.setPhColor(new java.awt.Color(255, 255, 255));
-        textCodNom.setPlaceholder("CÓDIGO/NOME");
-        textCodNom.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtCodNom.setBackground(new java.awt.Color(34, 102, 145));
+        txtCodNom.setBorder(null);
+        txtCodNom.setForeground(new java.awt.Color(255, 255, 255));
+        txtCodNom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCodNom.setOpaque(false);
+        txtCodNom.setPhColor(new java.awt.Color(255, 255, 255));
+        txtCodNom.setPlaceholder("CÓDIGO/NOME");
+        txtCodNom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                textCodNomMouseClicked(evt);
+                txtCodNomMouseClicked(evt);
             }
         });
-        textCodNom.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCodNom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                textCodNomKeyReleased(evt);
+                txtCodNomKeyReleased(evt);
             }
         });
-        painelBuscar.add(textCodNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 180, -1));
+        painelBuscar.add(txtCodNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 180, -1));
 
         imgCodigoNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/buscarL.png"))); // NOI18N
         painelBuscar.add(imgCodigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
@@ -432,24 +434,20 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCodigoKeyReleased
-        textCodigo.setText(textCodigo.getText().toUpperCase());
-    }//GEN-LAST:event_textCodigoKeyReleased
+    private void txtCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyReleased
+        txtCodigo.setText(txtCodigo.getText().toUpperCase());
+    }//GEN-LAST:event_txtCodigoKeyReleased
 
-    private void textNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNomeKeyReleased
+    private void txtNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_textNomeKeyReleased
+    }//GEN-LAST:event_txtNomeKeyReleased
 
-    private void textSenhaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textSenhaKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textSenhaKeyReleased
-
-    private void textCodNomKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCodNomKeyReleased
+    private void txtCodNomKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodNomKeyReleased
         // if you enter text in this text box
         
-        textCodNom.setText(textCodNom.getText().toUpperCase());
-        UsuariosSql.listarUsuario(textCodNom.getText());
-    }//GEN-LAST:event_textCodNomKeyReleased
+        txtCodNom.setText(txtCodNom.getText().toUpperCase());
+        UsuariosSql.listarUsuario(txtCodNom.getText());
+    }//GEN-LAST:event_txtCodNomKeyReleased
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         limparCampos();
@@ -467,13 +465,51 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
+    boolean selecionarRegistro = false;
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
+        if(selecionarRegistro) {
+            JOptionPane.showMessageDialog(this, "O código: " + this.txtCodigo.
+                    getText() + "\n Já está registrado.", "Usuários", 0,
+                    new ImageIcon(getClass().getResource("/imagens/usuarios/info"
+                            + ".png")));        
+        }else{
+            String sen = new String(txtSenha.getPassword());
+            if (txtCodigo.getText().equals("") || txtNome.getText().equals("") 
+                || cmbSexo.getSelectedItem().equals("SEXO") || cmbTipoUsu.
+                        getSelectedItem().equals("TIPO USUÁRIO") || txtSenha.
+                                equals("")) {
+            JOptionPane.showMessageDialog(this, "Todos os campos \n são obriga"
+                    + "tórios.", "Usuários", 0, new ImageIcon(getClass().
+                            getResource("/imagens/usuarios/info.png")));            
+            }else {
+                usuarios.Usuarios us = new Usuarios();
+                
+                us.setPrimaryKey(txtCodigo.getText());
+                us.setNome(txtNome.getText());
+                us.setSexo(cmbSexo.getSelectedItem().toString());
+                us.setTipoUser(cmbTipoUsu.getSelectedItem().toString());
+                us.setSenha(sen);
+                
+                int op = UsuariosSql.registrarUsuario(us);
+                if(op != 0){
+                    String id = txtCodigo.getText();
+                    limparCampos();
+                    
+                    JOptionPane.showMessageDialog(this, "Usuário Inserido com"
+                            + " Sucesso.", "Usuários", 0, new ImageIcon(getClass().
+                            getResource("/imagens/usuarios/info.png")));                     
+                }                
+            }
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void textCodNomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textCodNomMouseClicked
+    private void txtCodNomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCodNomMouseClicked
         limparCampos();
-    }//GEN-LAST:event_textCodNomMouseClicked
+    }//GEN-LAST:event_txtCodNomMouseClicked
+
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -482,6 +518,8 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnExcluirTudo;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnRegistrar;
+    private org.bolivia.combo.SComboBoxBlue cmbSexo;
+    private org.bolivia.combo.SComboBoxBlue cmbTipoUsu;
     private javax.swing.JLabel imgCodigo;
     private javax.swing.JLabel imgCodigoNome;
     private javax.swing.JLabel imgNome;
@@ -493,12 +531,10 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel painelOpcoes;
     private javax.swing.JPanel painelUsuarios;
     private javax.swing.JPanel panelRegistro;
-    private org.bolivia.combo.SComboBoxBlue scmbSexo;
-    private org.bolivia.combo.SComboBoxBlue scmbTipoUsu;
     public static javax.swing.JTable tabelaUsuarios;
-    private app.bolivia.swing.JCTextField textCodNom;
-    private app.bolivia.swing.JCTextField textCodigo;
-    private app.bolivia.swing.JCTextField textNome;
-    private app.bolivia.swing.JCTextField textSenha;
+    private app.bolivia.swing.JCTextField txtCodNom;
+    private app.bolivia.swing.JCTextField txtCodigo;
+    private app.bolivia.swing.JCTextField txtNome;
+    private jpass.JRPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

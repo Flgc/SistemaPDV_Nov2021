@@ -271,7 +271,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_senhaActionPerformed
 
     private void usuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioKeyReleased
-        //usuario.setText(usuario.getText().toUpperCase());
+        usuario.setText(usuario.getText().toUpperCase());
     }//GEN-LAST:event_usuarioKeyReleased
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed

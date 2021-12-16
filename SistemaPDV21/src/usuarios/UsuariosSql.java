@@ -60,4 +60,24 @@ public class UsuariosSql {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, sql);
         }        
     }
+    
+    public static int registrarUsuario(Usuarios rU){
+        int rsu = 0;
+        String sql = Usuarios.INSERT_US;
+        
+        try {
+            ps = cn.prepareStatement(sql);
+            
+            ps.setString(1, rU.getPrimaryKey());
+            ps.setString(2, rU.getNome());
+            ps.setString(3, rU.getSexo());
+            ps.setString(4, rU.getTipoUser());
+            ps.setString(5, rU.getSenha());
+            
+            rsu = ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rsu;
+    }
 }
