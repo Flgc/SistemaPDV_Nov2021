@@ -80,4 +80,38 @@ public class UsuariosSql {
         }
         return rsu;
     }
+    
+    public static void gerarId() {
+        int j;
+        int cont = 1;
+        String num = "";
+        String c = "";
+        String SQL = "SELECT MAX(codigo_us) FROM usuarios";
+        
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            while (rs.next()) {
+                c = rs.getString(1);
+            }
+            
+            if (c == null ) {
+                usuarios.FrmUsuarios.t
+                usuarios.FrmUsuarios.txtCodigo.setText("USU0001");
+            }else {
+                char r1 = c.charAt(3);
+                char r2 = c.charAt(4);
+                char r3 = c.charAt(5);
+                char r4 = c.charAt(6);
+                String r = "";
+                r = ""+ r1 + r2 + r3 + r4;
+                j = Integer.parseInt(r);
+                GerarCodigos gen = new GerarCodigos();
+                gen.gerar(j);
+                usuarios.FrmUsuarios.txtCodigo.setText("USU" + gen.serie());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, sql);
+        }
+    }  
 }

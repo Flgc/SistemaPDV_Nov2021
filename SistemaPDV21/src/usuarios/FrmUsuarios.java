@@ -80,6 +80,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
             public void valueChanged(ListSelectionEvent lse) {
                 if (tabelaUsuarios.getSelectedRow() != -1) {
                     atualizarDados();
+                    selecionarRegistro = true;
                 }
             
             }        
@@ -111,6 +112,16 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         txtSenha.setText("");
         txtCodNom.setText("");        
         UsuariosSql.listarUsuario("");
+        UsuariosSql.gerarId();
+    }
+    
+    void selecionarLinha(String id){
+        for (int i = 0; i < tabelaUsuarios.getRowCount(); i++) {
+            if (id.equals(tabelaUsuarios.getValueAt(i, 0))) {
+                tabelaUsuarios.setRowSelectionInterval(i, i);
+                break;
+            }
+        }
     }
     
     
@@ -494,7 +505,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
                 if(op != 0){
                     String id = txtCodigo.getText();
                     limparCampos();
-                    
+                    selecionarLinha(id);
                     JOptionPane.showMessageDialog(this, "Usuário Inserido com"
                             + " Sucesso.", "Usuários", 0, new ImageIcon(getClass().
                             getResource("/imagens/usuarios/info.png")));                     
