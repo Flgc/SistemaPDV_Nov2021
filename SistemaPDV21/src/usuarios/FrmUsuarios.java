@@ -544,7 +544,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelRegistro;
     public static javax.swing.JTable tabelaUsuarios;
     private app.bolivia.swing.JCTextField txtCodNom;
-    private app.bolivia.swing.JCTextField txtCodigo;
+    public static app.bolivia.swing.JCTextField txtCodigo;
     private app.bolivia.swing.JCTextField txtNome;
     private jpass.JRPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables

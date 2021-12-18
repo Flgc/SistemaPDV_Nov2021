@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import principal.Conectar;
+import principal.GerarCodigos;
 
 /**
  *
@@ -96,7 +97,6 @@ public class UsuariosSql {
             }
             
             if (c == null ) {
-                usuarios.FrmUsuarios.t
                 usuarios.FrmUsuarios.txtCodigo.setText("USU0001");
             }else {
                 char r1 = c.charAt(3);
@@ -111,7 +111,7 @@ public class UsuariosSql {
                 usuarios.FrmUsuarios.txtCodigo.setText("USU" + gen.serie());
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, sql);
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, SQL);
         }
     }  
 }
