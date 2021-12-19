@@ -75,7 +75,7 @@ public class Usuarios {
    }
    
    public void setSenha(String senha) {
-       this.sexo = senha;
+       this.senha = senha;
    }   
     
 }

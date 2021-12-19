@@ -450,7 +450,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCodigoKeyReleased
 
     private void txtNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyReleased
-        // TODO add your handling code here:
+        txtNome.setText(txtNome.getText().toUpperCase());
     }//GEN-LAST:event_txtNomeKeyReleased
 
     private void txtCodNomKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodNomKeyReleased
