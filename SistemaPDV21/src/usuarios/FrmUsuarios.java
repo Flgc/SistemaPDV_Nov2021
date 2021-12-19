@@ -473,7 +473,48 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        // TODO add your handling code here:
+        if (tabelaUsuarios.getRowCount() > 0) {
+            if (tabelaUsuarios.getSelectedRowCount() > 0) {
+                String sen = new String(txtSenha.getPassword());
+                if (txtCodigo.getText().equals("") || txtNome.getText().equals("")
+                        || cmbSexo.getSelectedItem().equals("SEXO") || cmbTipoUsu
+                                .getSelectedItem().equals("TIPO USUÁRIO")) {
+                    JOptionPane.showMessageDialog(this, "Preencha os campo ", 
+                            "Usuários", 0, new ImageIcon(getClass().getResource(
+                                    "/imagens/usuarios/info.png")));                            
+                } else if (JOptionPane.showConfirmDialog(this, "Deseja alterar o"
+                        + " registro?", "Usuários", 0, JOptionPane.YES_NO_OPTION,
+                        new ImageIcon(getClass().getResource("/imagens/usuarios/"
+                                + "info.png"))) == JOptionPane.YES_OPTION) {
+                    
+                    usuarios.Usuarios us = new Usuarios();
+                    us.setPrimaryKey(txtCodigo.getText());
+                    us.setNome(txtNome.getText());
+                    us.setSexo(cmbSexo.getSelectedItem().toString());
+                    us.setTipoUser(cmbTipoUsu.getSelectedItem().toString());
+                    us.setSenha(sen);
+                    
+                    int opc = UsuariosSql.atualizarUsuario(us);
+                    if (opc !=0){
+                        String id = txtCodigo.getText();
+                        limparCampos();
+                        selecionarLinha(id);
+                        JOptionPane.showMessageDialog(this, "Registro Atualizado",
+                                "Usuários", 0, new ImageIcon(getClass().
+                                        getResource("/imagens/usuarios/info.png"
+                                        )));                                                                
+                    }
+            }
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um registro.",
+                        "Usuários", 0, new ImageIcon(getClass().
+                                getResource("/imagens/usuarios/info.png")));                                        
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há registro para alterar.",
+                    "Usuários", 0, new ImageIcon(getClass().
+                            getResource("/imagens/usuarios/info.png")));                        
+        }
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     boolean selecionarRegistro = false;

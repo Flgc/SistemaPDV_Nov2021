@@ -113,5 +113,22 @@ public class UsuariosSql {
         } catch (SQLException ex) {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, SQL);
         }
-    }  
+    } 
+    
+    public static int atualizarUsuario(Usuarios aU) {
+        int rsu = 0;
+        String sql = Usuarios.UPDATE_US;
+        try {
+            ps = cn.prepareStatement(sql);
+            ps.setString(1, aU.getNome());
+            ps.setString(2, aU.getSexo());
+            ps.setString(3, aU.getTipoUser());
+            ps.setString(4, aU.getSenha());
+            ps.setString(5, aU.getPrimaryKey());
+            rsu = ps.executeUpdate();
+        } catch (SQLException ex) {
+        }
+        System.out.println(sql);
+        return rsu;    
+    }
 }
