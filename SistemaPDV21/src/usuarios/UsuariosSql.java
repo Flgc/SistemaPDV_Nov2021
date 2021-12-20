@@ -127,8 +127,41 @@ public class UsuariosSql {
             ps.setString(5, aU.getPrimaryKey());
             rsu = ps.executeUpdate();
         } catch (SQLException ex) {
+            ex.printStackTrace();
         }
         System.out.println(sql);
         return rsu;    
     }
+    
+    public static int eliminarUsuario(String id) {
+        int rsu = 0;
+        String sql = Usuarios.DELETE_US;
+        
+        try {
+            ps = cn.prepareStatement(sql);
+            ps.setString(1, id);
+            rsu = ps.executeUpdate();
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        System.out.println(sql);
+        return rsu;    
+    }
+    
+    public static int eliminarTodos() {
+        int rsu = 0;
+        String sql = Usuarios.DELETE_ALL_US;
+
+        try {
+            ps = cn.prepareStatement(sql);
+            rsu = ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        System.out.println(sql);
+        return rsu;        
+    }
+    
+    
 }

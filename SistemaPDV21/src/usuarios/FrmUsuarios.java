@@ -465,11 +465,58 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnExcluirTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirTudoActionPerformed
-        // TODO add your handling code here:
+        if (tabelaUsuarios.getRowCount() > 0) {
+            if (JOptionPane.showConfirmDialog(this, "Deseja realizar a excusão "
+                    + "de todos?", "Usuários", JOptionPane.YES_NO_OPTION, 0, 
+                    new ImageIcon(getClass().getResource("/imagens/usuarios/info"
+                            + ".png"))) == JOptionPane.YES_OPTION) {
+                
+                    int eliminaT = UsuariosSql.eliminarTodos();
+                
+                    if (eliminaT != 0){
+                        limparCampos();
+                        JOptionPane.showMessageDialog(this, "Registros excluidos.", 
+                        "Usuários", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/usuarios/info.png")));
+                    }               
+        } else {
+            
+                JOptionPane.showMessageDialog(this, "Não há registros para exclusão.", 
+                        "Usuários", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/usuarios/info.png")));            
+            }
+        }
     }//GEN-LAST:event_btnExcluirTudoActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
+        if (tabelaUsuarios.getRowCount() > 0) {
+            if (tabelaUsuarios.getSelectedRowCount() > 0) {
+                if (JOptionPane.showConfirmDialog(this, "Deseja excluir?", 
+                        "Usuários", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(
+                                getClass().getResource("/imagens/usuarios/info"
+                                        + ".png"))) == JOptionPane.YES_OPTION) {
+                    int linha = tabelaUsuarios.getSelectedRow();
+                    String id = tabelaUsuarios.getValueAt(linha, 0).toString();
+                    
+                    int elimina = UsuariosSql.eliminarUsuario(id);
+                    
+                    if (elimina != 0){
+                        limparCampos();
+                        JOptionPane.showMessageDialog(this, "Registro excluido.", 
+                        "Usuários", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/usuarios/info.png")));
+                    }                
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione o registro.", 
+                        "Usuários", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/usuarios/info.png")));                
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há registros para exclusão.", 
+                        "Usuários", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/usuarios/info.png")));            
+        }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
@@ -495,6 +542,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
                     us.setSenha(sen);
                     
                     int opc = UsuariosSql.atualizarUsuario(us);
+                    
                     if (opc !=0){
                         String id = txtCodigo.getText();
                         limparCampos();
@@ -543,6 +591,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
                 us.setSenha(sen);
                 
                 int op = UsuariosSql.registrarUsuario(us);
+                
                 if(op != 0){
                     String id = txtCodigo.getText();
                     limparCampos();
