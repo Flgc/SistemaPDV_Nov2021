@@ -29,10 +29,10 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
 
         painelProdutos = new javax.swing.JPanel();
         panelRegistro = new javax.swing.JPanel();
-        codigo = new app.bolivia.swing.JCTextField();
-        nome = new app.bolivia.swing.JCTextField();
-        preco = new app.bolivia.swing.JCTextField();
-        tipoProd = new org.bolivia.combo.SComboBoxBlue();
+        txtCodigo = new app.bolivia.swing.JCTextField();
+        txtNome = new app.bolivia.swing.JCTextField();
+        txtPreco = new app.bolivia.swing.JCTextField();
+        cmbTipoProd = new org.bolivia.combo.SComboBoxBlue();
         imgCodigo = new javax.swing.JLabel();
         imgNome = new javax.swing.JLabel();
         imgPreco = new javax.swing.JLabel();
@@ -59,51 +59,51 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         panelRegistro.setPreferredSize(new java.awt.Dimension(703, 142));
         panelRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        codigo.setBackground(new java.awt.Color(34, 102, 145));
-        codigo.setBorder(null);
-        codigo.setForeground(new java.awt.Color(255, 255, 255));
-        codigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        codigo.setOpaque(false);
-        codigo.setPhColor(new java.awt.Color(255, 255, 255));
-        codigo.setPlaceholder("CÓDIGO");
-        codigo.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCodigo.setBackground(new java.awt.Color(34, 102, 145));
+        txtCodigo.setBorder(null);
+        txtCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        txtCodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCodigo.setOpaque(false);
+        txtCodigo.setPhColor(new java.awt.Color(255, 255, 255));
+        txtCodigo.setPlaceholder("CÓDIGO");
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                codigoKeyReleased(evt);
+                txtCodigoKeyReleased(evt);
             }
         });
-        panelRegistro.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 180, -1));
+        panelRegistro.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 180, -1));
 
-        nome.setBackground(new java.awt.Color(34, 102, 145));
-        nome.setBorder(null);
-        nome.setForeground(new java.awt.Color(255, 255, 255));
-        nome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        nome.setOpaque(false);
-        nome.setPhColor(new java.awt.Color(255, 255, 255));
-        nome.setPlaceholder("NOME PRODUTO");
-        nome.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNome.setBackground(new java.awt.Color(34, 102, 145));
+        txtNome.setBorder(null);
+        txtNome.setForeground(new java.awt.Color(255, 255, 255));
+        txtNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtNome.setOpaque(false);
+        txtNome.setPhColor(new java.awt.Color(255, 255, 255));
+        txtNome.setPlaceholder("NOME PRODUTO");
+        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                nomeKeyReleased(evt);
+                txtNomeKeyReleased(evt);
             }
         });
-        panelRegistro.add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 180, -1));
+        panelRegistro.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 180, -1));
 
-        preco.setBackground(new java.awt.Color(34, 102, 145));
-        preco.setBorder(null);
-        preco.setForeground(new java.awt.Color(255, 255, 255));
-        preco.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        preco.setOpaque(false);
-        preco.setPhColor(new java.awt.Color(255, 255, 255));
-        preco.setPlaceholder("PREÇO");
-        preco.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtPreco.setBackground(new java.awt.Color(34, 102, 145));
+        txtPreco.setBorder(null);
+        txtPreco.setForeground(new java.awt.Color(255, 255, 255));
+        txtPreco.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtPreco.setOpaque(false);
+        txtPreco.setPhColor(new java.awt.Color(255, 255, 255));
+        txtPreco.setPlaceholder("PREÇO");
+        txtPreco.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                precoKeyReleased(evt);
+                txtPrecoKeyReleased(evt);
             }
         });
-        panelRegistro.add(preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 180, -1));
+        panelRegistro.add(txtPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 180, -1));
 
-        tipoProd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO PRODUTO", "BEBIDAS", "LIMPEZA", "CARNES", "CONGELADOS", "LACTINEOS", "VERDURAS" }));
-        tipoProd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        panelRegistro.add(tipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 190, -1));
+        cmbTipoProd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO PRODUTO", "BEBIDAS", "LIMPEZA", "CARNES", "CONGELADOS", "LACTINEOS", "VERDURAS" }));
+        cmbTipoProd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        panelRegistro.add(cmbTipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 190, -1));
 
         imgCodigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/codigoL.png"))); // NOI18N
         panelRegistro.add(imgCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
@@ -348,17 +348,17 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void precoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precoKeyReleased
+    private void txtPrecoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecoKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_precoKeyReleased
+    }//GEN-LAST:event_txtPrecoKeyReleased
 
-    private void nomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nomeKeyReleased
+    private void txtNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_nomeKeyReleased
+    }//GEN-LAST:event_txtNomeKeyReleased
 
-    private void codigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoKeyReleased
-        codigo.setText(codigo.getText().toUpperCase());
-    }//GEN-LAST:event_codigoKeyReleased
+    private void txtCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyReleased
+        txtCodigo.setText(txtCodigo.getText().toUpperCase());
+    }//GEN-LAST:event_txtCodigoKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -367,7 +367,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnExcluirTudo;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnRegistrar;
-    private app.bolivia.swing.JCTextField codigo;
+    private org.bolivia.combo.SComboBoxBlue cmbTipoProd;
     private app.bolivia.swing.JCTextField codigoNome;
     private javax.swing.JLabel imgCodigo;
     private javax.swing.JLabel imgCodigoNome;
@@ -375,13 +375,13 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel imgPreco;
     private javax.swing.JLabel imgTipoProd;
     private javax.swing.JScrollPane jScrollPane1;
-    private app.bolivia.swing.JCTextField nome;
     private javax.swing.JPanel painelBuscar;
     private javax.swing.JPanel painelOpcoes;
     private javax.swing.JPanel painelProdutos;
     private javax.swing.JPanel panelRegistro;
-    private app.bolivia.swing.JCTextField preco;
-    private javax.swing.JTable tabelaProdutos;
-    private org.bolivia.combo.SComboBoxBlue tipoProd;
+    public static javax.swing.JTable tabelaProdutos;
+    public static app.bolivia.swing.JCTextField txtCodigo;
+    private app.bolivia.swing.JCTextField txtNome;
+    private app.bolivia.swing.JCTextField txtPreco;
     // End of variables declaration//GEN-END:variables
 }
