@@ -5,6 +5,10 @@
  */
 package produtos;
 
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 /**
  *
  * @author fabio
@@ -16,7 +20,66 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
      */
     public FrmProdutos() {
         initComponents();
+        
+        
+        tabela.getTableHeader().setDefaultRenderer(new principal.EstiloTabelaHeader());
+        tabela.setDefaultRenderer(Object.class, new principal.EstiloTabelaRenderer());
+                
+        //list all records
+        tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        limparCampos();
+        
+         // Initial components        
+
+        tabela.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            // If you select the row in the table, show the information      
+        
+            @Override
+            public void valueChanged(ListSelectionEvent lse) {
+                if (tabela.getSelectedRow() != -1) {
+                    atualizarDados();
+                    //selecionarRegistro = true;
+                }
+            
+            }        
+        });                       
     }
+
+    void atualizarDados(){
+        // Associating table fields with variables
+        
+        int linha = tabela.getSelectedRow();
+        txtCodigo.setText(tabela.getValueAt(linha, 0).toString());
+        cmbTipoProd.setSelectedItem(tabela.getValueAt(linha, 1).toString());
+        txtNome.setText(tabela.getValueAt(linha, 2).toString());
+        txtPreco.setText(tabela.getValueAt(linha, 3).toString());
+        
+    }
+    
+    void limparCampos(){
+        if (tabela.getSelectedRow() > -1){
+            tabela.removeRowSelectionInterval(tabela.getSelectedRow(),
+                    tabela.getSelectedRow());
+        }
+        txtCodigo.setText("");
+        txtNome.setText("");
+        cmbTipoProd.setSelectedItem("TIPO PRODUTO");
+        txtPreco.setText("");
+        txtCodNom.setText("");        
+        //ProdutosSql.listarProduto("");
+        //ProdutosSql.gerarId();
+    }
+    
+    void selecionarLinha(String id){
+        for (int i = 0; i < tabela.getRowCount(); i++) {
+            if (id.equals(tabela.getValueAt(i, 0))) {
+                tabela.setRowSelectionInterval(i, i);
+                break;
+            }
+        }
+    }    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,10 +107,10 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         btnExcluirTudo = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         painelBuscar = new javax.swing.JPanel();
-        codigoNome = new app.bolivia.swing.JCTextField();
+        txtCodNom = new app.bolivia.swing.JCTextField();
         imgCodigoNome = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaProdutos = new javax.swing.JTable();
+        tabela = new javax.swing.JTable();
 
         setClosable(true);
         setPreferredSize(new java.awt.Dimension(845, 508));
@@ -243,24 +306,24 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         painelBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BUSCAR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         painelBuscar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        codigoNome.setBackground(new java.awt.Color(34, 102, 145));
-        codigoNome.setBorder(null);
-        codigoNome.setForeground(new java.awt.Color(255, 255, 255));
-        codigoNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        codigoNome.setOpaque(false);
-        codigoNome.setPhColor(new java.awt.Color(255, 255, 255));
-        codigoNome.setPlaceholder("CÓDIGO/NOME");
-        codigoNome.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCodNom.setBackground(new java.awt.Color(34, 102, 145));
+        txtCodNom.setBorder(null);
+        txtCodNom.setForeground(new java.awt.Color(255, 255, 255));
+        txtCodNom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCodNom.setOpaque(false);
+        txtCodNom.setPhColor(new java.awt.Color(255, 255, 255));
+        txtCodNom.setPlaceholder("CÓDIGO/NOME");
+        txtCodNom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                codigoNomeKeyReleased(evt);
+                txtCodNomKeyReleased(evt);
             }
         });
-        painelBuscar.add(codigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 180, -1));
+        painelBuscar.add(txtCodNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 180, -1));
 
         imgCodigoNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/buscarL.png"))); // NOI18N
         painelBuscar.add(imgCodigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -276,7 +339,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tabelaProdutos);
+        jScrollPane1.setViewportView(tabela);
 
         javax.swing.GroupLayout painelProdutosLayout = new javax.swing.GroupLayout(painelProdutos);
         painelProdutos.setLayout(painelProdutosLayout);
@@ -324,9 +387,9 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void codigoNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoNomeKeyReleased
+    private void txtCodNomKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodNomKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_codigoNomeKeyReleased
+    }//GEN-LAST:event_txtCodNomKeyReleased
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
@@ -368,7 +431,6 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnRegistrar;
     private org.bolivia.combo.SComboBoxBlue cmbTipoProd;
-    private app.bolivia.swing.JCTextField codigoNome;
     private javax.swing.JLabel imgCodigo;
     private javax.swing.JLabel imgCodigoNome;
     private javax.swing.JLabel imgNome;
@@ -379,7 +441,8 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel painelOpcoes;
     private javax.swing.JPanel painelProdutos;
     private javax.swing.JPanel panelRegistro;
-    public static javax.swing.JTable tabelaProdutos;
+    public static javax.swing.JTable tabela;
+    private app.bolivia.swing.JCTextField txtCodNom;
     public static app.bolivia.swing.JCTextField txtCodigo;
     private app.bolivia.swing.JCTextField txtNome;
     private app.bolivia.swing.JCTextField txtPreco;

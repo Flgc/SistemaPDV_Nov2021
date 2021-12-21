@@ -30,7 +30,7 @@ public class ProdutosSql {
     
     public static void listarProduto(String buscarTextCodNom) {
         DefaultTableModel modelo = (DefaultTableModel) produtos.FrmProdutos
-                .tabelaProdutos.getModel();
+                .tabela.getModel();
         
         while(modelo.getRowCount() > 0){
             modelo.removeRow(0);
@@ -81,7 +81,7 @@ public class ProdutosSql {
         return rsp;
     }
     
-    public static void gerarProdId() {
+    public static void gerarId() {
         int j;
         int cont = 1;
         String num = "";
