@@ -66,7 +66,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         cmbTipoProd.setSelectedItem("TIPO PRODUTO");
         txtPreco.setText("");
         txtCodNom.setText("");        
-        //ProdutosSql.listarProduto("");
+        ProdutosSql.listar("");
         //ProdutosSql.gerarId();
     }
     
@@ -388,7 +388,10 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCodNomKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodNomKeyReleased
-        // TODO add your handling code here:
+        // if you enter text in this text box
+        
+        txtCodNom.setText(txtCodNom.getText().toUpperCase());
+        ProdutosSql.listar(txtCodNom.getText());        
     }//GEN-LAST:event_txtCodNomKeyReleased
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed

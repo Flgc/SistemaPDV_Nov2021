@@ -28,7 +28,7 @@ public class ProdutosSql {
     static Connection cn = cc.conexao();
     static PreparedStatement ps;
     
-    public static void listarProduto(String buscarTextCodNom) {
+    public static void listar(String buscarTxtCodNom) {
         DefaultTableModel modelo = (DefaultTableModel) produtos.FrmProdutos
                 .tabela.getModel();
         
@@ -36,11 +36,11 @@ public class ProdutosSql {
             modelo.removeRow(0);
         }
         String sql = "";
-        if(buscarTextCodNom.equals("")){
+        if(buscarTxtCodNom.equals("")){
             sql = Produtos.LIST_PR;
         }else {
             sql = "SELECT * FROM produtos WHERE (codigo_pr like'" 
-                    + buscarTextCodNom + "%' or nome_pr like'" + buscarTextCodNom
+                    + buscarTxtCodNom + "%' or nome_pr like'" + buscarTxtCodNom
                     + "%') " + "order by nome_pr";
         }
         
