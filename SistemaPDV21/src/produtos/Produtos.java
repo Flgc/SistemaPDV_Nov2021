@@ -30,7 +30,7 @@ public class Produtos {
     private String primaryKey;
     private String nome;
     private String tipoProd;
-    private String valor;
+    private String preco;
     
    public Produtos(){
        
@@ -60,11 +60,11 @@ public class Produtos {
        this.tipoProd = tipoProd;
    }
 
-   public String getValor(){
-       return valor;
+   public String getPreco(){
+       return preco;
    }
    
-   public void setSenha(String valor) {
-       this.valor = valor;
+   public void setPreco(String preco) {
+       this.preco = preco;
    }  
 }

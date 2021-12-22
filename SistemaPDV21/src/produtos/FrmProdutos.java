@@ -5,9 +5,13 @@
  */
 package produtos;
 
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import usuarios.Usuarios;
+import usuarios.UsuariosSql;
 
 /**
  *
@@ -67,7 +71,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         txtPreco.setText("");
         txtCodNom.setText("");        
         ProdutosSql.listar("");
-        //ProdutosSql.gerarId();
+        ProdutosSql.gerarId();
     }
     
     void selecionarLinha(String id){
@@ -395,7 +399,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCodNomKeyReleased
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
+        limparCampos();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnExcluirTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirTudoActionPerformed
@@ -410,8 +414,40 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
+    boolean selecionarRegistro = false;
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
+        if(selecionarRegistro) {
+            JOptionPane.showMessageDialog(this, "O código: " + this.txtCodigo.
+                    getText() + "\n Já está registrado.", "Inserir Registro", 0,
+                    new ImageIcon(getClass().getResource("/imagens/produtos/info"
+                            + ".png")));        
+        }else{
+            if (txtCodigo.getText().equals("") || txtNome.getText().equals("") 
+                || cmbTipoProd.getSelectedItem().equals("TIPO PRODUTO") || 
+                    txtPreco.getText().equals("")) {JOptionPane.showMessageDialog(
+                            this, "Todos os campos \n são obrigatórios.", 
+                            "Inserir Registro", 0, new ImageIcon(getClass().getResource(
+                                    "/imagens/produtos/info.png")));            
+            }else {
+                produtos.Produtos reg = new Produtos();
+                
+                reg.setPrimaryKey(txtCodigo.getText());
+                reg.setTipoProd(cmbTipoProd.getSelectedItem().toString());
+                reg.setNome(txtNome.getText());
+                reg.setPreco(txtPreco.getText());
+                
+                int op = ProdutosSql.registrar(reg);
+                
+                if(op != 0){
+                    String id = txtCodigo.getText();
+                    limparCampos();
+                    selecionarLinha(id);
+                    JOptionPane.showMessageDialog(this, "Registro Inserido com"
+                            + " Sucesso.", "Inserir Registro", 0, new ImageIcon(getClass().
+                            getResource("/imagens/produtos/info.png")));                     
+                }                
+            }
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtPrecoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecoKeyReleased

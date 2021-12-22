@@ -62,17 +62,17 @@ public class ProdutosSql {
         }        
     }
     
-    public static int registrarProduto(Produtos rP){
+    public static int registrar(Produtos reg){
         int rsp = 0;
         String sql = Produtos.INSERT_PR;
         
         try {
             ps = cn.prepareStatement(sql);
             
-            ps.setString(1, rP.getPrimaryKey());
-            ps.setString(2, rP.getNome());
-            ps.setString(3, rP.getTipoProd());
-            ps.setString(4, rP.getValor());
+            ps.setString(1, reg.getPrimaryKey());
+            ps.setString(2, reg.getTipoProd());
+            ps.setString(3, reg.getNome());
+            ps.setString(4, reg.getPreco());
             
             rsp = ps.executeUpdate();
         } catch (SQLException ex) {
@@ -111,7 +111,7 @@ public class ProdutosSql {
                 produtos.FrmProdutos.txtCodigo.setText("PRD" + gen.serie());
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Produtos.class.getName()).log(Level.SEVERE, SQL);
+            Logger.getLogger(ProdutosSql.class.getName()).log(Level.SEVERE, SQL);
         }
     } 
     
@@ -122,7 +122,7 @@ public class ProdutosSql {
             ps = cn.prepareStatement(sql);
             ps.setString(1, pR.getNome());
             ps.setString(3, pR.getTipoProd());
-            ps.setString(4, pR.getValor());
+            ps.setString(4, pR.getPreco());
             ps.setString(5, pR.getPrimaryKey());
             
             rpr = ps.executeUpdate();
