@@ -147,6 +147,11 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         txtNome.setOpaque(false);
         txtNome.setPhColor(new java.awt.Color(255, 255, 255));
         txtNome.setPlaceholder("NOME PRODUTO");
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
         txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNomeKeyReleased(evt);
@@ -422,9 +427,9 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
                     new ImageIcon(getClass().getResource("/imagens/produtos/info"
                             + ".png")));        
         }else{
-            if (txtCodigo.getText().equals("") || txtNome.getText().equals("") 
-                || cmbTipoProd.getSelectedItem().equals("TIPO PRODUTO") || 
-                    txtPreco.getText().equals("")) {JOptionPane.showMessageDialog(
+            if (txtCodigo.getText().equals("") || txtNome.getText().equals("") ||
+                    cmbTipoProd.getSelectedItem().equals("TIPO PRODUTO") || 
+                    txtPreco.equals("")) {JOptionPane.showMessageDialog(
                             this, "Todos os campos \n são obrigatórios.", 
                             "Inserir Registro", 0, new ImageIcon(getClass().getResource(
                                     "/imagens/produtos/info.png")));            
@@ -439,13 +444,13 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
                 int op = ProdutosSql.registrar(reg);
                 
                 if(op != 0){
-                    String id = txtCodigo.getText();
-                    limparCampos();
+                    String id = txtCodigo.getText();                    
                     selecionarLinha(id);
                     JOptionPane.showMessageDialog(this, "Registro Inserido com"
                             + " Sucesso.", "Inserir Registro", 0, new ImageIcon(getClass().
-                            getResource("/imagens/produtos/info.png")));                     
-                }                
+                            getResource("/imagens/produtos/info.png")));
+                    limparCampos();
+                }
             }
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -455,12 +460,16 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtPrecoKeyReleased
 
     private void txtNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyReleased
-        // TODO add your handling code here:
+        txtNome.setText(txtNome.getText().toUpperCase());
     }//GEN-LAST:event_txtNomeKeyReleased
 
     private void txtCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyReleased
         txtCodigo.setText(txtCodigo.getText().toUpperCase());
     }//GEN-LAST:event_txtCodigoKeyReleased
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+
+    }//GEN-LAST:event_txtNomeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

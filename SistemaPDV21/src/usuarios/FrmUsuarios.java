@@ -500,11 +500,11 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
                     
                     int elimina = UsuariosSql.eliminarUsuario(id);
                     
-                    if (elimina != 0){
-                        limparCampos();
+                    if (elimina != 0){                        
                         JOptionPane.showMessageDialog(this, "Registro excluido.", 
                         "Usuários", 0, new ImageIcon(getClass().getResource(
                                 "/imagens/usuarios/info.png")));
+                        limparCampos();
                     }                
                 }
             } else {
@@ -544,13 +544,13 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
                     int opc = UsuariosSql.atualizarUsuario(us);
                     
                     if (opc !=0){
-                        String id = txtCodigo.getText();
-                        limparCampos();
+                        String id = txtCodigo.getText();                        
                         selecionarLinha(id);
                         JOptionPane.showMessageDialog(this, "Registro Atualizado",
                                 "Usuários", 0, new ImageIcon(getClass().
                                         getResource("/imagens/usuarios/info.png"
-                                        )));                                                                
+                                        )));
+                        limparCampos();
                     }
             }
             } else {
