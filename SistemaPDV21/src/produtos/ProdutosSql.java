@@ -121,9 +121,9 @@ public class ProdutosSql {
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, pR.getNome());
-            ps.setString(3, pR.getTipoProd());
-            ps.setString(4, pR.getPreco());
-            ps.setString(5, pR.getPrimaryKey());
+            ps.setString(2, pR.getTipoProd());
+            ps.setString(3, pR.getPreco());
+            ps.setString(4, pR.getPrimaryKey());
             
             rpr = ps.executeUpdate();
         } catch (SQLException ex) {

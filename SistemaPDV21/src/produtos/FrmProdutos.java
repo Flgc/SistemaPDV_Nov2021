@@ -416,7 +416,48 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        // TODO add your handling code here:
+        if (tabela.getRowCount() > 0) {
+            if (tabela.getSelectedRowCount() > 0) {
+                if (txtCodigo.getText().equals("") || txtNome.getText().equals("")
+                        || cmbTipoProd.getSelectedItem().equals("TIPO PRODUTO")
+                        || txtPreco.getText().equals("")) {JOptionPane.
+                                showMessageDialog(this, "Preencha os campo ", 
+                            "Atualizar Registro", 0, new ImageIcon(getClass().
+                                    getResource("/imagens/produtos/info.png")));                            
+                } else if (JOptionPane.showConfirmDialog(this, "Deseja alterar o"
+                        + " registro?", "Atualizar Registro", 0, JOptionPane.
+                                YES_NO_OPTION, new ImageIcon(getClass().getResource(
+                                        "/imagens/usuarios/info.png"))) ==
+                        JOptionPane.YES_OPTION) {
+                    
+                    produtos.Produtos reg = new Produtos();
+                    reg.setPrimaryKey(txtCodigo.getText());
+                    reg.setTipoProd(cmbTipoProd.getSelectedItem().toString());
+                    reg.setNome(txtNome.getText());
+                    reg.setPreco(txtPreco.getText());                    
+                    
+                    int opc = ProdutosSql.atualizarProdto(reg);
+                    
+                    if (opc !=0){
+                        String id = txtCodigo.getText();                        
+                        selecionarLinha(id);
+                        JOptionPane.showMessageDialog(this, "Registro Atualizado",
+                                "Atualizar Registro", 0, new ImageIcon(getClass().
+                                        getResource("/imagens/produtos/info.png"
+                                        )));
+                        limparCampos();
+                    }
+            }
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um registro.",
+                        "Atualizar Registro", 0, new ImageIcon(getClass().
+                                getResource("/imagens/produtos/info.png")));                                        
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há registro para alterar.",
+                    "Atualizar Registro", 0, new ImageIcon(getClass().
+                            getResource("/imagens/produtos/info.png")));                        
+        }        
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     boolean selecionarRegistro = false;
