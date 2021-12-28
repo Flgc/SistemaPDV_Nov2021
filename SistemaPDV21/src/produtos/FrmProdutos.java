@@ -406,7 +406,27 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnExcluirTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirTudoActionPerformed
-        // TODO add your handling code here:
+                if (tabela.getRowCount() > 0) {
+            if (JOptionPane.showConfirmDialog(this, "Deseja realizar a excusão "
+                    + "de todos?", "Excluir tudo", JOptionPane.YES_NO_OPTION, 0, 
+                    new ImageIcon(getClass().getResource("/imagens/global/info"
+                            + ".png"))) == JOptionPane.YES_OPTION) {
+                
+                    int eliminaT = ProdutosSql.eliminarTodos();
+                
+                    if (eliminaT != 0){
+                        limparCampos();
+                        JOptionPane.showMessageDialog(this, "Registros excluidos.", 
+                        "Excluir tudo", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/global/info.png")));
+                    }               
+        } else {
+            
+                JOptionPane.showMessageDialog(this, "Não há registros para exclusão.", 
+                        "Excluir tudo", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/global/info.png")));            
+            }
+        }
     }//GEN-LAST:event_btnExcluirTudoActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
