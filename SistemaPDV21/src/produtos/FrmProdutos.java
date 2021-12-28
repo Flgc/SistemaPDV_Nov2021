@@ -10,8 +10,6 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import usuarios.Usuarios;
-import usuarios.UsuariosSql;
 
 /**
  *
@@ -412,7 +410,34 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnExcluirTudoActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
+        if (tabela.getRowCount() > 0) {
+            if (tabela.getSelectedRowCount() > 0) {
+                if (JOptionPane.showConfirmDialog(this, "Deseja excluir?", 
+                        "Excluir Registro", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(
+                                getClass().getResource("/imagens/produtos/info"
+                                        + ".png"))) == JOptionPane.YES_OPTION) {
+                    int linha = tabela.getSelectedRow();
+                    String id = tabela.getValueAt(linha, 0).toString();
+                    
+                    int elimina = ProdutosSql.eliminarProduto(id);
+                    
+                    if (elimina != 0){                        
+                        JOptionPane.showMessageDialog(this, "Registro excluido.", 
+                        "Excluir Registro", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/produtos/info.png")));
+                        limparCampos();
+                    }                
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione o registro.", 
+                        "Excluir Registro", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/produtos/info.png")));                
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há registros para exclusão.", 
+                        "Excluir Registro", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/produtos/info.png")));            
+        }        
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
