@@ -434,7 +434,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
             if (tabela.getSelectedRowCount() > 0) {
                 if (JOptionPane.showConfirmDialog(this, "Deseja excluir?", 
                         "Excluir Registro", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(
-                                getClass().getResource("/imagens/produtos/info"
+                                getClass().getResource("/imagens/global/info"
                                         + ".png"))) == JOptionPane.YES_OPTION) {
                     int linha = tabela.getSelectedRow();
                     String id = tabela.getValueAt(linha, 0).toString();
@@ -444,19 +444,19 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
                     if (elimina != 0){                        
                         JOptionPane.showMessageDialog(this, "Registro excluido.", 
                         "Excluir Registro", 0, new ImageIcon(getClass().getResource(
-                                "/imagens/produtos/info.png")));
+                                "/imagens/global/info.png")));
                         limparCampos();
                     }                
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Selecione o registro.", 
                         "Excluir Registro", 0, new ImageIcon(getClass().getResource(
-                                "/imagens/produtos/info.png")));                
+                                "/imagens/global/info.png")));                
             }
         } else {
             JOptionPane.showMessageDialog(this, "Não há registros para exclusão.", 
                         "Excluir Registro", 0, new ImageIcon(getClass().getResource(
-                                "/imagens/produtos/info.png")));            
+                                "/imagens/global/info.png")));            
         }        
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -468,11 +468,11 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
                         || txtPreco.getText().equals("")) {JOptionPane.
                                 showMessageDialog(this, "Preencha os campo ", 
                             "Atualizar Registro", 0, new ImageIcon(getClass().
-                                    getResource("/imagens/produtos/info.png")));                            
+                                    getResource("/imagens/global/info.png")));                            
                 } else if (JOptionPane.showConfirmDialog(this, "Deseja alterar o"
                         + " registro?", "Atualizar Registro", 0, JOptionPane.
                                 YES_NO_OPTION, new ImageIcon(getClass().getResource(
-                                        "/imagens/usuarios/info.png"))) ==
+                                        "/imagens/global/info.png"))) ==
                         JOptionPane.YES_OPTION) {
                     
                     produtos.Produtos reg = new Produtos();
@@ -488,7 +488,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
                         selecionarLinha(id);
                         JOptionPane.showMessageDialog(this, "Registro Atualizado",
                                 "Atualizar Registro", 0, new ImageIcon(getClass().
-                                        getResource("/imagens/produtos/info.png"
+                                        getResource("/imagens/global/info.png"
                                         )));
                         limparCampos();
                     }
@@ -496,12 +496,12 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Selecione um registro.",
                         "Atualizar Registro", 0, new ImageIcon(getClass().
-                                getResource("/imagens/produtos/info.png")));                                        
+                                getResource("/imagens/global/info.png")));                                        
             }
         } else {
             JOptionPane.showMessageDialog(this, "Não há registro para alterar.",
                     "Atualizar Registro", 0, new ImageIcon(getClass().
-                            getResource("/imagens/produtos/info.png")));                        
+                            getResource("/imagens/global/info.png")));                        
         }        
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
@@ -510,7 +510,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         if(selecionarRegistro) {
             JOptionPane.showMessageDialog(this, "O código: " + this.txtCodigo.
                     getText() + "\n Já está registrado.", "Inserir Registro", 0,
-                    new ImageIcon(getClass().getResource("/imagens/produtos/info"
+                    new ImageIcon(getClass().getResource("/imagens/global/info"
                             + ".png")));        
         }else{
             if (txtCodigo.getText().equals("") || txtNome.getText().equals("") ||
@@ -518,7 +518,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
                     txtPreco.equals("")) {JOptionPane.showMessageDialog(
                             this, "Todos os campos \n são obrigatórios.", 
                             "Inserir Registro", 0, new ImageIcon(getClass().getResource(
-                                    "/imagens/produtos/info.png")));            
+                                    "/imagens/global/info.png")));            
             }else {
                 produtos.Produtos reg = new Produtos();
                 
@@ -534,7 +534,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
                     selecionarLinha(id);
                     JOptionPane.showMessageDialog(this, "Registro Inserido com"
                             + " Sucesso.", "Inserir Registro", 0, new ImageIcon(getClass().
-                            getResource("/imagens/produtos/info.png")));
+                            getResource("/imagens/global/info.png")));
                     limparCampos();
                 }
             }
