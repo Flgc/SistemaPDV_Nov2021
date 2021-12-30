@@ -29,7 +29,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
 
         painelVendas = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaVendas = new javax.swing.JTable();
+        tabela = new javax.swing.JTable();
         painelOpcoes = new javax.swing.JPanel();
         fldBuscar = new app.bolivia.swing.JCTextField();
         lblBuscar = new javax.swing.JLabel();
@@ -45,7 +45,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
 
         painelVendas.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabelaVendas.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -61,8 +61,8 @@ public class FrmVendas extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tabelaVendas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(tabelaVendas);
+        tabela.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(tabela);
 
         painelOpcoes.setBackground(new java.awt.Color(255, 255, 255));
         painelOpcoes.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "OPÇÕES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
@@ -270,6 +270,6 @@ public class FrmVendas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblData;
     private javax.swing.JPanel painelOpcoes;
     private javax.swing.JPanel painelVendas;
-    public static javax.swing.JTable tabelaVendas;
+    public static javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 }

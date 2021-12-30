@@ -5,8 +5,6 @@
  */
 package vendas;
 
-import produtos.*;
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import principal.Conectar;
-import principal.GerarCodigos;
+import principal.GerarNumero;
 
 /**
  *
@@ -30,8 +28,8 @@ public class VendasSql {
     static PreparedStatement ps;
     
     public static void listar(String fldBuscar) {
-        DefaultTableModel modelo = (DefaultTableModel) vendas.FrmVendas
-                .tabela.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) vendas.FrmVendas.tabela
+                .getModel();
         
         while(modelo.getRowCount() > 0){
             modelo.removeRow(0);
@@ -41,12 +39,12 @@ public class VendasSql {
             sql = Vendas.LIST_VD;
         }else {
             sql = "SELECT * FROM vendas WHERE (numero_ve like'" 
-                    + fldBuscar + "%' or data_ve like'" + fldBuscar
-                    + "%') " + "order by data_ve";
+                    + fldBuscar + "%' or data_ve'" + fldBuscar + "')" 
+                    + " ORDER BY data_ve";
         }
         
         // Array with the number of fields in the table "jTable"
-        String dados[] = new String[4];
+        String dados[] = new String[3];
         try {
             Statement st = cn.createStatement();
             ResultSet  rs = st.executeQuery(sql);
@@ -80,7 +78,7 @@ public class VendasSql {
         return rsp;
     }
     
-    public static void gerarId() {
+    public static void numeros() {
         int j;
         int cont = 1;
         String num = "";
@@ -95,24 +93,46 @@ public class VendasSql {
             }
             
             if (c == null ) {
-                vendas.FrmVendas.txtCodigo.setText("PRD0001");                
+                vendas.FrmCaixa.numFac.setText("00000001");                
             }else {
-                char r1 = c.charAt(3);
-                char r2 = c.charAt(4);
-                char r3 = c.charAt(5);
-                char r4 = c.charAt(6);
-                String r = "";
-                r = ""+ r1 + r2 + r3 + r4;
-                j = Integer.parseInt(r);
-                GerarCodigos gen = new GerarCodigos();
+                j = Integer.parseInt(c);
+                GerarNumero gen = new GerarNumero();
                 gen.gerar(j);
                 
-                vendas.FrmVendas.txtCodigo.setText("PRD" + gen.serie());
+                vendas.FrmCaixa.numFac.setText(gen.serie());
             }
         } catch (SQLException ex) {
             Logger.getLogger(VendasSql.class.getName()).log(Level.SEVERE, SQL);
         }
     } 
+
+    public static void numeros1() {
+        int j;
+        int cont = 1;
+        String num = "";
+        String c = "";
+        String SQL = "SELECT MAX(numero_ve) FROM vendas";
+        
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            while (rs.next()) {
+                c = rs.getString(1);
+            }
+            
+            if (c == null ) {
+                vendas.FrmCaixa.numFac.setText("00000001");                
+            }else {
+                j = Integer.parseInt(c);
+                GerarNumero gen = new GerarNumero();
+                gen.gerar(j);
+                
+                vendas.FrmCaixa.numFac.setText(gen.serie());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(VendasSql.class.getName()).log(Level.SEVERE, SQL);
+        }
+    }     
    
     public static int eliminarVendas(String id) {
         int rpr = 0;
