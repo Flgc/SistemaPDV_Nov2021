@@ -5,13 +5,11 @@
  */
 package produtos;
 
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -163,4 +161,38 @@ public class ProdutosSql {
         System.out.println(sql);
         return rpr;        
     }
+
+    public static void listarCatProduto(String buscarCodigoNome) {
+        DefaultTableModel modelo = (DefaultTableModel) produtos.FrmProdutos
+                .tabela.getModel();
+        
+        while(modelo.getRowCount() > 0){
+            modelo.removeRow(0);
+        }
+        String sql = "";
+        if(buscarCodigoNome.equals("")){
+            sql = Produtos.LIST_PR;
+        }else {
+            sql = "SELECT * FROM produtos WHERE (codigo_pr like'" 
+                    + buscarCodigoNome + "%' or nome_pr like'" + buscarCodigoNome
+                    + "%') " + "order by nome_pr";
+        }
+        
+        // Array with the number of fields in the table "jTable"
+        String dados[] = new String[4];
+        try {
+            Statement st = cn.createStatement();
+            ResultSet  rs = st.executeQuery(sql);
+            while (rs.next()){
+                dados[0] = rs.getString("codigo_pr");
+                dados[1] = rs.getString("tipo_pr");
+                dados[2] = rs.getString("nome_pr");
+                dados[3] = rs.getString("valor_pr");
+                
+                modelo.addRow(dados);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Produtos.class.getName()).log(Level.SEVERE, sql);
+        }        
+    }    
 }

@@ -5,6 +5,11 @@
  */
 package vendas;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JInternalFrame;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 import static principal.MenuPrincipal.inicializador;
 import produtos.FrmListaProd;
 /**
@@ -16,8 +21,50 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
     /**
      * Creates new form FrmVendas
      */
+    
+    
+    public boolean estaFechado(Object obj){
+        JInternalFrame[] janelaAtiva = inicializador.getAllFrames();
+        boolean fechado = true;
+        int i = 0;
+        while(i < janelaAtiva.length  && fechado) {
+            if(janelaAtiva[i] == obj) {
+                fechado=false;
+            } 
+            i ++;
+        }
+        return fechado;
+    }
+    
     public FrmCaixa() {
         initComponents();
+        FrmCaixa.tabelaCaixa.getTableHeader().setDefaultRenderer(new principal.EstiloTabelaHeader());
+        FrmCaixa.tabelaCaixa.setDefaultRenderer(Object.class, new principal.EstiloTabelaRenderer());
+                
+        //list all records
+        FrmCaixa.tabelaCaixa.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        limparCampos();
+    }
+    
+    public static String dataAtual() {
+        Date data = new Date();
+        SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/YYYY");
+        return formatoData.format(data);
+    }
+    
+    void limparCampos(){
+        DefaultTableModel modelo = (DefaultTableModel) tabelaCaixa.getModel();
+        
+        while(modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+        
+        fldRecibo.setText("");
+        fldTroco.setText("");
+        fldTotal.setText("0.0");
+        fldData.setText("");
+        fldData.setText(dataAtual());
+        VendasSql.numeros();
     }
 
     /**
@@ -60,6 +107,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         lblTitNumVend = new javax.swing.JLabel();
 
         setClosable(true);
+        setTitle("CAIXA");
         setName("Caixa"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1074, 526));
 
@@ -259,7 +307,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
 
         lblEmpresa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblEmpresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEmpresa.setText("COMÉRCIO FREITAS LTDA");
+        lblEmpresa.setText("FLGC SERVIÇOS ");
 
         lblTitTel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblTitTel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -267,11 +315,11 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
 
         lblTel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblTel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTel.setText("31 97527-5084");
+        lblTel.setText("21 99853-5530");
 
         lblCel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCel.setText("31 97527-5084");
+        lblCel.setText("21 97162-4270");
 
         javax.swing.GroupLayout painelLogoLayout = new javax.swing.GroupLayout(painelLogo);
         painelLogo.setLayout(painelLogoLayout);
@@ -397,12 +445,16 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnCalculoActionPerformed
 
+    produtos.FrmListaProd listarProd;
     private void btnBuscaProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaProdActionPerformed
-       FrmListaProd  form = new FrmListaProd();
-       
-       principal.MenuPrincipal.inicializador.add(form);       
-       form.toFront();
-       form.setVisible(true);
+        if (estaFechado(listarProd)){
+            listarProd = new FrmListaProd();
+            principal.MenuPrincipal.inicializador.add(listarProd);
+            listarProd.toFront();
+            listarProd.setVisible(true);
+        }else {
+            listarProd.toFront();
+        } 
     }//GEN-LAST:event_btnBuscaProdActionPerformed
 
 

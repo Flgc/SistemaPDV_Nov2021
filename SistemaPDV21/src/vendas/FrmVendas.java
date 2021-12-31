@@ -42,6 +42,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
         dtcData = new com.toedter.calendar.JDateChooser();
 
         setClosable(true);
+        setTitle("VENDAS");
 
         painelVendas.setBackground(new java.awt.Color(255, 255, 255));
 

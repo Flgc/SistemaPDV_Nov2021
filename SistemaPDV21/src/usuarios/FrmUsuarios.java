@@ -159,6 +159,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
         tabelaUsuarios = new javax.swing.JTable();
 
         setClosable(true);
+        setTitle("USUÁRIOS");
         setName("Usuários"); // NOI18N
 
         painelUsuarios.setName("Usuários"); // NOI18N

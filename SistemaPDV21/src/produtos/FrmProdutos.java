@@ -115,6 +115,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         tabela = new javax.swing.JTable();
 
         setClosable(true);
+        setTitle("PRODUTOS");
         setPreferredSize(new java.awt.Dimension(845, 508));
 
         painelProdutos.setName("Produtos"); // NOI18N
