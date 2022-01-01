@@ -5,6 +5,10 @@
  */
 package produtos;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.ListSelectionModel;
+
 /**
  *
  * @author fabio
@@ -16,6 +20,49 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
      */
     public FrmListaProd() {
         initComponents();
+        FrmListaProd.tabelaListarProdutos.getTableHeader().setDefaultRenderer(new principal.EstiloTabelaHeader());
+        FrmListaProd.tabelaListarProdutos.setDefaultRenderer(Object.class, new principal.EstiloTabelaRenderer());
+                
+        //list all records
+        FrmListaProd.tabelaListarProdutos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        ProdutosSql.listarCatProduto(""); 
+        
+        //Submit the combo box value
+        tipoProd.addItemListener(new ItemListener() {
+        
+            @Override
+            public void itemStateChanged(ItemEvent ie) {
+                if (tipoProd.getSelectedIndex() == 0) {
+                    
+                    ProdutosSql.listarCatProduto("");
+                }
+                if (tipoProd.getSelectedIndex() == 1) {
+                    
+                    ProdutosSql.listarCatProduto("BEBIDAS");
+                }
+                if (tipoProd.getSelectedIndex() == 2) {
+                    
+                    ProdutosSql.listarCatProduto("LIMPEZA");
+                }
+                if (tipoProd.getSelectedIndex() == 3) {
+                    
+                    ProdutosSql.listarCatProduto("CARNES");
+                }
+                if (tipoProd.getSelectedIndex() == 4) {
+                    
+                    ProdutosSql.listarCatProduto("CONGELADOS");
+                }                
+                if (tipoProd.getSelectedIndex() == 5) {
+                    
+                    ProdutosSql.listarCatProduto("LACTINEOS");
+                }                                
+                if (tipoProd.getSelectedIndex() == 6) {
+                    
+                    ProdutosSql.listarCatProduto("VERDURAS");
+                }                                
+            }
+        });
     }
 
     /**
@@ -29,7 +76,7 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
 
         panelListarProd = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaProdutos = new javax.swing.JTable();
+        tabelaListarProdutos = new javax.swing.JTable();
         painelOpcoes = new javax.swing.JPanel();
         codigoNome = new app.bolivia.swing.JCTextField();
         imgCodigoNome = new javax.swing.JLabel();
@@ -43,7 +90,7 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
 
         panelListarProd.setName("Listar Produtos"); // NOI18N
 
-        tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaListarProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -59,7 +106,7 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tabelaProdutos);
+        jScrollPane1.setViewportView(tabelaListarProdutos);
 
         painelOpcoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPÇÕES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         painelOpcoes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -83,6 +130,11 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
 
         tipoProd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO PRODUTO", "BEBIDAS", "LIMPEZA", "CARNES", "CONGELADOS", "LACTINEOS", "VERDURAS" }));
         tipoProd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tipoProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoProdActionPerformed(evt);
+            }
+        });
         painelOpcoes.add(tipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 190, -1));
 
         imgTipoProd.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
@@ -156,6 +208,10 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEnviarActionPerformed
 
+    private void tipoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoProdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoProdActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
@@ -165,7 +221,7 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel painelOpcoes;
     private javax.swing.JPanel panelListarProd;
-    private javax.swing.JTable tabelaProdutos;
+    public static javax.swing.JTable tabelaListarProdutos;
     private org.bolivia.combo.SComboBoxBlue tipoProd;
     // End of variables declaration//GEN-END:variables
 }

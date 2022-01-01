@@ -163,8 +163,8 @@ public class ProdutosSql {
     }
 
     public static void listarCatProduto(String buscarCodigoNome) {
-        DefaultTableModel modelo = (DefaultTableModel) produtos.FrmProdutos
-                .tabela.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) produtos.FrmListaProd
+                .tabelaListarProdutos.getModel();
         
         while(modelo.getRowCount() > 0){
             modelo.removeRow(0);
@@ -174,8 +174,8 @@ public class ProdutosSql {
             sql = Produtos.LIST_PR;
         }else {
             sql = "SELECT * FROM produtos WHERE (codigo_pr like'" 
-                    + buscarCodigoNome + "%' or nome_pr like'" + buscarCodigoNome
-                    + "%') " + "order by nome_pr";
+                    + buscarCodigoNome + "%' OR nome_pr like'" + buscarCodigoNome
+                    + "%') OR tipo_pr='" + buscarCodigoNome + "' ORDER BY nome_pr";
         }
         
         // Array with the number of fields in the table "jTable"
