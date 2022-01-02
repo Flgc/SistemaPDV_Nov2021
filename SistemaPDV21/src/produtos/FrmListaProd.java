@@ -39,27 +39,27 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
                 }
                 if (tipoProd.getSelectedIndex() == 1) {
                     
-                    ProdutosSql.listarCatProduto("BEBIDAS");
+                    ProdutosSql.listarCatProduto(tipoProd.getSelectedItem().toString());
                 }
                 if (tipoProd.getSelectedIndex() == 2) {
                     
-                    ProdutosSql.listarCatProduto("LIMPEZA");
+                    ProdutosSql.listarCatProduto(tipoProd.getSelectedItem().toString());
                 }
                 if (tipoProd.getSelectedIndex() == 3) {
                     
-                    ProdutosSql.listarCatProduto("CARNES");
+                    ProdutosSql.listarCatProduto(tipoProd.getSelectedItem().toString());
                 }
                 if (tipoProd.getSelectedIndex() == 4) {
                     
-                    ProdutosSql.listarCatProduto("CONGELADOS");
+                    ProdutosSql.listarCatProduto(tipoProd.getSelectedItem().toString());
                 }                
                 if (tipoProd.getSelectedIndex() == 5) {
                     
-                    ProdutosSql.listarCatProduto("LACTINEOS");
+                    ProdutosSql.listarCatProduto(tipoProd.getSelectedItem().toString());
                 }                                
                 if (tipoProd.getSelectedIndex() == 6) {
                     
-                    ProdutosSql.listarCatProduto("VERDURAS");
+                    ProdutosSql.listarCatProduto(tipoProd.getSelectedItem().toString());
                 }                                
             }
         });
