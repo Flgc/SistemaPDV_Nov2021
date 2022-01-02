@@ -282,7 +282,7 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
                                 vendas.FrmCaixa.tabelaCaixa.setValueAt(String.valueOf(quantT), i, 4);
                                 c++;
                                 calcular();
-                                vendas.FrmCaixa.fldRecibo.setText("");
+                                vendas.FrmCaixa.fldRecebibo.setText("");
                                 vendas.FrmCaixa.fldTroco.setText("");
                             }
                         }
@@ -298,7 +298,7 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
                             vendas.FrmCaixa.tabelaCaixa.setModel(tabeladet);
                             calcular();
                             
-                            vendas.FrmCaixa.fldRecibo.setText("");
+                            vendas.FrmCaixa.fldRecebibo.setText("");
                             vendas.FrmCaixa.fldTroco.setText("");
                         }
                     }

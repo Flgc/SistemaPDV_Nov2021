@@ -7,7 +7,9 @@ package vendas;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import static principal.MenuPrincipal.inicializador;
@@ -59,7 +61,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
             modelo.removeRow(0);
         }
         
-        fldRecibo.setText("");
+        fldRecebibo.setText("");
         fldTroco.setText("");
         fldTotal.setText("0.0");
         fldData.setText("");
@@ -81,7 +83,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         btnBuscaProd = new javax.swing.JButton();
         fldData = new app.bolivia.swing.JCTextField();
         imgFldData = new javax.swing.JLabel();
-        fldRecibo = new app.bolivia.swing.JCTextField();
+        fldRecebibo = new app.bolivia.swing.JCTextField();
         imgFldRecibo = new javax.swing.JLabel();
         fldTroco = new app.bolivia.swing.JCTextField();
         imgFldTroco = new javax.swing.JLabel();
@@ -146,14 +148,14 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
         imgFldData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/data.png"))); // NOI18N
         painelFiltro.add(imgFldData, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, 52));
 
-        fldRecibo.setBackground(new java.awt.Color(34, 102, 145));
-        fldRecibo.setBorder(null);
-        fldRecibo.setForeground(new java.awt.Color(255, 255, 255));
-        fldRecibo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        fldRecibo.setOpaque(false);
-        fldRecibo.setPhColor(new java.awt.Color(255, 255, 255));
-        fldRecibo.setPlaceholder("RECIBIDO");
-        painelFiltro.add(fldRecibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 130, -1));
+        fldRecebibo.setBackground(new java.awt.Color(34, 102, 145));
+        fldRecebibo.setBorder(null);
+        fldRecebibo.setForeground(new java.awt.Color(255, 255, 255));
+        fldRecebibo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        fldRecebibo.setOpaque(false);
+        fldRecebibo.setPhColor(new java.awt.Color(255, 255, 255));
+        fldRecebibo.setPlaceholder("RECEBIDO");
+        painelFiltro.add(fldRecebibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 130, -1));
 
         imgFldRecibo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas/recibi.png"))); // NOI18N
         imgFldRecibo.setToolTipText("RECIBI");
@@ -443,6 +445,25 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
 
     private void btnCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculoActionPerformed
 
+        if (tabelaCaixa.getRowCount() < 1) {
+            JOptionPane.showMessageDialog(this, "Operação não realizada", "Error"
+                    , JOptionPane.ERROR_MESSAGE);            
+        } else if (fldRecebibo.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Insira um valor.", "Cobrança", 
+                    0, new ImageIcon(getClass().getResource("/imagens/global/info.png")));                                
+        } else {
+            double recebi = Double.parseDouble(fldRecebibo.getText());
+            double tot = Double.parseDouble(fldTotal.getText());
+            
+            if (recebi < tot) {
+                JOptionPane.showMessageDialog(this, "Valor inválido para essa "
+                        + "venda.", "Compra", 0, new ImageIcon(getClass().
+                                getResource("/imagens/global/info.png")));                                                
+            } else {
+                this.fldTroco.setText(String.valueOf(recebi - tot));
+            }
+        
+        }
     }//GEN-LAST:event_btnCalculoActionPerformed
 
     produtos.FrmListaProd listarProd;
@@ -465,7 +486,7 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnVender;
     private app.bolivia.swing.JCTextField fldData;
-    public static app.bolivia.swing.JCTextField fldRecibo;
+    public static app.bolivia.swing.JCTextField fldRecebibo;
     public static app.bolivia.swing.JCTextField fldTotal;
     public static app.bolivia.swing.JCTextField fldTroco;
     private javax.swing.JLabel imgFldData;
