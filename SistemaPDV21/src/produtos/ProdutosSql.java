@@ -174,8 +174,8 @@ public class ProdutosSql {
             sql = Produtos.LIST_PR;
         }else {
             sql = "SELECT * FROM produtos WHERE (codigo_pr like'" 
-                    + buscarCodigoNome + "%' OR nome_pr like'" + buscarCodigoNome
-                    + "%') OR tipo_pr='" + buscarCodigoNome + "' ORDER BY nome_pr";
+                    + buscarCodigoNome + "%' OR tipo_pr like'" + buscarCodigoNome
+                    + "%') OR nome_pr='" + buscarCodigoNome + "' ORDER BY nome_pr";
         }
         
         // Array with the number of fields in the table "jTable"
@@ -185,8 +185,8 @@ public class ProdutosSql {
             ResultSet  rs = st.executeQuery(sql);
             while (rs.next()){
                 dados[0] = rs.getString("codigo_pr");
-                dados[1] = rs.getString("tipo_pr");
-                dados[2] = rs.getString("nome_pr");
+                dados[1] = rs.getString("nome_pr");
+                dados[2] = rs.getString("tipo_pr");
                 dados[3] = rs.getString("valor_pr");
                 
                 modelo.addRow(dados);

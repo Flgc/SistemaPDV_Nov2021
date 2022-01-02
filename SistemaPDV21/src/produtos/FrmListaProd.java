@@ -78,7 +78,7 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaListarProdutos = new javax.swing.JTable();
         painelOpcoes = new javax.swing.JPanel();
-        codigoNome = new app.bolivia.swing.JCTextField();
+        fldCodigoNome = new app.bolivia.swing.JCTextField();
         imgCodigoNome = new javax.swing.JLabel();
         tipoProd = new org.bolivia.combo.SComboBoxBlue();
         imgTipoProd = new javax.swing.JLabel();
@@ -111,19 +111,19 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
         painelOpcoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPÇÕES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         painelOpcoes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        codigoNome.setBackground(new java.awt.Color(34, 102, 145));
-        codigoNome.setBorder(null);
-        codigoNome.setForeground(new java.awt.Color(255, 255, 255));
-        codigoNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        codigoNome.setOpaque(false);
-        codigoNome.setPhColor(new java.awt.Color(255, 255, 255));
-        codigoNome.setPlaceholder("CÓDIGO/NOME");
-        codigoNome.addKeyListener(new java.awt.event.KeyAdapter() {
+        fldCodigoNome.setBackground(new java.awt.Color(34, 102, 145));
+        fldCodigoNome.setBorder(null);
+        fldCodigoNome.setForeground(new java.awt.Color(255, 255, 255));
+        fldCodigoNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        fldCodigoNome.setOpaque(false);
+        fldCodigoNome.setPhColor(new java.awt.Color(255, 255, 255));
+        fldCodigoNome.setPlaceholder("CÓDIGO/NOME");
+        fldCodigoNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                codigoNomeKeyReleased(evt);
+                fldCodigoNomeKeyReleased(evt);
             }
         });
-        painelOpcoes.add(codigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 180, -1));
+        painelOpcoes.add(fldCodigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 180, -1));
 
         imgCodigoNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos/buscarL.png"))); // NOI18N
         painelOpcoes.add(imgCodigoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
@@ -200,9 +200,12 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void codigoNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoNomeKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_codigoNomeKeyReleased
+    private void fldCodigoNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fldCodigoNomeKeyReleased
+        // if you enter text in this text box
+        
+        fldCodigoNome.setText(fldCodigoNome.getText().toUpperCase());
+        ProdutosSql.listarCatProduto(fldCodigoNome.getText());        
+    }//GEN-LAST:event_fldCodigoNomeKeyReleased
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         // TODO add your handling code here:
@@ -215,7 +218,7 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
-    private app.bolivia.swing.JCTextField codigoNome;
+    private app.bolivia.swing.JCTextField fldCodigoNome;
     private javax.swing.JLabel imgCodigoNome;
     private javax.swing.JLabel imgTipoProd;
     private javax.swing.JScrollPane jScrollPane1;
