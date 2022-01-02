@@ -194,5 +194,17 @@ public class ProdutosSql {
         } catch (SQLException ex) {
             Logger.getLogger(Produtos.class.getName()).log(Level.SEVERE, sql);
         }        
-    }    
+    }
+    
+    public static boolean isNumbeInteger(String n) {
+        try {
+            if (Integer.parseInt(n) > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
 }

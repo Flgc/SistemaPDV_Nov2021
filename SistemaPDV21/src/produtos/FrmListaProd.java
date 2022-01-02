@@ -7,7 +7,10 @@ package produtos;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -63,6 +66,31 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
                 }                                
             }
         });
+    }
+    
+    public void calcular() {
+        String pre;
+        String quan;
+        double total = 0;
+        double preco = 0;        
+        int qtd;
+        double calc = 0.0;
+        
+        // Association of variables with fields in cash tables
+        for (int i = 0; i < vendas.FrmCaixa.tabelaCaixa.getRowCount(); i++) {
+            pre = vendas.FrmCaixa.tabelaCaixa.getValueAt(i, 3).toString();
+            quan = vendas.FrmCaixa.tabelaCaixa.getValueAt(i, 4).toString();
+            preco = Double.parseDouble(pre);
+            qtd = Integer.parseInt(quan);
+            calc = preco * qtd;
+            total = total + calc;
+            
+            // rounding 
+            vendas.FrmCaixa.tabelaCaixa.setValueAt(Math.rint(calc * 100) / 100, i, 5);
+        }
+        
+        // rounding the total amount
+        vendas.FrmCaixa.fldTotal.setText("" + Math.rint(total * 100) / 100);
     }
 
     /**
@@ -208,7 +236,82 @@ public class FrmListaProd extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_fldCodigoNomeKeyReleased
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        // TODO add your handling code here:
+        if (tabelaListarProdutos.getRowCount() > 0) {
+            try {
+                String quant = null;
+                DefaultTableModel tabeladet = (DefaultTableModel) vendas.FrmCaixa
+                        .tabelaCaixa.getModel();
+                
+                String[] dado = new String[6];
+                int linha = tabelaListarProdutos.getSelectedRow();
+                
+                if (linha == -1) {
+                    JOptionPane.showMessageDialog(this, "Selecione um produto.", 
+                        "Produtos", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/global/info.png")));                     
+                } else {
+                    
+                    // Referencing variables with fields in the table
+                    String cod = tabelaListarProdutos.getValueAt(linha, 0).toString();
+                    String tip = tabelaListarProdutos.getValueAt(linha, 1).toString();
+                    String nom = tabelaListarProdutos.getValueAt(linha, 2).toString();
+                    String pre = tabelaListarProdutos.getValueAt(linha, 3).toString();
+                    int c = 0;
+                    int j = 0;
+                    
+                    // Quantity Dialog Box
+                    quant = JOptionPane.showInputDialog(this, "Quantidade:",
+                            "Produtos", JOptionPane.INFORMATION_MESSAGE);                    
+                    while (!ProdutosSql.isNumbeInteger(quant) && quant != null) {
+                        quant = JOptionPane.showInputDialog(this, "Somente valores"
+                                + " númericos maiores que 0:", "Error", JOptionPane
+                                        .ERROR_MESSAGE);
+                    }
+                    
+                    if ((quant.equals("")) || (quant.equals("0"))) {
+                        JOptionPane.showMessageDialog(this, "Insira um valor maior"
+                                + " que 0:", "Atenção", JOptionPane
+                                        .ERROR_MESSAGE);
+                    } else {
+                        for (int i = 0; i < vendas.FrmCaixa.tabelaCaixa.getRowCount(); i++) {
+                            Object com = vendas.FrmCaixa.tabelaCaixa.getValueAt(i, 0);
+                            Object quant1 = vendas.FrmCaixa.tabelaCaixa.getValueAt(i, 4);
+                            if (cod.equals(com)) {
+                                j = i;
+                                int quantT = Integer.parseInt(quant) + Integer.parseInt((String) quant1);
+                                vendas.FrmCaixa.tabelaCaixa.setValueAt(String.valueOf(quantT), i, 4);
+                                c++;
+                                calcular();
+                                vendas.FrmCaixa.fldRecibo.setText("");
+                                vendas.FrmCaixa.fldTroco.setText("");
+                            }
+                        }
+                        if (c == 0) {
+                            dado[0] = cod;
+                            dado[1] = tip;
+                            dado[2] = nom;
+                            dado[3] = pre;
+                            dado[4] = quant;
+                            
+                            tabeladet.addRow(dado);
+                            
+                            vendas.FrmCaixa.tabelaCaixa.setModel(tabeladet);
+                            calcular();
+                            
+                            vendas.FrmCaixa.fldRecibo.setText("");
+                            vendas.FrmCaixa.fldTroco.setText("");
+                        }
+                    }
+                }
+                
+                        
+            } catch (Exception e) {
+            }
+        } else {
+                JOptionPane.showMessageDialog(this, "Não há registros.", 
+                        "Produtos", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/global/info.png")));             
+        }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void tipoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoProdActionPerformed
