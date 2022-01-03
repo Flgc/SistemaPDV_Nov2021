@@ -436,7 +436,21 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+        if (tabelaCaixa.getRowCount() > 0) {
+            DefaultTableModel modelo = (DefaultTableModel) tabelaCaixa.getModel();
+            int linha = tabelaCaixa.getSelectedRow();
+            if (linha >= 0) {
+                modelo.removeRow(linha);
+                FrmListaProd lp = new FrmListaProd();
+                lp.calcular();
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione uma Linha.", "Venda", 0,
+                        new ImageIcon(getClass().getResource("/imagens/global/info.png")));
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há registro para excluir.",
+                    "Error", JOptionPane.ERROR_MESSAGE);                        
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
