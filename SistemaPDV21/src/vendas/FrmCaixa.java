@@ -441,6 +441,22 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
 
+        if (tabelaCaixa.getRowCount() < 1) {
+            JOptionPane.showMessageDialog(this, "Impossível realizar a venda.", "Error"
+                    , JOptionPane.ERROR_MESSAGE);            
+        } else {
+            Vendas v = new Vendas();
+            v.setPrimaryKey(numFac.getText());
+            v.setTotal(fldTotal.getText());
+            v.setData(fldData.getText());
+            
+            int opc = VendasSql.registrar(v);
+            if (opc != 0) {
+                limparCampos();
+                JOptionPane.showMessageDialog(this, "Venda Efetuada.", "Venda", 
+                    0, new ImageIcon(getClass().getResource("/imagens/global/info.png")));
+            }
+        }
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculoActionPerformed
@@ -456,9 +472,8 @@ public class FrmCaixa extends javax.swing.JInternalFrame {
             double tot = Double.parseDouble(fldTotal.getText());
             
             if (recebi < tot) {
-                JOptionPane.showMessageDialog(this, "Valor inválido para essa "
-                        + "venda.", "Compra", 0, new ImageIcon(getClass().
-                                getResource("/imagens/global/info.png")));                                                
+                JOptionPane.showMessageDialog(this, "Valor inválido para pagamento"
+                        , "Realizar Calcúlo", JOptionPane.ERROR_MESSAGE);                                                
             } else {
                 this.fldTroco.setText(String.valueOf(recebi - tot));
             }
