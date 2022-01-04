@@ -209,6 +209,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
         });
         painelOpcoes.add(btnVendasHoje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
+        dtcData.setDateFormatString("dd/MM/yyyy");
         dtcData.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         painelOpcoes.add(dtcData, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 150, 30));
 
