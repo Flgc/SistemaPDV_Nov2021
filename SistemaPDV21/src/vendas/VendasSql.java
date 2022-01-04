@@ -39,7 +39,7 @@ public class VendasSql {
             sql = Vendas.LIST_VD;
         }else {
             sql = "SELECT * FROM vendas WHERE (numero_ve like'" 
-                    + fldBuscar + "%' or data_ve'" + fldBuscar + "')" 
+                    + fldBuscar + "%' or data_ve='" + fldBuscar + "')" 
                     + " ORDER BY data_ve";
         }
         
