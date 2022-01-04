@@ -5,8 +5,9 @@
  */
 package vendas;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.ListSelectionModel;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -272,11 +273,22 @@ public class FrmVendas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnBuscDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscDataActionPerformed
-
+        if (dtcData.getDate() == null) {
+            VendasSql.listar("");
+        } else {
+            String formato = dtcData.getDateFormatString();
+            Date date = dtcData.getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat(formato);
+            VendasSql.listar(String.valueOf(sdf.format(date)));
+        }
     }//GEN-LAST:event_btnBuscDataActionPerformed
 
     private void btnVendasHojeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasHojeActionPerformed
-
+        Date sistemaData = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        String fecH = formato.format(sistemaData);
+        VendasSql.listar(fecH);
+        dtcData.setDate(null);
     }//GEN-LAST:event_btnVendasHojeActionPerformed
 
 
