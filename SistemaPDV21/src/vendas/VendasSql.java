@@ -28,7 +28,7 @@ public class VendasSql {
     static PreparedStatement ps;
     
     public static void listar(String fldBuscar) {
-        DefaultTableModel modelo = (DefaultTableModel) vendas.FrmVendas.tabela
+        DefaultTableModel modelo = (DefaultTableModel) vendas.FrmVendas.tabelaVendas
                 .getModel();
         
         while(modelo.getRowCount() > 0){

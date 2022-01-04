@@ -5,6 +5,9 @@
  */
 package vendas;
 
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author fabio
@@ -16,6 +19,24 @@ public class FrmVendas extends javax.swing.JInternalFrame {
      */
     public FrmVendas() {
         initComponents();
+        FrmVendas.tabelaVendas.getTableHeader().setDefaultRenderer(new principal
+                .EstiloTabelaHeader());
+        FrmVendas.tabelaVendas.setDefaultRenderer(Object.class, new principal
+                .EstiloTabelaRenderer());
+                
+        //list all records
+        FrmVendas.tabelaVendas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        limparCampos();        
+    }
+    
+    void limparCampos(){
+        if (tabelaVendas.getSelectedRow() > -1) {
+            tabelaVendas.removeRowSelectionInterval(tabelaVendas.getSelectedRow(),
+                    tabelaVendas.getSelectedRow());
+        }
+        dtcData.setDate(null);
+        fldBuscar.setText("");
+        VendasSql.listar("");        
     }
 
     /**
@@ -29,7 +50,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
 
         painelVendas = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
+        tabelaVendas = new javax.swing.JTable();
         painelOpcoes = new javax.swing.JPanel();
         fldBuscar = new app.bolivia.swing.JCTextField();
         lblBuscar = new javax.swing.JLabel();
@@ -46,7 +67,7 @@ public class FrmVendas extends javax.swing.JInternalFrame {
 
         painelVendas.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -62,8 +83,8 @@ public class FrmVendas extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tabela.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(tabela);
+        tabelaVendas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(tabelaVendas);
 
         painelOpcoes.setBackground(new java.awt.Color(255, 255, 255));
         painelOpcoes.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "OPÇÕES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
@@ -226,11 +247,12 @@ public class FrmVendas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void fldBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fldBuscarMouseClicked
-
+        dtcData.setDate(null);
+        VendasSql.listar("");
     }//GEN-LAST:event_fldBuscarMouseClicked
 
     private void fldBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fldBuscarKeyReleased
-
+        VendasSql.listar(fldBuscar.getText());
     }//GEN-LAST:event_fldBuscarKeyReleased
 
     private void fldBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fldBuscarKeyTyped
@@ -271,6 +293,6 @@ public class FrmVendas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblData;
     private javax.swing.JPanel painelOpcoes;
     private javax.swing.JPanel painelVendas;
-    public static javax.swing.JTable tabela;
+    public static javax.swing.JTable tabelaVendas;
     // End of variables declaration//GEN-END:variables
 }
