@@ -7,6 +7,8 @@ package vendas;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 
 /**
@@ -262,11 +264,52 @@ public class FrmVendas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_fldBuscarKeyTyped
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+        if (tabelaVendas.getRowCount() > 0) {
+            if (tabelaVendas.getSelectedRowCount() > 0 ) {
+                if (JOptionPane.showConfirmDialog(this, "Deseja excluir?",
+                        "Excluir Registro", JOptionPane.YES_NO_OPTION, 0, 
+                        new ImageIcon(getClass().getResource("/imagens/global"
+                                + "/info.png"))) == JOptionPane.YES_OPTION) {
+                    int linha = tabelaVendas.getSelectedRow();
+                    String id = tabelaVendas.getValueAt(linha, 0).toString();
+                    int elimina = VendasSql.eliminarVendas(id);
+                    if (elimina != 0) {
+                        limparCampos();
+                        JOptionPane.showMessageDialog(this, "Registro excluido.", 
+                        "Excluir Registro", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/global/info.png")));                        
+                    }                   
+                }  
+            }else {
+                JOptionPane.showMessageDialog(this, "Selecione o registro.", 
+                        "Excluir Registro", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/global/info.png"))); 
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há registro para excluir.",
+                    "Error", JOptionPane.ERROR_MESSAGE);                        
+        }        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnElimTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimTudoActionPerformed
-
+        if (tabelaVendas.getRowCount() > 0) {
+            if (JOptionPane.showConfirmDialog(this, "Deseja realizar a excusão "
+                    + "geral das vendas?", "Excluir tudo", JOptionPane.YES_NO_OPTION, 0, 
+                    new ImageIcon(getClass().getResource("/imagens/global/info"
+                            + ".png"))) == JOptionPane.YES_OPTION) {                
+                    int eliminaT = VendasSql.eliminarTodos();
+                    if (eliminaT != 0){
+                        limparCampos();
+                        JOptionPane.showMessageDialog(this, "Registros excluidos.", 
+                        "Excluir tudo", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/global/info.png")));
+                    }               
+        } else {
+                JOptionPane.showMessageDialog(this, "Não há registros para exclusão.", 
+                        "Excluir tudo", 0, new ImageIcon(getClass().getResource(
+                                "/imagens/global/info.png")));            
+            }
+        }
     }//GEN-LAST:event_btnElimTudoActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
