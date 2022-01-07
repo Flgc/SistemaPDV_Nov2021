@@ -17,18 +17,41 @@
 
 <div align="center">
 
-[**Sobre**](https://github.com/Flgc/javafx-jdbc#-sobre-o-projeto) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Demonstração**](https://github.com/Flgc/javafx-jdbc#-demonstra%C3%A7%C3%A3o-web) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Como instalar e executar o projeto**](https://github.com/Flgc/javafx-jdbc#-como-instalar-e-executar-o-projeto) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Contato**](https://github.com/Flgc/javafx-jdbc#-contato) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Sobre**](https://github.com/Flgc/SistemaPDV_Nov2021#-sobre-o-projeto) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Técnologias utilizadas**](https://github.com/Flgc/SistemaPDV_Nov2021#-tecnologias-utilizadas) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Como instalar e executar o projeto**](https://github.com/Flgc/SistemaPDV_Nov2021#-como-instalar-e-executar-o-projeto) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Contato**](https://github.com/Flgc/SistemaPDV_Nov2021#-contato) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 
 </div><br><br>
 
-## 📃 Sobre o projeto
+# 📃 Sobre o projeto
 
-https://github.com/Flgc/
-
+<p align="justify">O projeto foi desenvolvido durante o curso de Java Design e Ponto de Vendas da Udemy. Consiste no desenvolvimento de uma aplicação desktop do zero apartir da criação do front-end e back-end com CRUD em banco de dados MySQL.
+É um aplicativo básico para gestão de vendas com administração de usuários, produtos, vendas e caixa.</p>
 <br>
+
+
+# 🚀 Tecnologias utilizadas
+
+## Front e Back-end
+
+- Java java 11.0.8 2020-07-14 LTS
+- NetBeans 12
+- Mysql 8.0.27
+<br><br>
+
+# 🔧 Como instalar e executar o projeto
+
+
+Pré-requisitos: Java
+
+```bash
+# clonar repositório
+git clone https://github.com/Flgc/SistemaPDV_Nov2021
+
+# entrar na pasta do projeto 
+cd sistemapdv112021
+```
 
 # 📲 Contato
 
@@ -39,5 +62,5 @@ Fabio Luis Guia da Conceição
 ---
 
 <h5 align="center">
-  &copy;2021/11 - <a href="https://github.com/Flgc">Fábio Luís</a>
+  &copy;2022/01 - <a href="https://github.com/Flgc">Fábio Luís</a>
 </h5>
