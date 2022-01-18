@@ -18,6 +18,7 @@
 <div align="center">
 
 [**Sobre**](https://github.com/Flgc/SistemaPDV_Nov2021#-sobre-o-projeto) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Demonstração**](https://github.com/Flgc/dsmovie#-demonstra%C3%A7%C3%A3o) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Técnologias utilizadas**](https://github.com/Flgc/SistemaPDV_Nov2021#-tecnologias-utilizadas) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Como instalar e executar o projeto**](https://github.com/Flgc/SistemaPDV_Nov2021#-como-instalar-e-executar-o-projeto) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Contato**](https://github.com/Flgc/SistemaPDV_Nov2021#-contato) &nbsp;&nbsp;**|**&nbsp;&nbsp;
@@ -28,8 +29,12 @@
 
 <p align="justify">O projeto foi desenvolvido durante o curso de Java Design e Ponto de Vendas da Udemy. Consiste no desenvolvimento de uma aplicação desktop do zero apartir da criação do front-end e back-end com CRUD em banco de dados MySQL.
 É um aplicativo básico para gestão de vendas com administração de usuários, produtos, vendas e caixa.</p>
-<br>
+<br><br>
 
+## 🌎 Demonstração
+<h1>
+<img src="https://github.com/Flgc/SistemaPDV_Nov2021/blob/main/SistemaPDV21/src/imagens/global/sispdv21.gif">
+</h1><br>
 
 # 🚀 Tecnologias utilizadas
 
