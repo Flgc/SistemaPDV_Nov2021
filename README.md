@@ -48,7 +48,7 @@
 # 🔧 Como instalar e executar o projeto
 
 
-Pré-requisitos: Java
+Pré-requisitos: Mysql-connector-java-5.1.47-bin.jar
 
 ```bash
 # clonar repositório
